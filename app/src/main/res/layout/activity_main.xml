@@ -29,4 +29,8 @@
         android:id="@+id/settings_button"
         android:text="@string/settings" />
 
+    <Button
+        style="@style/menu_button"
+        android:id="@+id/about_button"
+        android:text="@string/about" />
 </LinearLayout>
