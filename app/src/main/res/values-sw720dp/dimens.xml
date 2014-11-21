@@ -1,0 +1,11 @@
+<resources>
+    <dimen name="activity_horizontal_margin">64dp</dimen>
+    <dimen name="activity_vertical_margin">64dp</dimen>
+    <dimen name="title">72sp</dimen>
+    <dimen name="menu_title_top_padding">124dp</dimen>
+    <dimen name="menu_title_bottom_padding">124dp</dimen>
+    <dimen name="menu_button_width">400dp</dimen>
+    <dimen name="menu_button_text">36sp</dimen>
+    <dimen name="menu_button_padding_top">36dp</dimen>
+    <dimen name="menu_button_padding_bottom">36dp</dimen>
+</resources>
