@@ -15,23 +15,18 @@
         android:paddingBottom="@dimen/menu_title_bottom_padding" />
 
     <Button
-        android:layout_width="@dimen/menu_button_width"
-        android:layout_height="wrap_content"
-        android:text="@string/new_game"
+        style="@style/menu_button"
         android:id="@+id/new_game_button"
-        android:layout_gravity="center_horizontal" />
+        android:text="@string/new_game" />
 
     <Button
-        android:layout_width="@dimen/menu_button_width"
-        android:layout_height="wrap_content"
-        android:text="@string/highscores"
+        style="@style/menu_button"
         android:id="@+id/highscores_button"
-        android:layout_gravity="center_horizontal" />
+        android:text="@string/highscores" />
 
     <Button
-        android:layout_width="@dimen/menu_button_width"
-        android:layout_height="wrap_content"
-        android:text="@string/settings"
+        style="@style/menu_button"
         android:id="@+id/settings_button"
-        android:layout_gravity="center_horizontal" />
+        android:text="@string/settings" />
+
 </LinearLayout>

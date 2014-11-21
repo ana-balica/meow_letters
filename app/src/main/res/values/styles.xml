@@ -5,4 +5,13 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="menu_button">
+        <item name="android:layout_width">@dimen/menu_button_width</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:textSize">@dimen/menu_button_text</item>
+        <item name="android:paddingTop">@dimen/menu_button_padding_top</item>
+        <item name="android:paddingBottom">@dimen/menu_button_padding_bottom</item>
+    </style>
+
 </resources>
