@@ -17,6 +17,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="anabalica.github.io.meowletters.GameActivity"
+            android:label="@string/title_activity_game"
+            android:screenOrientation="portrait"
+            android:parentActivityName="anabalica.github.io.meowletters.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="anabalica.github.io.meowletters.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
