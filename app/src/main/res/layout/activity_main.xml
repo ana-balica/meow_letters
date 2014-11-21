@@ -18,7 +18,8 @@
     <Button
         style="@style/menu_button"
         android:id="@+id/new_game_button"
-        android:text="@string/new_game" />
+        android:text="@string/new_game"
+        android:onClick="startNewGame"/>
 
     <Button
         style="@style/menu_button"

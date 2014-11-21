@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">Meow Letters</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_main">MainActivity</string>
 
+    <!--Main Activity string resources-->
+    <string name="title_activity_main">MainActivity</string>
     <string name="new_game">New Game</string>
     <string name="highscores">Highscores</string>
     <string name="settings">Settings</string>
     <string name="about">About</string>
+
+    <!--Game Activity string resources-->
+    <string name="title_activity_game">GameActivity</string>
+    <string name="hello_world">Hello world!</string>
+
 </resources>
