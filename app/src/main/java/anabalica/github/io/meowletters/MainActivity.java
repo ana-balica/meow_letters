@@ -46,4 +46,28 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(this, GameActivity.class);
         this.startActivity(intent);
     }
+
+    /**
+     * Start game settings activity
+     */
+    public void startSettings(View view) {
+        Intent intent = new Intent(this, SettingsActivity.class);
+        this.startActivity(intent);
+    }
+
+    /**
+     * Start highscores activity
+     */
+    public void startHighscores(View view) {
+        Intent intent = new Intent(this, HighscoresActivity.class);
+        this.startActivity(intent);
+    }
+
+    /**
+     * Start about activity
+     */
+    public void startAbout(View view) {
+        Intent intent = new Intent(this, AboutActivity.class);
+        this.startActivity(intent);
+    }
 }

@@ -19,20 +19,23 @@
         style="@style/menu_button"
         android:id="@+id/new_game_button"
         android:text="@string/new_game"
-        android:onClick="startNewGame"/>
+        android:onClick="startNewGame" />
 
     <Button
         style="@style/menu_button"
         android:id="@+id/highscores_button"
-        android:text="@string/highscores" />
+        android:text="@string/highscores"
+        android:onClick="startHighscores" />
 
     <Button
         style="@style/menu_button"
         android:id="@+id/settings_button"
-        android:text="@string/settings" />
+        android:text="@string/settings"
+        android:onClick="startSettings" />
 
     <Button
         style="@style/menu_button"
         android:id="@+id/about_button"
-        android:text="@string/about" />
+        android:text="@string/about"
+        android:onClick="startAbout" />
 </LinearLayout>
