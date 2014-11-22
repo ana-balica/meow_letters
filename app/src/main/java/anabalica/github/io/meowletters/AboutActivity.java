@@ -6,6 +6,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
+/**
+ * This is the activity that contains information about the game, the authors,
+ * the open source project behind it.
+ *
+ * @author Ana Balica
+ */
 public class AboutActivity extends Activity {
 
     @Override

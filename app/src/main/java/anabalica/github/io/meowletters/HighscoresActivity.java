@@ -6,6 +6,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
+/**
+ * This is the activity where user highscores are listed. Only the top 10
+ * highscores are stored and visible to the user.
+ *
+ * @author Ana Balica
+ */
 public class HighscoresActivity extends Activity {
 
     @Override

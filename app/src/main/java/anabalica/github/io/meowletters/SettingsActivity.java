@@ -6,6 +6,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
+/**
+ * This is the activity that allows to access, view and change game settings.
+ * Settings include username setup, sound on/off.
+ *
+ * For future, possible settings:
+ *  - setup for colorblind
+ *  - choice of alphabet
+ *  - interface language
+ *  - inversion of the alphabet (practise it backwards)
+ *
+ * @author Ana Balica
+ */
 public class SettingsActivity extends Activity {
 
     @Override

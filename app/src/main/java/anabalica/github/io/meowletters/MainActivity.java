@@ -8,6 +8,13 @@ import android.view.MenuItem;
 import android.view.View;
 
 
+/**
+ * This is the launcher activity of the game and represents a simple game menu
+ * with buttons to start or continue a game, access settings, highscores or
+ * about game information.
+ *
+ * @author Ana Balica
+ */
 public class MainActivity extends Activity {
 
     @Override

@@ -6,6 +6,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
+/**
+ * This is the activity that starts or continues the game. It is an educational
+ * game for children to practice the knowledge of an alphabet.
+ *
+ * @author Ana Balica
+ */
 public class GameActivity extends Activity {
 
     @Override
