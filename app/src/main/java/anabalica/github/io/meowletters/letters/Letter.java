@@ -1,0 +1,37 @@
+package anabalica.github.io.meowletters.letters;
+
+/**
+ * Representation of a letter from game grid
+ *
+ * @author Ana Balica
+ */
+public class Letter {
+    private String letter;
+
+    public Letter(String letter) {
+        setLetter(letter);
+    }
+
+    public String getLetter() {
+        return letter;
+    }
+
+    /**
+     * Set letter string of the Letter. Must be one-char string from the
+     * current alphabet.
+     *
+     * @param letter string letter
+     * @throws IllegalArgumentException if letter param is not from the current
+     * alphabet or isn't one char long
+     */
+    public void setLetter(String letter) throws IllegalArgumentException {
+        String upperCaseLetter = letter.toUpperCase();
+        if (Alphabet.getCurrent().contains(upperCaseLetter)) {
+            throw new IllegalArgumentException("Letter missing from the alphabet.");
+        }
+        if (letter.length() != 1) {
+            throw new IllegalArgumentException("Letter must be exactly 1 char long.");
+        }
+        this.letter = upperCaseLetter;
+    }
+}
