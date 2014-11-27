@@ -2,7 +2,6 @@ package anabalica.github.io.meowletters.customviews;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.util.ArrayMap;
 import android.util.AttributeSet;
 import android.widget.Button;
 
