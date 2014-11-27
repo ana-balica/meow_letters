@@ -6,4 +6,9 @@
     <declare-styleable name="CustomTableRow">
         <attr name="columnsCount" format="integer"/>
     </declare-styleable>
+
+    <declare-styleable name="SquareButton">
+        <attr name="row" format="integer"/>
+        <attr name="column" format="integer"/>
+    </declare-styleable>
 </resources>
