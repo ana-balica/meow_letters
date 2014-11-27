@@ -33,4 +33,13 @@
         android:layout_below="@+id/level"
         android:layout_centerHorizontal="true" />
 
+    <anabalica.github.io.meowletters.customviews.SquareTableLayout
+        android:id="@+id/gameGrid"
+        android:layout_height="0dp"
+        android:layout_width="fill_parent"
+        android:layout_alignParentBottom="true"
+        android:background="#333">
+
+    </anabalica.github.io.meowletters.customviews.SquareTableLayout>
+
 </RelativeLayout>
