@@ -14,4 +14,20 @@
         <item name="android:paddingBottom">@dimen/menu_button_padding_bottom</item>
     </style>
 
+    <style name="customtablerow_5_columns">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="columnsCount">5</item>
+    </style>
+
+    <style name="letter_button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:onClick">selectLetter</item>
+    </style>
+
+    <style name="invisible_letter_button" parent="@style/letter_button">
+        <item name="android:visibility">invisible</item>
+    </style>
+
 </resources>
