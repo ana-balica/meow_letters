@@ -1,8 +1,11 @@
 package anabalica.github.io.meowletters.customviews;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.widget.TableRow;
+
+import anabalica.github.io.meowletters.R;
 
 /**
  * CustomTableRow is used to equally distribute N number of rows inside a
@@ -14,9 +17,19 @@ import android.widget.TableRow;
  * @author Ana Balica
  */
 public class CustomTableRow extends TableRow {
+    private int columnsCount;
 
     public CustomTableRow(Context context, AttributeSet attrs) {
         super(context, attrs);
+
+        TypedArray attributes = context.getTheme().obtainStyledAttributes(
+                attrs, R.styleable.CustomTableRow, 0, 0);
+
+        try {
+            columnsCount = attributes.getInteger(R.styleable.CustomTableRow_columnsCount, 0);
+        } finally {
+            attributes.recycle();
+        }
     }
 
     @Override
@@ -27,5 +40,9 @@ public class CustomTableRow extends TableRow {
         final int rowsCount = parent.getRowsCount();
         final int width = getMeasuredWidth();
         setMeasuredDimension(width, width / rowsCount);
+    }
+
+    public int getColumnsCount() {
+        return columnsCount;
     }
 }

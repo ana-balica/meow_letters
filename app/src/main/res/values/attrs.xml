@@ -2,4 +2,8 @@
     <declare-styleable name="SquareTableLayout">
         <attr name="rowsCount" format="integer"/>
     </declare-styleable>
+
+    <declare-styleable name="CustomTableRow">
+        <attr name="columnsCount" format="integer"/>
+    </declare-styleable>
 </resources>
