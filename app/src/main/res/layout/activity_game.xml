@@ -49,6 +49,16 @@
             android:background="#ff596d85"
             custom:columnsCount="5">
 
+            <anabalica.github.io.meowletters.customviews.SquareButton
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="A" />
+
+            <anabalica.github.io.meowletters.customviews.SquareButton
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="A" />
+
         </anabalica.github.io.meowletters.customviews.CustomTableRow>
 
         <anabalica.github.io.meowletters.customviews.CustomTableRow
