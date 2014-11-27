@@ -1,0 +1,5 @@
+<resources>
+    <declare-styleable name="SquareTableLayout">
+        <attr name="rowsCount" format="integer"/>
+    </declare-styleable>
+</resources>
