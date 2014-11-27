@@ -43,6 +43,39 @@
         android:background="#333"
         custom:rowsCount="5">
 
+        <anabalica.github.io.meowletters.customviews.CustomTableRow
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#ff596d85">
+
+        </anabalica.github.io.meowletters.customviews.CustomTableRow>
+
+        <anabalica.github.io.meowletters.customviews.CustomTableRow
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+        </anabalica.github.io.meowletters.customviews.CustomTableRow>
+
+        <anabalica.github.io.meowletters.customviews.CustomTableRow
+            android:layout_width="0dp"
+            android:background="#ff596d85"
+            android:layout_height="0dp">
+
+        </anabalica.github.io.meowletters.customviews.CustomTableRow>
+
+        <anabalica.github.io.meowletters.customviews.CustomTableRow
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+        </anabalica.github.io.meowletters.customviews.CustomTableRow>
+
+        <anabalica.github.io.meowletters.customviews.CustomTableRow
+            android:layout_width="0dp"
+            android:background="#ff596d85"
+            android:layout_height="0dp">
+
+        </anabalica.github.io.meowletters.customviews.CustomTableRow>
+
     </anabalica.github.io.meowletters.customviews.SquareTableLayout>
 
 </RelativeLayout>
