@@ -34,4 +34,34 @@ public class Letter {
         }
         this.letter = upperCaseLetter;
     }
+
+    /**
+     * Get the next consecutive Letter from the alphabet.
+     *
+     * @return next letter
+     */
+    public Letter next() {
+        String alphabet = Alphabet.getCurrent();
+        if (alphabet.endsWith(letter)) {
+            return null;
+        }
+        int current_index = alphabet.indexOf(letter);
+        String next_char = Character.toString(alphabet.charAt(++current_index));
+        return new Letter(next_char);
+    }
+
+    /**
+     * Get the previous Letter from the alphabet.
+     *
+     * @return previous letter
+     */
+    public Letter previous() {
+        String alphabet = Alphabet.getCurrent();
+        if (alphabet.startsWith(letter)) {
+            return null;
+        }
+        int current_index = alphabet.indexOf(letter);
+        String previous_char = Character.toString(alphabet.charAt(--current_index));
+        return new Letter(previous_char);
+    }
 }

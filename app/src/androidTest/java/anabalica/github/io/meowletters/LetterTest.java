@@ -43,4 +43,20 @@ public class LetterTest extends TestCase {
         letter.setLetter("Z");
         assertEquals(letter.getLetter(), "Z");
     }
+
+    public void testNext() {
+        Letter letterT = new Letter("T");
+        assertEquals(letterT.next().getLetter(), "U");
+
+        Letter letterZ = new Letter("Z");
+        assertNull(letterZ.next());
+    }
+
+    public void testPrevious() {
+        Letter letterN = new Letter("N");
+        assertEquals(letterN.previous().getLetter(), "M");
+
+        Letter letterA = new Letter("A");
+        assertNull(letterA.previous());
+    }
 }
