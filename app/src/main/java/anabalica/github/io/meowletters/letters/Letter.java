@@ -26,7 +26,7 @@ public class Letter {
      */
     public void setLetter(String letter) throws IllegalArgumentException {
         String upperCaseLetter = letter.toUpperCase();
-        if (Alphabet.getCurrent().contains(upperCaseLetter)) {
+        if (!Alphabet.getCurrent().contains(upperCaseLetter)) {
             throw new IllegalArgumentException("Letter missing from the alphabet.");
         }
         if (letter.length() != 1) {
