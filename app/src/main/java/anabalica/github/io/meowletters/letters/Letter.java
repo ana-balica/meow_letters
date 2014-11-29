@@ -35,14 +35,25 @@ public class Letter {
         this.letter = upperCaseLetter;
     }
 
-    /**
-     * Check if two Letter objects are equal
-     *
-     * @param that Letter object
-     * @return true if equal, false otherwise
-     */
-    public boolean equals(Letter that) {
-        return this.letter.equals(that.letter);
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Letter letter1 = (Letter) o;
+        if (letter != null ? !letter.equals(letter1.letter) : letter1.letter != null) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return letter != null ? letter.hashCode() : 0;
     }
 
     /**
