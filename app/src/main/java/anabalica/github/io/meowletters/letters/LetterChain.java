@@ -71,4 +71,14 @@ public class LetterChain {
         String finalLetterChain = letterChain.toString();
         return currentAlphabet.contains(finalLetterChain);
     }
+
+    /**
+     * Add a new letter to the chain
+     *
+     * @param letter Letter object
+     */
+    public void add(Letter letter) {
+        chain.add(letter);
+    }
+
 }
