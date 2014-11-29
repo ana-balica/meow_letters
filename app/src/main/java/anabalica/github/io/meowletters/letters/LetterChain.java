@@ -48,6 +48,16 @@ public class LetterChain {
     }
 
     /**
+     * Get the i-th element from the chain
+     *
+     * @param i index of the element
+     * @return Letter object
+     */
+    public Letter get(int i) {
+        return chain.get(i);
+    }
+
+    /**
      * Check if the chain has only consecutive Letter(s) according to the
      * current alphabet.
      *
