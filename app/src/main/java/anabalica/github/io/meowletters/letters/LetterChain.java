@@ -30,6 +30,24 @@ public class LetterChain {
     }
 
     /**
+     * Check if the chain is empty
+     *
+     * @return true if is empty, otherwise false
+     */
+    public boolean isEmpty() {
+        return chain.isEmpty();
+    }
+
+    /**
+     * Get the size of the chain
+     *
+     * @return chain size
+     */
+    public int size() {
+        return chain.size();
+    }
+
+    /**
      * Check if the chain has only consecutive Letter(s) according to the
      * current alphabet.
      *
