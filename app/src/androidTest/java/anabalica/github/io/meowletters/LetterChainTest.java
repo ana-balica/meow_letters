@@ -51,13 +51,15 @@ public class LetterChainTest extends TestCase {
     }
 
     public void testAdd() {
+        // Test adding one element to the chain
         letterChain.add(new Letter("A"));
         assertFalse(letterChain.isEmpty());
         assertEquals(letterChain.size(), 1);
-        assertTrue(letterChain.getChain().get(0).equals(new Letter("A")));
+        assertEquals(letterChain.get(0), new Letter("A"));
 
+        // Test adding another element
         letterChain.add(new Letter("B"));
         assertEquals(letterChain.size(), 2);
-        assertTrue(letterChain.getChain().get(1).equals(new Letter("B")));
+        assertEquals(letterChain.get(1), new Letter("B"));
     }
 }
