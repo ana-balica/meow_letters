@@ -62,4 +62,46 @@ public class LetterChainTest extends TestCase {
         assertEquals(letterChain.size(), 2);
         assertEquals(letterChain.get(1), new Letter("B"));
     }
+
+    public void testRemove() {
+        // Test removing from empty chain
+        try {
+            letterChain.remove(new Letter("P"));
+            fail("Exception not thrown");
+        } catch (IllegalArgumentException e) {
+            assertEquals(e.getMessage(), "Letter not in chain.");
+        }
+
+        letterChain.add(new Letter("T"));
+        letterChain.add(new Letter("Q"));
+        letterChain.add(new Letter("W"));
+
+        // Test removing non existing element
+        try {
+            letterChain.remove(new Letter("P"));
+            fail("Exception not thrown");
+        } catch (IllegalArgumentException e) {
+            assertEquals(e.getMessage(), "Letter not in chain.");
+        }
+
+        // Test removing one element
+        letterChain.remove(new Letter("W"));
+        assertEquals(letterChain.size(), 2);
+        assertEquals(letterChain.get(0), new Letter("T"));
+        assertEquals(letterChain.get(1), new Letter("Q"));
+
+        // Test removing middle element
+        letterChain.add(new Letter("C"));
+        letterChain.add(new Letter("Z"));
+        letterChain.add(new Letter("Y"));
+        letterChain.remove(new Letter("Z"));
+        assertEquals(letterChain.size(), 3);
+        assertEquals(letterChain.get(0), new Letter("T"));
+        assertEquals(letterChain.get(1), new Letter("Q"));
+        assertEquals(letterChain.get(2), new Letter("C"));
+
+        // Test removing the first element
+        letterChain.remove(new Letter("T"));
+        assertTrue(letterChain.isEmpty());
+    }
 }

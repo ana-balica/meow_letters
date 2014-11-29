@@ -91,4 +91,22 @@ public class LetterChain {
         chain.add(letter);
     }
 
+    /**
+     * Remove letter from the chain. All following letters are also removed.
+     * The following method assumes that there are no duplicates in the chain
+     * (2 or more Letter objects with the same string letter).
+     *
+     * @param letter Letter object
+     * @throws IllegalArgumentException if letter is not in the chain
+     */
+    public void remove(Letter letter) throws IllegalArgumentException{
+        if (!chain.contains(letter)) {
+            throw new IllegalArgumentException("Letter not in chain.");
+        }
+        int letter_index = chain.indexOf(letter);
+        int last_index = chain.size() - 1;
+        for (int i = last_index; i >= letter_index; i--) {
+            chain.remove(i);
+        }
+    }
 }
