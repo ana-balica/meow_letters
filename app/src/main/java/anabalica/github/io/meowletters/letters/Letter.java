@@ -36,6 +36,16 @@ public class Letter {
     }
 
     /**
+     * Check if two Letter objects are equal
+     *
+     * @param that Letter object
+     * @return true if equal, false otherwise
+     */
+    public boolean equals(Letter that) {
+        return this.letter.equals(that.letter);
+    }
+
+    /**
      * Get the next consecutive Letter from the alphabet.
      *
      * @return next letter or null if case there is no next letter
