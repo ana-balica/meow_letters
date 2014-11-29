@@ -38,7 +38,7 @@ public class Letter {
     /**
      * Get the next consecutive Letter from the alphabet.
      *
-     * @return next letter
+     * @return next letter or null if case there is no next letter
      */
     public Letter next() {
         String alphabet = Alphabet.getCurrent();
@@ -53,7 +53,7 @@ public class Letter {
     /**
      * Get the previous Letter from the alphabet.
      *
-     * @return previous letter
+     * @return previous letter or null in case there is no previous letter
      */
     public Letter previous() {
         String alphabet = Alphabet.getCurrent();
