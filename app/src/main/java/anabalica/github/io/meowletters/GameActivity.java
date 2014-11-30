@@ -2,9 +2,11 @@ package anabalica.github.io.meowletters;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 
 
 /**
@@ -14,13 +16,26 @@ import android.view.View;
  * @author Ana Balica
  */
 public class GameActivity extends Activity {
+    private ProgressBar timerBar;
+    private GameCountDownTimer timer;
+
+    private int millisTotal = 3000;
+    private int millisInterval = 5;
+    private int millisReset = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-    }
 
+        timerBar = (ProgressBar) findViewById(R.id.timerBar);
+        timerBar.setMax(millisTotal);
+        timerBar.setProgress(millisTotal);
+
+        // Start the countdown timer
+        timer = new GameCountDownTimer(millisTotal, millisInterval);
+        timer.start();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -46,5 +61,28 @@ public class GameActivity extends Activity {
 
     public void selectLetter(View view) {
         System.out.println("Button pressed");
+    }
+
+    /**
+     * Custom countdown timer that runs infinitely and updates it's state to
+     * the progress bar.
+     */
+    public class GameCountDownTimer extends CountDownTimer {
+
+        public GameCountDownTimer(long millisInFuture, long countDownInterval) {
+            super(millisInFuture, countDownInterval);
+        }
+
+        @Override
+        public void onFinish() {
+            timerBar.setProgress(millisReset);
+            timerBar.setProgress(millisTotal);
+            timer.start();
+        }
+
+        @Override
+        public void onTick(long millisUntilFinished) {
+            timerBar.setProgress((int) millisUntilFinished);
+        }
     }
 }
