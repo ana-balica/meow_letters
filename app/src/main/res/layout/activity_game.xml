@@ -50,31 +50,31 @@
                 android:id="@+id/letter_00_button"
                 custom:row="0"
                 custom:column="0"
-                style="@style/letter_button"/>
+                style="@style/invisible_letter_button"/>
 
             <anabalica.github.io.meowletters.customviews.SquareButton
                 android:id="@+id/letter_01_button"
                 custom:row="0"
                 custom:column="1"
-                style="@style/letter_button"/>
+                style="@style/invisible_letter_button"/>
 
             <anabalica.github.io.meowletters.customviews.SquareButton
                 android:id="@+id/letter_02_button"
                 custom:row="0"
                 custom:column="2"
-                style="@style/letter_button"/>
+                style="@style/invisible_letter_button"/>
 
             <anabalica.github.io.meowletters.customviews.SquareButton
                 android:id="@+id/letter_03_button"
                 custom:row="0"
                 custom:column="3"
-                style="@style/letter_button"/>
+                style="@style/invisible_letter_button"/>
 
             <anabalica.github.io.meowletters.customviews.SquareButton
                 android:id="@+id/letter_04_button"
                 custom:row="0"
                 custom:column="4"
-                style="@style/letter_button"/>
+                style="@style/invisible_letter_button"/>
 
         </anabalica.github.io.meowletters.customviews.CustomTableRow>
 
@@ -85,13 +85,13 @@
                 android:id="@+id/letter_10_button"
                 custom:row="1"
                 custom:column="0"
-                style="@style/letter_button"/>
+                style="@style/invisible_letter_button"/>
 
             <anabalica.github.io.meowletters.customviews.SquareButton
                 android:id="@+id/letter_11_button"
                 custom:row="1"
                 custom:column="1"
-                style="@style/letter_button"/>
+                style="@style/invisible_letter_button"/>
 
             <anabalica.github.io.meowletters.customviews.SquareButton
                 android:id="@+id/letter_12_button"
@@ -103,13 +103,13 @@
                 android:id="@+id/letter_13_button"
                 custom:row="1"
                 custom:column="3"
-                style="@style/letter_button"/>
+                style="@style/invisible_letter_button"/>
 
             <anabalica.github.io.meowletters.customviews.SquareButton
                 android:id="@+id/letter_14_button"
                 custom:row="1"
                 custom:column="4"
-                style="@style/letter_button"/>
+                style="@style/invisible_letter_button"/>
 
         </anabalica.github.io.meowletters.customviews.CustomTableRow>
 
@@ -126,25 +126,25 @@
                 android:id="@+id/letter_21_button"
                 custom:row="2"
                 custom:column="1"
-                style="@style/letter_button"/>
+                style="@style/invisible_letter_button"/>
 
             <anabalica.github.io.meowletters.customviews.SquareButton
                 android:id="@+id/letter_22_button"
                 custom:row="2"
                 custom:column="2"
-                style="@style/letter_button"/>
+                style="@style/invisible_letter_button"/>
 
             <anabalica.github.io.meowletters.customviews.SquareButton
                 android:id="@+id/letter_23_button"
                 custom:row="2"
                 custom:column="3"
-                style="@style/letter_button"/>
+                style="@style/invisible_letter_button"/>
 
             <anabalica.github.io.meowletters.customviews.SquareButton
                 android:id="@+id/letter_24_button"
                 custom:row="2"
                 custom:column="4"
-                style="@style/letter_button"/>
+                style="@style/invisible_letter_button"/>
 
         </anabalica.github.io.meowletters.customviews.CustomTableRow>
 
@@ -155,31 +155,31 @@
                 android:id="@+id/letter_30_button"
                 custom:row="3"
                 custom:column="0"
-                style="@style/letter_button"/>
+                style="@style/invisible_letter_button"/>
 
             <anabalica.github.io.meowletters.customviews.SquareButton
                 android:id="@+id/letter_31_button"
                 custom:row="3"
                 custom:column="1"
-                style="@style/letter_button"/>
+                style="@style/invisible_letter_button"/>
 
             <anabalica.github.io.meowletters.customviews.SquareButton
                 android:id="@+id/letter_32_button"
                 custom:row="3"
                 custom:column="2"
-                style="@style/letter_button"/>
+                style="@style/invisible_letter_button"/>
 
             <anabalica.github.io.meowletters.customviews.SquareButton
                 android:id="@+id/letter_33_button"
                 custom:row="3"
                 custom:column="3"
-                style="@style/letter_button"/>
+                style="@style/invisible_letter_button"/>
 
             <anabalica.github.io.meowletters.customviews.SquareButton
                 android:id="@+id/letter_34_button"
                 custom:row="3"
                 custom:column="4"
-                style="@style/letter_button"/>
+                style="@style/invisible_letter_button"/>
 
         </anabalica.github.io.meowletters.customviews.CustomTableRow>
 
@@ -190,31 +190,31 @@
                 android:id="@+id/letter_40_button"
                 custom:row="4"
                 custom:column="0"
-                style="@style/letter_button"/>
+                style="@style/invisible_letter_button"/>
 
             <anabalica.github.io.meowletters.customviews.SquareButton
                 android:id="@+id/letter_41_button"
                 custom:row="4"
                 custom:column="1"
-                style="@style/letter_button"/>
+                style="@style/invisible_letter_button"/>
 
             <anabalica.github.io.meowletters.customviews.SquareButton
                 android:id="@+id/letter_42_button"
                 custom:row="4"
                 custom:column="2"
-                style="@style/letter_button"/>
+                style="@style/invisible_letter_button"/>
 
             <anabalica.github.io.meowletters.customviews.SquareButton
                 android:id="@+id/letter_43_button"
                 custom:row="4"
                 custom:column="3"
-                style="@style/letter_button"/>
+                style="@style/invisible_letter_button"/>
 
             <anabalica.github.io.meowletters.customviews.SquareButton
                 android:id="@+id/letter_44_button"
                 custom:row="4"
                 custom:column="4"
-                style="@style/letter_button"/>
+                style="@style/invisible_letter_button"/>
 
         </anabalica.github.io.meowletters.customviews.CustomTableRow>
 
