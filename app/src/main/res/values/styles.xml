@@ -30,4 +30,8 @@
         <item name="android:visibility">invisible</item>
     </style>
 
+    <style name="selected_letter_button" parent="@style/letter_button">
+        <item name="android:backgroundTint">@android:color/holo_blue_dark</item>
+    </style>
+
 </resources>
