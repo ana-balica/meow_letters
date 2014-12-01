@@ -57,4 +57,38 @@ public class LetterGrid {
         }
         return emptyCellsCount;
     }
+
+    /**
+     * Return a random order from the total number of empty cells in the grid
+     *
+     * @return integer between 0 and number of empty cells
+     */
+    private int getRandomOrder() {
+        return (int) (Math.random() * emptyCellsCount);
+    }
+
+    /**
+     * Get a random empty cell (is not occupied by a letter) from the grid
+     *
+     * @return Cell object that holds the cell coordinates
+     */
+    public Cell getRandomEmptyCell() {
+        if (emptyCellsCount == 0) {
+            return null;
+        }
+
+        int order = getRandomOrder();
+        int gridOrder = 0;
+        for (int row = 0; row < ROWS; row++) {
+            for (int column = 0; column < COLUMNS; column++) {
+                if (grid[row][column] == null) {
+                    if (gridOrder == order) {
+                        return new Cell(row, column);
+                    }
+                    gridOrder++;
+                }
+            }
+        }
+        return null;
+    }
 }
