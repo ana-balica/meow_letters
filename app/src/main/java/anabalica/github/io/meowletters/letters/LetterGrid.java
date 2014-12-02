@@ -95,4 +95,21 @@ public class LetterGrid {
         }
         return null;
     }
+
+    /**
+     * Check if the grid contains a specific letter
+     *
+     * @param letter Letter object
+     * @return true if grid has the letter, false otherwise
+     */
+    public boolean contains(Letter letter) {
+        for (int row = 0; row < ROWS; row++) {
+            for (int column = 0; column < COLUMNS; column++) {
+                if (grid[row][column] == letter) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }

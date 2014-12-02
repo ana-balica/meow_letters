@@ -49,4 +49,13 @@ public class LetterGridTest extends TestCase {
             assertFalse(someCell.getRow() == 2 && someCell.getColumn() == 0);
         }
     }
+
+    public void testContains() {
+        LetterGrid letterGrid = new LetterGrid(5, 5);
+        Letter letterW = new Letter("W");
+        Letter letterB = new Letter("B");
+        letterGrid.getGrid()[3][1] = letterW;
+        assertTrue(letterGrid.contains(letterW));
+        assertFalse(letterGrid.contains(letterB));
+    }
 }
