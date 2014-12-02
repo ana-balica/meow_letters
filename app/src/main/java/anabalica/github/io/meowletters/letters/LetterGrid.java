@@ -41,6 +41,10 @@ public class LetterGrid {
         emptyCellsCount = getEmptyCellsCount();
     }
 
+    public Letter[][] getGrid() {
+        return grid;
+    }
+
     /**
      * Return the number of empty (null) cells from the current grid.
      *
