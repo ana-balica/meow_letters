@@ -127,7 +127,7 @@ public class LetterGrid {
                 int column = cell.getColumn();
                 grid[row][column] = letter;
             } else {
-                // game over
+                // TODO: send a signal that game is over or refactor the method
             }
         }
     }
