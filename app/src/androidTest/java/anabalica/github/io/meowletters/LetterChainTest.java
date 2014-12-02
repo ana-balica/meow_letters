@@ -120,4 +120,20 @@ public class LetterChainTest extends TestCase {
         assertEquals(letterChain.get(1), letterG);
         assertEquals(letterChain.get(2), letterZ);
     }
+
+    public void testGenerateRandomChain() {
+        // Test a chain of zero length
+        LetterChain letterChain1 = LetterChain.generateRandomChain(0);
+        assertEquals(letterChain1.size(), 0);
+        // Test to generate a chain of a positive number length
+        LetterChain letterChain2 = LetterChain.generateRandomChain(5);
+        assertEquals(letterChain2.size(), 5);
+        // Test to generate a chain of a negative number length
+        try {
+            LetterChain.generateRandomChain(-1);
+            fail("Exception not thrown");
+        } catch (IllegalArgumentException e) {
+            assertEquals(e.getMessage(), "The requested chain length can't be negative.");
+        }
+    }
 }

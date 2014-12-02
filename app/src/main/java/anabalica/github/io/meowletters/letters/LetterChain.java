@@ -134,4 +134,25 @@ public class LetterChain implements Iterable<Letter> {
     public void sort() {
         Collections.sort(chain);
     }
+
+    /**
+     * Generate a chain that contains random letters from the currently active
+     * alphabet.
+     *
+     * @param length int length of the chain
+     * @return LetterChain object
+     * @throws IllegalArgumentException if the requested length is a negative number
+     */
+    public static LetterChain generateRandomChain(int length) throws IllegalArgumentException {
+        if (length < 0) {
+            throw new IllegalArgumentException("The requested chain length can't be negative.");
+        }
+        LetterChain chain = new LetterChain();
+        Letter letter;
+        for (int i = 0; i < length; i++) {
+            letter = Letter.getRandomLetter();
+            chain.add(letter);
+        }
+        return chain;
+    }
 }
