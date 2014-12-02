@@ -1,6 +1,7 @@
 package anabalica.github.io.meowletters.letters;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * LetterChain class is a container for manipulating a sequence of Letter
@@ -10,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Ana Balica
  */
-public class LetterChain {
+public class LetterChain implements Iterable<Letter> {
     private ArrayList<Letter> chain;
 
     public LetterChain() {
@@ -23,6 +24,11 @@ public class LetterChain {
 
     public ArrayList<Letter> getChain() {
         return chain;
+    }
+
+    public Iterator<Letter> iterator() {
+        Iterator<Letter> letter = chain.iterator();
+        return letter;
     }
 
     public void setChain(ArrayList<Letter> chain) {
