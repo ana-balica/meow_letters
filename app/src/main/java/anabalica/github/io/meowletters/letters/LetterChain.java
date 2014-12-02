@@ -1,6 +1,7 @@
 package anabalica.github.io.meowletters.letters;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 
 /**
@@ -125,5 +126,12 @@ public class LetterChain implements Iterable<Letter> {
         for (int i = last_index; i >= letter_index; i--) {
             chain.remove(i);
         }
+    }
+
+    /**
+     * Wrapper for sorting the chain in ascending order.
+     */
+    public void sort() {
+        Collections.sort(chain);
     }
 }

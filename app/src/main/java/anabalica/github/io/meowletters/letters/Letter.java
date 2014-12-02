@@ -7,7 +7,7 @@ import java.util.Random;
  *
  * @author Ana Balica
  */
-public class Letter {
+public class Letter implements Comparable {
     private String letter;
 
     public Letter(String letter) {
@@ -42,7 +42,7 @@ public class Letter {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (o == null || Letter.class != o.getClass()) {
             return false;
         }
 
@@ -56,6 +56,12 @@ public class Letter {
     @Override
     public int hashCode() {
         return letter != null ? letter.hashCode() : 0;
+    }
+
+    @Override
+    public int compareTo(Object object) {
+        Letter letter = (Letter) object;
+        return this.letter.compareTo(letter.getLetter());
     }
 
     /**
