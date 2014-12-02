@@ -4,6 +4,7 @@ import junit.framework.*;
 
 import anabalica.github.io.meowletters.letters.Cell;
 import anabalica.github.io.meowletters.letters.Letter;
+import anabalica.github.io.meowletters.letters.LetterChain;
 import anabalica.github.io.meowletters.letters.LetterGrid;
 
 /**
@@ -57,5 +58,21 @@ public class LetterGridTest extends TestCase {
         letterGrid.getGrid()[3][1] = letterW;
         assertTrue(letterGrid.contains(letterW));
         assertFalse(letterGrid.contains(letterB));
+    }
+
+    public void testAddLetterChain() {
+        LetterChain letterChain = new LetterChain();
+        Letter letterA = new Letter("A");
+        Letter letterG = new Letter("G");
+        Letter letterQ = new Letter("Q");
+        letterChain.add(letterA);
+        letterChain.add(letterG);
+        letterChain.add(letterQ);
+        LetterGrid letterGrid = new LetterGrid(3, 3);
+        letterGrid.addLetterChain(letterChain);
+
+        assertTrue(letterGrid.contains(letterA));
+        assertTrue(letterGrid.contains(letterG));
+        assertTrue(letterGrid.contains(letterQ));
     }
 }

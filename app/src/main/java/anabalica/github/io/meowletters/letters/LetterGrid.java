@@ -112,4 +112,23 @@ public class LetterGrid {
         }
         return false;
     }
+
+    /**
+     * Add a letter chain to the grid, each element placed in some random cell
+     * on the grid.
+     *
+     * @param letterChain LetterChain object
+     */
+    public void addLetterChain(LetterChain letterChain) {
+        for (Letter letter : letterChain) {
+            Cell cell = getRandomEmptyCell();
+            if (cell != null) {
+                int row = cell.getRow();
+                int column = cell.getColumn();
+                grid[row][column] = letter;
+            } else {
+                // game over
+            }
+        }
+    }
 }
