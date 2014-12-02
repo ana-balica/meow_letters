@@ -1,5 +1,7 @@
 package anabalica.github.io.meowletters.letters;
 
+import java.util.Random;
+
 /**
  * Representation of a letter from game grid
  *
@@ -84,5 +86,17 @@ public class Letter {
         int current_index = alphabet.indexOf(letter);
         String previous_char = Character.toString(alphabet.charAt(--current_index));
         return new Letter(previous_char);
+    }
+
+    /**
+     * Get a random letter from the currently active alphabet.
+     *
+     * @return Letter object
+     */
+    public static Letter getRandomLetter() {
+        String alphabet = Alphabet.getCurrent();
+        int randomIndex = new Random().nextInt(alphabet.length());
+        String letter = Character.toString(alphabet.charAt(randomIndex));
+        return new Letter(letter);
     }
 }
