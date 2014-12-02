@@ -104,4 +104,20 @@ public class LetterChainTest extends TestCase {
         letterChain.remove(new Letter("T"));
         assertTrue(letterChain.isEmpty());
     }
+
+    public void testSort() {
+        LetterChain letterChain = new LetterChain();
+        letterChain.sort();
+        Letter letterZ = new Letter("Z");
+        Letter letterG = new Letter("G");
+        Letter letterF = new Letter("F");
+        letterChain.add(letterZ);
+        letterChain.add(letterG);
+        letterChain.add(letterF);
+        letterChain.sort();
+
+        assertEquals(letterChain.get(0), letterF);
+        assertEquals(letterChain.get(1), letterG);
+        assertEquals(letterChain.get(2), letterZ);
+    }
 }
