@@ -64,6 +64,17 @@ public class LetterChain implements Iterable<Letter> {
     }
 
     /**
+     * Concatenate two LetterChain(s) into one.
+     *
+     * @param letterChain LetterChain object
+     * @return concatenated LetterChain object
+     */
+    public LetterChain concat(LetterChain letterChain) {
+        chain.addAll(letterChain.getChain());
+        return this;
+    }
+
+    /**
      * Check if the chain has only consecutive Letter(s) according to the
      * current alphabet.
      *
