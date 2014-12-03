@@ -134,6 +134,7 @@ public class LetterGrid {
                 int row = cell.getRow();
                 int column = cell.getColumn();
                 grid[row][column] = letter;
+                emptyCellsCount--;
             } else {
                 // TODO: send a signal that game is over or refactor the method
             }

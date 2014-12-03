@@ -74,5 +74,6 @@ public class LetterGridTest extends TestCase {
         assertTrue(letterGrid.contains(letterA));
         assertTrue(letterGrid.contains(letterG));
         assertTrue(letterGrid.contains(letterQ));
+        assertEquals(letterGrid.getEmptyCellsCount(), 6);
     }
 }
