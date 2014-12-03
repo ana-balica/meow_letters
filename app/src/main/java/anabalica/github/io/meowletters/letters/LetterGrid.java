@@ -45,6 +45,14 @@ public class LetterGrid {
         return grid;
     }
 
+    public int getROWS() {
+        return ROWS;
+    }
+
+    public int getCOLUMNS() {
+        return COLUMNS;
+    }
+
     /**
      * Return the number of empty (null) cells from the current grid.
      *
