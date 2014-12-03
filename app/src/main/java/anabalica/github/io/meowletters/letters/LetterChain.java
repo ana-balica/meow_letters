@@ -141,7 +141,7 @@ public class LetterChain implements Iterable<Letter> {
      *
      * @param length int length of the chain
      * @return LetterChain object
-     * @throws IllegalArgumentException if the requested length is a negative number
+     * @throws java.lang.IllegalArgumentException if the requested length is a negative number
      */
     public static LetterChain generateRandomChain(int length) throws IllegalArgumentException {
         if (length < 0) {
