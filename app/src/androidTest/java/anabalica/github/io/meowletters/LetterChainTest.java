@@ -136,4 +136,29 @@ public class LetterChainTest extends TestCase {
             assertEquals(e.getMessage(), "The requested chain length can't be negative.");
         }
     }
+
+    public void testGenerateValidChain() {
+        // Test a valid letter chain of 15
+        LetterChain letterChain = LetterChain.generateValidChain(15);
+        assertEquals(letterChain.size(), 15);
+        for (int i = 1; i < letterChain.size(); i++) {
+            assertEquals(letterChain.get(i), letterChain.get(i-1).next());
+        }
+
+        // Test to generate a chain of a negative number length
+        try {
+            LetterChain.generateValidChain(-1);
+            fail("Exception not thrown");
+        } catch (IllegalArgumentException e) {
+            assertEquals(e.getMessage(), "The requested chain length can't be negative.");
+        }
+
+        // Test to generate a chain of length larger than the number of letters in alphabet
+        try {
+            LetterChain.generateValidChain(27);
+            fail("Exception not thrown");
+        } catch (IllegalArgumentException e) {
+            assertEquals(e.getMessage(), "The requested chain length exceeds the alphabet length.");
+        }
+    }
 }

@@ -164,4 +164,42 @@ public class LetterChain implements Iterable<Letter> {
         }
         return chain;
     }
+
+    /**
+     * Generate a chain that contains consecutive letters
+     *
+     * @param length int required chain length
+     * @return valid (has all Letter(s) in consecutive order) LetterChain object
+     * @throws java.lang.IllegalArgumentException if the requested length  is a
+     * negative number or exceeds the length of the alphabet
+     */
+    public static LetterChain generateValidChain(int length) throws IllegalArgumentException {
+        if (length < 0) {
+            throw new IllegalArgumentException("The requested chain length can't be negative.");
+        }
+        if (length > Alphabet.getCurrent().length()) {
+            throw new IllegalArgumentException("The requested chain length exceeds the " +
+                    "alphabet length.");
+        }
+        LetterChain chain = new LetterChain();
+        Letter letter = Letter.getRandomLetter();
+        chain.add(letter);
+        for (int i = 1; i < length; i++) {
+            Letter lastLetter = chain.get(i-1);
+            Letter nextLetter = lastLetter.next();
+
+            if (nextLetter != null) {
+                chain.add(nextLetter);
+            } else {
+                Letter firstLetter = chain.get(0);
+                Letter previousLetter = firstLetter.previous();
+
+                if (previousLetter != null) {
+                    chain.prepend(previousLetter);
+                }
+            }
+        }
+        return chain;
+    }
+
 }
