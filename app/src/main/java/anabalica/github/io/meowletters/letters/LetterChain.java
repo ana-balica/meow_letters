@@ -207,15 +207,15 @@ public class LetterChain implements Iterable<Letter> {
      * and additional random letters.
      *
      * @param consecutiveLettersCount int number of required consecutive letters
-     * @param totalLettersCount int total chain length including consecutive and random letters
+     * @param randomLettersCount int number of required random letters
      * @return LetterChain object
      */
-    public static LetterChain generateChain(int consecutiveLettersCount, int totalLettersCount) {
+    public static LetterChain generateChain(int consecutiveLettersCount, int randomLettersCount) {
         if (consecutiveLettersCount == 0) {
-            return generateRandomChain(totalLettersCount);
+            return generateRandomChain(randomLettersCount);
         }
         LetterChain chain = generateValidChain(consecutiveLettersCount);
-        LetterChain randomChain = generateRandomChain(totalLettersCount - consecutiveLettersCount);
+        LetterChain randomChain = generateRandomChain(randomLettersCount);
         return chain.concat(randomChain);
     }
 }
