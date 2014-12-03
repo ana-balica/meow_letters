@@ -202,4 +202,20 @@ public class LetterChain implements Iterable<Letter> {
         return chain;
     }
 
+    /**
+     * Generate a letter chain that will have a specific number of consecutive letters
+     * and additional random letters.
+     *
+     * @param consecutiveLettersCount int number of required consecutive letters
+     * @param totalLettersCount int total chain length including consecutive and random letters
+     * @return LetterChain object
+     */
+    public static LetterChain generateChain(int consecutiveLettersCount, int totalLettersCount) {
+        if (consecutiveLettersCount == 0) {
+            return generateRandomChain(totalLettersCount);
+        }
+        LetterChain chain = generateValidChain(consecutiveLettersCount);
+        LetterChain randomChain = generateRandomChain(totalLettersCount - consecutiveLettersCount);
+        return chain.concat(randomChain);
+    }
 }
