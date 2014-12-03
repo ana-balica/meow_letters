@@ -110,6 +110,15 @@ public class LetterChain implements Iterable<Letter> {
     }
 
     /**
+     * Add to the beginning of the chain
+     *
+     * @param letter Letter object
+     */
+    public void prepend(Letter letter) {
+        chain.add(0, letter);
+    }
+
+    /**
      * Remove letter from the chain. All following letters are also removed.
      * The following method assumes that there are no duplicates in the chain
      * (2 or more Letter objects with the same string letter).
