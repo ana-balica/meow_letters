@@ -133,6 +133,10 @@ public class GameActivity extends Activity {
 
         @Override
         public void onFinish() {
+            LetterChain letterChain = LetterChain.generateChain(2, 1);
+            letterGrid.addLetterChain(letterChain);
+            drawLetterButtons();
+
             timerBar.setProgress(millisReset);
             timerBar.setProgress(millisTotal);
             timer.start();
