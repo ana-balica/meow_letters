@@ -9,9 +9,11 @@ import java.util.Random;
  */
 public class Letter implements Comparable {
     private String letter;
+    private boolean selected;
 
     public Letter(String letter) {
         setLetter(letter);
+        selected = false;
     }
 
     public String getLetter() {
@@ -35,6 +37,18 @@ public class Letter implements Comparable {
             throw new IllegalArgumentException("Letter must be exactly 1 char long.");
         }
         this.letter = upperCaseLetter;
+    }
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void selecte() {
+        selected = true;
+    }
+
+    public void unselecte() {
+        selected = false;
     }
 
     @Override
