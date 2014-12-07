@@ -43,11 +43,11 @@ public class Letter implements Comparable {
         return selected;
     }
 
-    public void selecte() {
+    public void select() {
         selected = true;
     }
 
-    public void unselecte() {
+    public void unselect() {
         selected = false;
     }
 
