@@ -29,6 +29,7 @@ public class GameActivity extends Activity {
     private int millisReset = 0;
 
     private LetterGrid letterGrid;
+    private LetterChain letterChain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +46,12 @@ public class GameActivity extends Activity {
 
         // Initialize the letter grid and initial letter chain
         letterGrid = new LetterGrid(5, 5);
-        LetterChain letterChain = LetterChain.generateChain(2, 1);
-        letterGrid.addLetterChain(letterChain);
+        LetterChain chain = LetterChain.generateChain(2, 1);
+        letterGrid.addLetterChain(chain);
         drawLetterButtons();
+
+        // Initialize user defined letter chain
+        letterChain = new LetterChain();
     }
 
     @Override
