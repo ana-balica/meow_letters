@@ -54,6 +54,26 @@ public class LetterGrid {
     }
 
     /**
+     * Get letter at specified position
+     *
+     * @param row integer grid row
+     * @param column integer grid column
+     * @return Letter object or null
+     * @throws IllegalArgumentException if either row or column are less than 0
+     *                                  or bigger than the grid size
+     */
+    public Letter getLetter(int row, int column) throws IllegalArgumentException {
+        // check if row and column valid
+        if (row < 0 || row > ROWS) {
+            throw new IllegalArgumentException("Invalid row.");
+        }
+        if (column < 0 || column > COLUMNS) {
+            throw new IllegalArgumentException("Invalid column.");
+        }
+        return grid[row][column];
+    }
+
+    /**
      * Return the number of empty (null) cells from the current grid.
      *
      * @return integer number of empty cells

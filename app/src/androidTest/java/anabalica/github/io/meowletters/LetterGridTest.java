@@ -14,6 +14,47 @@ import anabalica.github.io.meowletters.letters.LetterGrid;
  */
 public class LetterGridTest extends TestCase {
 
+    public void testGetLetter() {
+        Letter grid[][] = {
+                {null, new Letter("F"), null},
+                {null, null, null},
+                {new Letter("W"), null, null}
+        };
+        LetterGrid letterGrid = new LetterGrid(grid);
+        // Test invalid values
+        try {
+            letterGrid.getLetter(4, 1);
+            fail("Exception not thrown");
+        } catch (IllegalArgumentException e) {
+            assertEquals(e.getMessage(), "Invalid row.");
+        }
+        try {
+            letterGrid.getLetter(-1, 1);
+            fail("Exception not thrown");
+        } catch (IllegalArgumentException e) {
+            assertEquals(e.getMessage(), "Invalid row.");
+        }
+        try {
+            letterGrid.getLetter(2, 5);
+            fail("Exception not thrown");
+        } catch (IllegalArgumentException e) {
+            assertEquals(e.getMessage(), "Invalid column.");
+        }
+        try {
+            letterGrid.getLetter(2, -1);
+            fail("Exception not thrown");
+        } catch (IllegalArgumentException e) {
+            assertEquals(e.getMessage(), "Invalid column.");
+        }
+
+        // Test getting a Letter
+        Letter letterF = letterGrid.getLetter(0, 1);
+        assertEquals(letterF, new Letter("F"));
+        // Test getting null
+        Letter letterNull = letterGrid.getLetter(1, 1);
+        assertNull(letterNull);
+    }
+
     public void testGetEmptyCellsCount() {
         LetterGrid grid = new LetterGrid(5, 6);
         assertEquals(grid.getEmptyCellsCount(), 30);
