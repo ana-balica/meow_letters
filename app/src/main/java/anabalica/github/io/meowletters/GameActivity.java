@@ -1,6 +1,7 @@
 package anabalica.github.io.meowletters;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.Menu;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 
+import anabalica.github.io.meowletters.customviews.SquareButton;
 import anabalica.github.io.meowletters.letters.Letter;
 import anabalica.github.io.meowletters.letters.LetterChain;
 import anabalica.github.io.meowletters.letters.LetterGrid;
@@ -77,7 +79,21 @@ public class GameActivity extends Activity {
     }
 
     public void selectLetter(View view) {
-        System.out.println("Button pressed");
+        SquareButton button = (SquareButton) view;
+        int row = button.getRow();
+        int column = button.getColumn();
+        Letter letter = letterGrid.getLetter(row, column);
+        if (letter != null) {
+            if (letter.isSelected()) {
+                letter.unselect();
+                letterChain.remove(letter);
+                button.setBackgroundColor(Color.GRAY);
+            } else {
+                letter.select();
+                letterChain.add(letter);
+                button.setBackgroundColor(Color.RED);
+            }
+        }
     }
 
     /**
