@@ -101,6 +101,24 @@ public class LetterChain implements Iterable<Letter> {
     }
 
     /**
+     * Check if letter chain is final within a letter grid, i.e. there are no
+     * other letters on the grid that can be appended to the chain and keep it
+     * valid.
+     *
+     * @param letterGrid LetterGrid object
+     * @return true if the chain is final, false otherwise
+     */
+    public boolean isFinal(LetterGrid letterGrid) {
+        Letter lastLetter = get(size()-1);
+        Letter nextLetter = lastLetter.next();
+        if (nextLetter == null) {
+            return true;
+        } else {
+            return letterGrid.contains(nextLetter);
+        }
+    }
+
+    /**
      * Add a new letter to the chain
      *
      * @param letter Letter object
