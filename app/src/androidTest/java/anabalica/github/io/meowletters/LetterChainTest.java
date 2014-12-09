@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import anabalica.github.io.meowletters.letters.Letter;
 import anabalica.github.io.meowletters.letters.LetterChain;
+import anabalica.github.io.meowletters.letters.LetterGrid;
 
 /**
  * Test LetterChain class
@@ -48,6 +49,25 @@ public class LetterChainTest extends TestCase {
         chain.add(new Letter("Z"));
         chain.add(new Letter("A"));
         assertFalse(letterChain.isValid());
+    }
+
+    public void testIsFinal() {
+        Letter grid[][] = {
+                {new Letter("Z"), new Letter("D"), null},
+                {new Letter("D"), null, new Letter("F")},
+                {new Letter("E"), null, new Letter(("Z"))}
+        };
+        LetterGrid letterGrid = new LetterGrid(grid);
+        LetterChain letterChain = new LetterChain();
+        assertFalse(letterChain.isFinal(letterGrid));
+        letterChain.add(new Letter("Z"));
+        assertTrue(letterChain.isFinal(letterGrid));
+        letterChain.add(new Letter("D"));
+        assertFalse(letterChain.isFinal(letterGrid));
+        letterChain.add(new Letter("E"));
+        assertFalse(letterChain.isFinal(letterGrid));
+        letterChain.add(new Letter("F"));
+        assertTrue(letterChain.isFinal(letterGrid));
     }
 
     public void testAdd() {
