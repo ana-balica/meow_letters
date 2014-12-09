@@ -109,12 +109,16 @@ public class LetterChain implements Iterable<Letter> {
      * @return true if the chain is final, false otherwise
      */
     public boolean isFinal(LetterGrid letterGrid) {
+        if (isEmpty()) {
+            return false;
+        }
+
         Letter lastLetter = get(size()-1);
         Letter nextLetter = lastLetter.next();
         if (nextLetter == null) {
             return true;
         } else {
-            return letterGrid.contains(nextLetter);
+            return !letterGrid.contains(nextLetter);
         }
     }
 
