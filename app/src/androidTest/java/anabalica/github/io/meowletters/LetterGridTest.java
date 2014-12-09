@@ -95,10 +95,9 @@ public class LetterGridTest extends TestCase {
     public void testContains() {
         LetterGrid letterGrid = new LetterGrid(5, 5);
         Letter letterW = new Letter("W");
-        Letter letterB = new Letter("B");
         letterGrid.getGrid()[3][1] = letterW;
-        assertTrue(letterGrid.contains(letterW));
-        assertFalse(letterGrid.contains(letterB));
+        assertTrue(letterGrid.contains(new Letter("W")));
+        assertFalse(letterGrid.contains(new Letter("B")));
     }
 
     public void testAddLetterChain() {

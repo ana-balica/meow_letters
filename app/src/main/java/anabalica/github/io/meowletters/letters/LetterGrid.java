@@ -133,7 +133,7 @@ public class LetterGrid {
     public boolean contains(Letter letter) {
         for (int row = 0; row < ROWS; row++) {
             for (int column = 0; column < COLUMNS; column++) {
-                if (grid[row][column] == letter) {
+                if (letter.equals(grid[row][column])) {
                     return true;
                 }
             }
