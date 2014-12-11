@@ -10,6 +10,30 @@ import anabalica.github.io.meowletters.letters.Letter;
  * @author Ana Balica
  */
 public class LetterTest extends TestCase {
+    public void testEquals() {
+        // Test Letter equality with letter set
+        Letter letterP = new Letter("P");
+        Letter letterO = new Letter("O");
+        Letter otherLetterP = new Letter("P");
+        assertFalse(letterP.equals(letterO));
+        assertTrue(letterP.equals(otherLetterP));
+
+        // Test Letter equality with letter and position set
+        Letter letterZ = new Letter("Z", 1, 2);
+        Letter otherLetterZ = new Letter("Z", 2, 1);
+        Letter sameLetterZ = new Letter("Z", 1, 2);
+        assertFalse(letterZ.equals(otherLetterZ));
+        assertTrue(letterZ.equals(sameLetterZ));
+    }
+
+    public void testEqualsLetter() {
+        Letter letterP = new Letter("P", 1, 2);
+        Letter otherLetterP = new Letter("P", 3, 4);
+        Letter letterQ = new Letter("Q");
+        assertFalse(letterP.equalsLetter(letterQ));
+        assertTrue(letterP.equalsLetter(otherLetterP));
+    }
+
     public void testSetLetter() {
         // Test invalid letter
         try {

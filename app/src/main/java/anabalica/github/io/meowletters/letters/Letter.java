@@ -10,10 +10,18 @@ import java.util.Random;
 public class Letter implements Comparable {
     private String letter;
     private boolean selected;
+    private Cell position;
 
     public Letter(String letter) {
         setLetter(letter);
         selected = false;
+        position = null;
+    }
+
+    public Letter(String letter, int row, int column) {
+        setLetter(letter);
+        selected = false;
+        position = new Cell(row, column);
     }
 
     public String getLetter() {
@@ -51,8 +59,53 @@ public class Letter implements Comparable {
         selected = false;
     }
 
+    public Cell getPosition() {
+        return position;
+    }
+
+    public void setPosition(Cell position) {
+        this.position = position;
+    }
+
+    public void setPosition(int row, int column) {
+        this.position = new Cell(row, column);
+    }
+
     @Override
     public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Letter letter1 = (Letter) o;
+
+        if (letter != null ? !letter.equals(letter1.letter) : letter1.letter != null) return false;
+        if (position != null ? !position.equals(letter1.position) : letter1.position != null)
+            return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = letter != null ? letter.hashCode() : 0;
+        result = 31 * result + (position != null ? position.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public int compareTo(Object object) {
+        Letter letter = (Letter) object;
+        return this.letter.compareTo(letter.getLetter());
+    }
+
+    /**
+     * Check if letters are equal according to the their inner letter strings. This method is
+     * different from the equals(), since it takes into consideration only letter attribute.
+     *
+     * @param o Letter object
+     * @return true if letters are equal, false otherwise
+     */
+    public boolean equalsLetter(Object o) {
         if (this == o) {
             return true;
         }
@@ -65,17 +118,6 @@ public class Letter implements Comparable {
             return false;
         }
         return true;
-    }
-
-    @Override
-    public int hashCode() {
-        return letter != null ? letter.hashCode() : 0;
-    }
-
-    @Override
-    public int compareTo(Object object) {
-        Letter letter = (Letter) object;
-        return this.letter.compareTo(letter.getLetter());
     }
 
     /**
