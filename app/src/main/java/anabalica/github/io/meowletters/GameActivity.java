@@ -78,21 +78,43 @@ public class GameActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Select a letter from the grid and add it to the letter chain.
+     */
     public void selectLetter(View view) {
         SquareButton button = (SquareButton) view;
         int row = button.getRow();
         int column = button.getColumn();
         Letter letter = letterGrid.getLetter(row, column);
+
+        // select/unselect letter(s)
         if (letter != null) {
             if (letter.isSelected()) {
-                letter.unselect();
-                letterChain.remove(letter);
-                button.setBackgroundColor(Color.GRAY);
+                LetterChain removedLetters = letterChain.remove(letter);
+                deselectLetterButtons(removedLetters);
             } else {
                 letter.select();
                 letterChain.add(letter);
                 button.setBackgroundColor(Color.RED);
             }
+        }
+    }
+
+    /**
+     * Deselect in the UI a chain of letters.
+     *
+     * @param chain LetterChain object of letters to be unselected
+     */
+    private void deselectLetterButtons(LetterChain chain) {
+        for (Letter letter : chain) {
+            letter.deselect();
+            int row = letter.getPosition().getRow();
+            int column = letter.getPosition().getColumn();
+
+            String letterButtonId = buildLetterButtonId(row, column);
+            int id = this.getResources().getIdentifier(letterButtonId, "id", this.getPackageName());
+            Button button = (Button) findViewById(id);
+            button.setBackgroundColor(Color.GRAY);
         }
     }
 
