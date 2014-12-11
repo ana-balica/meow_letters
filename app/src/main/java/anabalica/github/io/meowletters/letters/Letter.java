@@ -55,7 +55,7 @@ public class Letter implements Comparable {
         selected = true;
     }
 
-    public void unselect() {
+    public void deselect() {
         selected = false;
     }
 
