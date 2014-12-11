@@ -1,5 +1,7 @@
 package anabalica.github.io.meowletters.letters;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -146,17 +148,21 @@ public class LetterChain implements Iterable<Letter> {
      * (2 or more Letter objects with the same string letter).
      *
      * @param letter Letter object
+     * @return LetterChain of removed objects
      * @throws IllegalArgumentException if letter is not in the chain
      */
-    public void remove(Letter letter) throws IllegalArgumentException{
+    public LetterChain remove(Letter letter) throws IllegalArgumentException {
         if (!chain.contains(letter)) {
             throw new IllegalArgumentException("Letter not in chain.");
         }
         int letter_index = chain.indexOf(letter);
         int last_index = chain.size() - 1;
+        LetterChain removedLetters = new LetterChain();
         for (int i = last_index; i >= letter_index; i--) {
+            removedLetters.add(chain.get(i));
             chain.remove(i);
         }
+        return removedLetters;
     }
 
     /**
