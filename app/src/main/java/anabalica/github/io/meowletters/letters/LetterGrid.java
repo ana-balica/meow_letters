@@ -153,6 +153,7 @@ public class LetterGrid {
             if (cell != null) {
                 int row = cell.getRow();
                 int column = cell.getColumn();
+                letter.setPosition(cell);
                 grid[row][column] = letter;
                 emptyCellsCount--;
             } else {
