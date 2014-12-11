@@ -123,6 +123,14 @@ public class LetterChainTest extends TestCase {
         // Test removing the first element
         letterChain.remove(new Letter("T"));
         assertTrue(letterChain.isEmpty());
+
+        // Test removing letters with a position
+        letterChain.add(new Letter("E", 1, 2));
+        letterChain.add(new Letter("E", 3, 3));
+        letterChain.add(new Letter("E", 1, 1));
+        letterChain.remove(new Letter("E", 3, 3));
+        assertEquals(letterChain.size(), 1);
+        assertEquals(letterChain.get(0), new Letter("E", 1, 2));
     }
 
     public void testSort() {
