@@ -78,6 +78,13 @@ public class LetterChain implements Iterable<Letter> {
     }
 
     /**
+     * Clear letter chain contents. Now the letter chain should be empty.
+     */
+    public void clear() {
+        chain.clear();
+    }
+
+    /**
      * Check if the chain has only consecutive Letter(s) according to the
      * current alphabet. Special case: empty chain and one-letter chain
      * are considered not valid.
