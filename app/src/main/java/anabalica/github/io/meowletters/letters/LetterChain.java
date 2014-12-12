@@ -79,14 +79,15 @@ public class LetterChain implements Iterable<Letter> {
 
     /**
      * Check if the chain has only consecutive Letter(s) according to the
-     * current alphabet.
+     * current alphabet. Special case: empty chain and one-letter chain
+     * are considered not valid.
      *
      * @return true if has only consecutive Letters(s), false otherwise
      */
     public boolean isValid() {
         int chainSize = chain.size();
         if (chainSize < 2) {
-            return true;
+            return false;
         }
 
         String currentAlphabet = Alphabet.getCurrent();

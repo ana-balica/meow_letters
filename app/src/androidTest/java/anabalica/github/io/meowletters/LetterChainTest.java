@@ -19,12 +19,12 @@ public class LetterChainTest extends TestCase {
 
     public void testIsValid() {
         // Test empty chain
-        assertTrue(letterChain.isValid());
+        assertFalse(letterChain.isValid());
 
         // Test chain with a single element
         chain.add(new Letter("K"));
         letterChain.setChain(chain);
-        assertTrue(letterChain.isValid());
+        assertFalse(letterChain.isValid());
 
         // Test a very long chain
         chain.clear();
