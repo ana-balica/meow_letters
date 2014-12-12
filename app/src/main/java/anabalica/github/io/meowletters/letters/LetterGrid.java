@@ -161,4 +161,18 @@ public class LetterGrid {
             }
         }
     }
+
+    /**
+     * Remove letters of a letter chain from a grid.
+     *
+     * @param letterChain LetterChain object
+     */
+    public void removeLetterChain(LetterChain letterChain) {
+        for (Letter letter : letterChain) {
+            int row = letter.getPosition().getRow();
+            int column = letter.getPosition().getColumn();
+            grid[row][column] = null;
+            emptyCellsCount++;
+        }
+    }
 }

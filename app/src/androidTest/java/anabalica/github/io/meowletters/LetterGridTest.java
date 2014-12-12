@@ -116,4 +116,25 @@ public class LetterGridTest extends TestCase {
         assertTrue(letterGrid.contains(letterQ));
         assertEquals(letterGrid.getEmptyCellsCount(), 6);
     }
+
+    public void testRemoveLetterChain() {
+        Letter letterA = new Letter("A", 0, 0);
+        Letter extraLetterA = new Letter("A", 2, 2);
+        Letter letterY = new Letter("Y", 1, 2);
+
+        Letter grid[][] = {
+                {letterA, null, null},
+                {null, null, letterY},
+                {null, null, extraLetterA}
+        };
+        LetterGrid letterGrid = new LetterGrid(grid);
+        LetterChain letterChain = new LetterChain();
+        letterChain.add(letterA);
+        letterChain.add(letterY);
+        letterGrid.removeLetterChain(letterChain);
+
+        assertTrue(letterGrid.getLetter(0, 0) == null);
+        assertTrue(letterGrid.getLetter(2, 2).equals(extraLetterA));
+        assertTrue(letterGrid.getLetter(1, 2) == null);
+    }
 }
