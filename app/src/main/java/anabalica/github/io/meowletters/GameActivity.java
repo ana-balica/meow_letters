@@ -122,7 +122,7 @@ public class GameActivity extends Activity {
      * Translate the LetterGrid to the actual UI grid by drawing the buttons,
      * their letter and their correct position.
      */
-    public void drawLetterButtons() {
+    private void drawLetterButtons() {
         int rows = letterGrid.getROWS();
         int columns = letterGrid.getCOLUMNS();
         for (int row = 0; row < rows; row++) {
@@ -139,7 +139,7 @@ public class GameActivity extends Activity {
      *
      * @param letterChain LetterChain object
      */
-    public void hideLetterButtons(LetterChain letterChain) {
+    private void hideLetterButtons(LetterChain letterChain) {
         for (Letter letter : letterChain) {
             int row = letter.getPosition().getRow();
             int column = letter.getPosition().getColumn();
@@ -155,7 +155,7 @@ public class GameActivity extends Activity {
      * @param row int the row position
      * @param column int the column position
      */
-    public void drawLetterButton(Letter letter, int row, int column) {
+    private void drawLetterButton(Letter letter, int row, int column) {
         String letterButtonId = buildLetterButtonId(row, column);
 
         int id = this.getResources().getIdentifier(letterButtonId, "id", this.getPackageName());
@@ -170,7 +170,7 @@ public class GameActivity extends Activity {
      * @param row int the row position
      * @param column int the column position
      */
-    public void hideLetterButton(int row, int column) {
+    private void hideLetterButton(int row, int column) {
         String letterButtonId = buildLetterButtonId(row, column);
 
         int id = this.getResources().getIdentifier(letterButtonId, "id", this.getPackageName());
