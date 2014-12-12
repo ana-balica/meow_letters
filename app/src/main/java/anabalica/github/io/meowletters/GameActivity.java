@@ -31,7 +31,7 @@ public class GameActivity extends Activity {
     private int millisReset = 0;
 
     private LetterGrid letterGrid;
-    private LetterChain letterChain;
+    private LetterChain selectedLetterChain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +52,8 @@ public class GameActivity extends Activity {
         letterGrid.addLetterChain(chain);
         drawLetterButtons();
 
-        // Initialize user defined letter chain
-        letterChain = new LetterChain();
+        // Initialize user selected letter chain
+        selectedLetterChain = new LetterChain();
     }
 
     @Override
@@ -90,11 +90,11 @@ public class GameActivity extends Activity {
         // select/unselect letter(s)
         if (letter != null) {
             if (letter.isSelected()) {
-                LetterChain removedLetters = letterChain.remove(letter);
+                LetterChain removedLetters = selectedLetterChain.remove(letter);
                 deselectLetterButtons(removedLetters);
             } else {
                 letter.select();
-                letterChain.add(letter);
+                selectedLetterChain.add(letter);
                 button.setBackgroundColor(Color.RED);
             }
         }
