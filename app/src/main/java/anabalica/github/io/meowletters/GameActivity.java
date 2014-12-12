@@ -135,6 +135,20 @@ public class GameActivity extends Activity {
     }
 
     /**
+     * Hide from the UI grid all letters of a letter chain.
+     *
+     * @param letterChain LetterChain object
+     */
+    public void hideLetterButtons(LetterChain letterChain) {
+        for (Letter letter : letterChain) {
+            int row = letter.getPosition().getRow();
+            int column = letter.getPosition().getColumn();
+            hideLetterButton(row, column);
+        }
+
+    }
+
+    /**
      * Draw a LetterButton on the UI grid in the provided position
      *
      * @param letter Letter object
@@ -148,6 +162,22 @@ public class GameActivity extends Activity {
         Button button = (Button) findViewById(id);
         button.setVisibility(View.VISIBLE);
         button.setText(letter.getLetter());
+    }
+
+    /**
+     * Hide a LetterButton from the UI grid
+     *
+     * @param row int the row position
+     * @param column int the column position
+     */
+    public void hideLetterButton(int row, int column) {
+        String letterButtonId = buildLetterButtonId(row, column);
+
+        int id = this.getResources().getIdentifier(letterButtonId, "id", this.getPackageName());
+        Button button = (Button) findViewById(id);
+        button.setVisibility(View.INVISIBLE);
+        button.setText("");
+        button.setBackgroundColor(Color.GRAY);
     }
 
 
@@ -175,10 +205,23 @@ public class GameActivity extends Activity {
 
         @Override
         public void onFinish() {
+            if (selectedLetterChain.isValid()) {
+                // score++
+                hideLetterButtons(selectedLetterChain);
+                letterGrid.removeLetterChain(selectedLetterChain);
+            } else {
+                deselectLetterButtons(selectedLetterChain);
+                // add penalty
+            }
+
+            selectedLetterChain.clear();
+
+            // generate a new chain
             LetterChain letterChain = LetterChain.generateChain(2, 1);
             letterGrid.addLetterChain(letterChain);
             drawLetterButtons();
 
+            // reset the timer
             timerBar.setProgress(millisReset);
             timerBar.setProgress(millisTotal);
             timer.start();
