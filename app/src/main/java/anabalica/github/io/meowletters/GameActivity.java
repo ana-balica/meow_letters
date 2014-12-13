@@ -9,11 +9,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import anabalica.github.io.meowletters.customviews.SquareButton;
 import anabalica.github.io.meowletters.letters.Letter;
 import anabalica.github.io.meowletters.letters.LetterChain;
 import anabalica.github.io.meowletters.letters.LetterGrid;
+import anabalica.github.io.meowletters.metrics.Score;
 
 
 /**
@@ -31,7 +33,9 @@ public class GameActivity extends Activity {
     private int millisReset = 0;
 
     private LetterGrid letterGrid;
-    private LetterChain selectedLetterChain;
+    private LetterChain selectedLetterChain = new LetterChain();
+
+    private Score score = new Score();
 
     private final Integer[][] letterButtons = {
             {R.id.letter_button_00, R.id.letter_button_01, R.id.letter_button_02, R.id.letter_button_03, R.id.letter_button_04},
@@ -58,9 +62,6 @@ public class GameActivity extends Activity {
         LetterChain chain = LetterChain.generateChain(2, 1);
         letterGrid.addLetterChain(chain);
         drawLetterButtons();
-
-        // Initialize user selected letter chain
-        selectedLetterChain = new LetterChain();
     }
 
     @Override
@@ -192,6 +193,18 @@ public class GameActivity extends Activity {
     }
 
     /**
+     * Update the game score.
+     *
+     * @param letterChainSize
+     */
+    private void updateScore(int letterChainSize) {
+        score.update(letterChainSize);
+        TextView scoreView = (TextView) findViewById(R.id.score);
+        String points = Integer.toString(score.getPoints());
+        scoreView.setText("Score " + points);
+    }
+
+    /**
      * Custom countdown timer that runs infinitely and updates it's state to
      * the progress bar.
      */
@@ -204,7 +217,7 @@ public class GameActivity extends Activity {
         @Override
         public void onFinish() {
             if (selectedLetterChain.isValid()) {
-                // score++
+                updateScore(selectedLetterChain.size());
                 hideLetterButtons(selectedLetterChain);
                 letterGrid.removeLetterChain(selectedLetterChain);
             } else {

@@ -31,7 +31,7 @@
         android:layout_gravity="center_horizontal"
         android:textSize="24sp"
         android:paddingBottom="20dp"
-        android:text="Score 30"
+        android:text="@string/score"
         android:layout_below="@+id/level"
         android:layout_centerHorizontal="true" />
 
