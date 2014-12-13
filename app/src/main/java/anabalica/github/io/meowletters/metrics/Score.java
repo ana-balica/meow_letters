@@ -49,7 +49,7 @@ public class Score {
      */
     public int update(int chainSize) {
         if (chainSize > 1) {
-            points += (chainSize - 1) * 5;
+            points += (chainSize - 1) * 10;
         }
         return points;
     }
