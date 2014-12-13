@@ -28,7 +28,7 @@ public class GameActivity extends Activity {
     private ProgressBar timerBar;
     private GameCountDownTimer timer;
 
-    private int millisTotal = 3000;
+    private int millisTotal = 5000;
     private int millisInterval = 5;
     private int millisReset = 0;
 
