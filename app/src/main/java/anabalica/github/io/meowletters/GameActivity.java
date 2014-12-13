@@ -15,6 +15,7 @@ import anabalica.github.io.meowletters.customviews.SquareButton;
 import anabalica.github.io.meowletters.letters.Letter;
 import anabalica.github.io.meowletters.letters.LetterChain;
 import anabalica.github.io.meowletters.letters.LetterGrid;
+import anabalica.github.io.meowletters.metrics.Level;
 import anabalica.github.io.meowletters.metrics.Score;
 
 
@@ -36,6 +37,7 @@ public class GameActivity extends Activity {
     private LetterChain selectedLetterChain = new LetterChain();
 
     private Score score = new Score();
+    private Level level = new Level();
 
     private final Integer[][] letterButtons = {
             {R.id.letter_button_00, R.id.letter_button_01, R.id.letter_button_02, R.id.letter_button_03, R.id.letter_button_04},
@@ -205,6 +207,18 @@ public class GameActivity extends Activity {
     }
 
     /**
+     * Update the game level.
+     *
+     * @param points int amount of score points
+     */
+    private void updateLevel(int points) {
+        level.updateLevel(points);
+        TextView levelView = (TextView) findViewById(R.id.level);
+        String currentLevel = Integer.toString(level.getLevel());
+        levelView.setText("Level " + currentLevel);
+    }
+
+    /**
      * Custom countdown timer that runs infinitely and updates it's state to
      * the progress bar.
      */
@@ -218,6 +232,7 @@ public class GameActivity extends Activity {
         public void onFinish() {
             if (selectedLetterChain.isValid()) {
                 updateScore(selectedLetterChain.size());
+                updateLevel(score.getPoints());
                 hideLetterButtons(selectedLetterChain);
                 letterGrid.removeLetterChain(selectedLetterChain);
             } else {

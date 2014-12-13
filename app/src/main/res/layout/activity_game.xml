@@ -20,7 +20,7 @@
         android:textSize="48sp"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
-        android:text="Level 1"
+        android:text="@string/level"
         android:layout_below="@+id/timerBar"
         android:layout_centerHorizontal="true" />
 
