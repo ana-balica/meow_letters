@@ -33,6 +33,13 @@ public class GameActivity extends Activity {
     private LetterGrid letterGrid;
     private LetterChain selectedLetterChain;
 
+    private final Integer[][] letterButtons = {
+            {R.id.letter_button_00, R.id.letter_button_01, R.id.letter_button_02, R.id.letter_button_03, R.id.letter_button_04},
+            {R.id.letter_button_10, R.id.letter_button_11, R.id.letter_button_12, R.id.letter_button_13, R.id.letter_button_14},
+            {R.id.letter_button_20, R.id.letter_button_21, R.id.letter_button_22, R.id.letter_button_23, R.id.letter_button_24},
+            {R.id.letter_button_30, R.id.letter_button_31, R.id.letter_button_32, R.id.letter_button_33, R.id.letter_button_34},
+            {R.id.letter_button_40, R.id.letter_button_41, R.id.letter_button_42, R.id.letter_button_43, R.id.letter_button_44}};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,9 +118,7 @@ public class GameActivity extends Activity {
             int row = letter.getPosition().getRow();
             int column = letter.getPosition().getColumn();
 
-            String letterButtonId = buildLetterButtonId(row, column);
-            int id = this.getResources().getIdentifier(letterButtonId, "id", this.getPackageName());
-            Button button = (Button) findViewById(id);
+            Button button = (Button) findViewById(letterButtons[row][column]);
             button.setBackgroundColor(Color.GRAY);
         }
     }
@@ -156,10 +161,7 @@ public class GameActivity extends Activity {
      * @param column int the column position
      */
     private void drawLetterButton(Letter letter, int row, int column) {
-        String letterButtonId = buildLetterButtonId(row, column);
-
-        int id = this.getResources().getIdentifier(letterButtonId, "id", this.getPackageName());
-        Button button = (Button) findViewById(id);
+        Button button = (Button) findViewById(letterButtons[row][column]);
         button.setVisibility(View.VISIBLE);
         button.setText(letter.getLetter());
     }
@@ -171,26 +173,10 @@ public class GameActivity extends Activity {
      * @param column int the column position
      */
     private void hideLetterButton(int row, int column) {
-        String letterButtonId = buildLetterButtonId(row, column);
-
-        int id = this.getResources().getIdentifier(letterButtonId, "id", this.getPackageName());
-        Button button = (Button) findViewById(id);
+        Button button = (Button) findViewById(letterButtons[row][column]);
         button.setVisibility(View.INVISIBLE);
         button.setText("");
         button.setBackgroundColor(Color.GRAY);
-    }
-
-
-    /**
-     * Pick the position of a letter button and create the string ID of this
-     * button
-     *
-     * @param row int the row position
-     * @param column int the column position
-     * @return String button ID
-     */
-    private String buildLetterButtonId(int row, int column) {
-        return "letter_button_" + row + column;
     }
 
     /**
