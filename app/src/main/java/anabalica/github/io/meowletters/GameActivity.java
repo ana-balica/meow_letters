@@ -105,6 +105,18 @@ public class GameActivity extends Activity {
                 button.setBackgroundColor(Color.RED);
             }
         }
+
+        // check if valid and if final
+        if (selectedLetterChain.size() > 1) {
+            if (selectedLetterChain.isValid()) {
+                if (selectedLetterChain.isFinal(letterGrid)) {
+                    timer.onFinish();
+                }
+            } else {
+                deselectLetterButtons(selectedLetterChain);
+                // timer penalty
+            }
+        }
     }
 
     /**
