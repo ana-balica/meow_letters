@@ -197,7 +197,7 @@ public class GameActivity extends Activity {
     /**
      * Update the game score.
      *
-     * @param letterChainSize
+     * @param letterChainSize int size of the letter chain
      */
     private void updateScore(int letterChainSize) {
         score.update(letterChainSize);
