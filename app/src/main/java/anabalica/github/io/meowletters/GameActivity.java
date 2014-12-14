@@ -223,6 +223,16 @@ public class GameActivity extends Activity {
     }
 
     /**
+     * Add a letter chain to the grid.
+     */
+    private void addLetterChain() {
+        // update the number according to the level
+        LetterChain letterChain = LetterChain.generateChain(2, 1);
+        letterGrid.addLetterChain(letterChain);
+        drawLetterButtons();
+    }
+
+    /**
      * Custom countdown timer that runs infinitely and updates it's state to
      * the progress bar.
      */
@@ -251,11 +261,7 @@ public class GameActivity extends Activity {
             }
 
             selectedLetterChain.clear();
-
-            // generate a new chain
-            LetterChain letterChain = LetterChain.generateChain(2, 1);
-            letterGrid.addLetterChain(letterChain);
-            drawLetterButtons();
+            addLetterChain();
 
             // reset the timer
             timerBar.setProgress(millisReset);
@@ -266,18 +272,29 @@ public class GameActivity extends Activity {
         @Override
         public void onTick(long millisUntilFinished) {
             if (penalty) {
-                millisUntilFinished -= millisPenalty;
+                addPenalty(millisUntilFinished);
                 penalty = false;
-                if (millisUntilFinished < 0) {
-                    timer.onFinish();
-                    return;
-                }
-                timer.cancel();
-                timer = new GameCountDownTimer(millisUntilFinished, millisInterval);
-                timer.start();
-                createNewTimer = true;
             }
             timerBar.setProgress((int) millisUntilFinished);
+        }
+
+        /**
+         * Add a timer penalty, i.e. decrement some amount of time from the countdown timer.
+         *
+         * @param millisUntilFinished long amount of milliseconds until timer finishes
+         */
+        private void addPenalty(long millisUntilFinished) {
+            millisUntilFinished -= millisPenalty;
+            if (millisUntilFinished < 0) {
+                timer.onFinish();
+                return;
+            }
+            timer.cancel();
+            timer = new GameCountDownTimer(millisUntilFinished, millisInterval);
+            timer.start();
+            createNewTimer = true;
+            deselectLetterButtons(selectedLetterChain);
+            selectedLetterChain.clear();
         }
     }
 }
