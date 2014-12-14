@@ -32,12 +32,16 @@ public class GameActivity extends Activity {
     private int millisTotal = 5000;
     private int millisInterval = 5;
     private int millisReset = 0;
+    private long millisPenalty = 1000;
 
     private LetterGrid letterGrid;
     private LetterChain selectedLetterChain = new LetterChain();
 
     private Score score = new Score();
     private Level level = new Level();
+
+    private boolean penalty = false;
+    private boolean createNewTimer = false;
 
     private final Integer[][] letterButtons = {
             {R.id.letter_button_00, R.id.letter_button_01, R.id.letter_button_02, R.id.letter_button_03, R.id.letter_button_04},
@@ -117,7 +121,7 @@ public class GameActivity extends Activity {
                 }
             } else {
                 deselectLetterButtons(selectedLetterChain);
-                // timer penalty
+                penalty = true;
             }
         }
     }
@@ -237,7 +241,13 @@ public class GameActivity extends Activity {
                 letterGrid.removeLetterChain(selectedLetterChain);
             } else {
                 deselectLetterButtons(selectedLetterChain);
-                // add penalty
+            }
+
+            if (createNewTimer) {
+                timer.cancel();
+                timer = new GameCountDownTimer(millisTotal, millisInterval);
+                timer.start();
+                createNewTimer = false;
             }
 
             selectedLetterChain.clear();
@@ -255,6 +265,18 @@ public class GameActivity extends Activity {
 
         @Override
         public void onTick(long millisUntilFinished) {
+            if (penalty) {
+                millisUntilFinished -= millisPenalty;
+                penalty = false;
+                if (millisUntilFinished < 0) {
+                    timer.onFinish();
+                    return;
+                }
+                timer.cancel();
+                timer = new GameCountDownTimer(millisUntilFinished, millisInterval);
+                timer.start();
+                createNewTimer = true;
+            }
             timerBar.setProgress((int) millisUntilFinished);
         }
     }
