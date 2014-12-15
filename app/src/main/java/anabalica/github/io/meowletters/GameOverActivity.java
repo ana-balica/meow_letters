@@ -1,9 +1,12 @@
 package anabalica.github.io.meowletters;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 
 public class GameOverActivity extends Activity {
@@ -12,6 +15,11 @@ public class GameOverActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_over);
+        Intent intent = getIntent();
+        String score = intent.getStringExtra(GameActivity.SCORE);
+
+        TextView finalScore = (TextView) findViewById(R.id.finalScore);
+        finalScore.setText("Score " + score);
     }
 
 
@@ -35,5 +43,13 @@ public class GameOverActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * Start a new game
+     */
+    public void startNewGame(View view) {
+        Intent intent = new Intent(this, GameActivity.class);
+        this.startActivity(intent);
     }
 }

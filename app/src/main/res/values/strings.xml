@@ -26,4 +26,8 @@
     <!-- About Activity string resources -->
     <string name="title_activity_about">AboutActivity</string>
 
+    <!-- Game Over Activity string resources -->
+    <string name="title_activity_game_over">GameOver</string>
+    <string name="game_over">Game Over</string>
+
 </resources>

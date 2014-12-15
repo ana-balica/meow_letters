@@ -1,6 +1,7 @@
 package anabalica.github.io.meowletters;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -33,6 +34,8 @@ public class GameActivity extends Activity {
     private int millisInterval = 5;
     private int millisReset = 0;
     private long millisPenalty = 1000;
+
+    public final static String SCORE = "anabalica.github.io.meowletters.score";
 
     private LetterGrid letterGrid;
     private LetterChain selectedLetterChain = new LetterChain();
@@ -258,6 +261,15 @@ public class GameActivity extends Activity {
                 timer = new GameCountDownTimer(millisTotal, millisInterval);
                 timer.start();
                 createNewTimer = false;
+            }
+
+            // check if game over
+            if (letterGrid.getEmptyCellsCount() == 0) {
+                Intent intent = new Intent(GameActivity.this, GameOverActivity.class);
+                String points = String.valueOf(score.getPoints());
+                intent.putExtra(SCORE, points);
+                GameActivity.this.startActivity(intent);
+                return;
             }
 
             selectedLetterChain.clear();
