@@ -9,6 +9,12 @@ import android.view.View;
 import android.widget.TextView;
 
 
+/**
+ * This is the Game Over activity. When there are no more free spots for letters to appear, the
+ * game ends.
+ *
+ * @author Ana Balica
+ */
 public class GameOverActivity extends Activity {
 
     @Override
