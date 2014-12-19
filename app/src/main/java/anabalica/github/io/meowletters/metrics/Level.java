@@ -30,7 +30,7 @@ public class Level {
 
     public int updateLevel(int points) {
         if (points > 0) {
-            level = (Integer) (points / 50) + 1;
+            level = (Integer) (points / 100) + 1;
         }
         return level;
     }
