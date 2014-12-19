@@ -229,8 +229,7 @@ public class GameActivity extends Activity {
      * Add a letter chain to the grid.
      */
     private void addLetterChain() {
-        // update the number according to the level
-        LetterChain letterChain = LetterChain.generateChain(2, 1);
+        LetterChain letterChain = LetterChain.generateChain(level.getLevel(), letterGrid);
         letterGrid.addLetterChain(letterChain);
         drawLetterButtons();
     }

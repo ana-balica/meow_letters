@@ -254,4 +254,30 @@ public class LetterChain implements Iterable<Letter> {
         LetterChain randomChain = generateRandomChain(randomLettersCount);
         return chain.concat(randomChain);
     }
+
+    /**
+     * Generate a letter chain according to the game level.
+     *
+     * @param level int game level
+     * @return LetterChain object
+     */
+    public static LetterChain generateChain(int level, LetterGrid letterGrid) {
+        int lettersCount = (level + 1) / 4 + 1;
+
+        if (lettersCount < 3) {
+            int gridLettersCount = letterGrid.lettersCount();
+            if (gridLettersCount == 0) {
+                return LetterChain.generateChain(2, 1);
+            }
+            if (gridLettersCount == 1) {
+                return LetterChain.generateValidChain(2);
+            }
+            Letter letter = letterGrid.getRandomLetter();
+            LetterChain letterChain = new LetterChain();
+            letterChain.add(letter.adjacent());
+            return letterChain;
+        } else {
+            return LetterChain.generateValidChain(lettersCount);
+        }
+    }
 }
