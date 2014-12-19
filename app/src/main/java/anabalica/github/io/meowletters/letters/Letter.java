@@ -151,6 +151,20 @@ public class Letter implements Comparable {
     }
 
     /**
+     * Get the adjacent letter according to the alphabet. First try next. If there is not next
+     * letter, return previous.
+     *
+     * @return Letter object
+     */
+    public Letter adjacent() {
+        Letter nextLetter = next();
+        if (nextLetter == null) {
+            return previous();
+        }
+        return nextLetter;
+    }
+
+    /**
      * Get a random letter from the currently active alphabet.
      *
      * @return Letter object

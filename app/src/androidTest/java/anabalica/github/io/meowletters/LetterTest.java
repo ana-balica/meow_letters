@@ -83,4 +83,12 @@ public class LetterTest extends TestCase {
         Letter letterA = new Letter("A");
         assertNull(letterA.previous());
     }
+
+    public void testAdjacent() {
+        Letter letterT = new Letter("T");
+        assertEquals(letterT.adjacent().getLetter(), "U");
+
+        Letter letterZ = new Letter("Z");
+        assertEquals(letterZ.adjacent().getLetter(), "Y");
+    }
 }
