@@ -156,8 +156,6 @@ public class LetterGrid {
                 letter.setPosition(cell);
                 grid[row][column] = letter;
                 emptyCellsCount--;
-            } else {
-                // TODO: send a signal that game is over or refactor the method
             }
         }
     }
