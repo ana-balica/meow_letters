@@ -52,6 +52,16 @@ public class GameOverActivity extends Activity {
     }
 
     /**
+     * Launch menu on 'Back' press
+     */
+    public void onBackPressed() {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        this.startActivity(intent);
+    }
+
+    /**
      * Start a new game
      */
     public void startNewGame(View view) {
