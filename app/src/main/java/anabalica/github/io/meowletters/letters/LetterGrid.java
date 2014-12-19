@@ -140,8 +140,7 @@ public class LetterGrid {
      * @return integer between 0 and number of occupied cells
      */
     private int getRandomOccupiedOrder() {
-        int size = ROWS * COLUMNS;
-        return (int) (Math.random() * (size - emptyCellsCount));
+        return (int) (Math.random() * lettersCount());
     }
 
     /**
