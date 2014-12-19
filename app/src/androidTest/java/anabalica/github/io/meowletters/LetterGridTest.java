@@ -137,4 +137,28 @@ public class LetterGridTest extends TestCase {
         assertTrue(letterGrid.getLetter(2, 2).equals(extraLetterA));
         assertTrue(letterGrid.getLetter(1, 2) == null);
     }
+
+    public void testGetRandomLetter() {
+        LetterGrid emptyLetterGrid = new LetterGrid(4, 4);
+        assertNull(emptyLetterGrid.getRandomLetter());
+
+        Letter grid[][] = {
+                {new Letter("A"), null},
+                {null, null}
+        };
+        LetterGrid letterGrid = new LetterGrid(grid);
+        assertEquals(new Letter("A"), letterGrid.getRandomLetter());
+
+        Letter anotherGrid[][] = {
+                {null, new Letter("F"), null},
+                {null, null, null},
+                {new Letter("W"), null, null}
+        };
+        LetterGrid anotherLetterGrid = new LetterGrid(anotherGrid);
+
+        for (int i = 0; i < 5; i++) {
+            Letter randomLetter = anotherLetterGrid.getRandomLetter();
+            assertTrue(anotherLetterGrid.contains(randomLetter));
+        }
+    }
 }

@@ -125,6 +125,37 @@ public class LetterGrid {
     }
 
     /**
+     * Get a random order from the total number of occupied cells in the grid
+     *
+     * @return integer between 0 and number of occupied cells
+     */
+    private int getRandomOccupiedOrder() {
+        int size = ROWS * COLUMNS;
+        return (int) (Math.random() * (size - emptyCellsCount));
+    }
+
+    /**
+     * Get a random letter from the grid. If grid has no letters will return null.
+     *
+     * @return Letter object
+     */
+    public Letter getRandomLetter() {
+        int order = getRandomOccupiedOrder();
+        int gridOrder = 0;
+        for (int row = 0; row < ROWS; row++) {
+            for (int column = 0; column < COLUMNS; column++) {
+                if (grid[row][column] != null) {
+                    if (gridOrder == order) {
+                        return grid[row][column];
+                    }
+                    gridOrder++;
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
      * Check if the grid contains a specific letter
      *
      * @param letter Letter object
