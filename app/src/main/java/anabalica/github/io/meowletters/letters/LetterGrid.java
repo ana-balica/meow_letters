@@ -74,6 +74,16 @@ public class LetterGrid {
     }
 
     /**
+     * Get the number of Letter elements from the grid.
+     *
+     * @return integer number of Letters
+     */
+    public int lettersCount() {
+        int size = ROWS * COLUMNS;
+        return size - emptyCellsCount;
+    }
+
+    /**
      * Return the number of empty (null) cells from the current grid.
      *
      * @return integer number of empty cells

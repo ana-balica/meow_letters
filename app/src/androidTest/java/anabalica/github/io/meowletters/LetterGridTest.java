@@ -161,4 +161,23 @@ public class LetterGridTest extends TestCase {
             assertTrue(anotherLetterGrid.contains(randomLetter));
         }
     }
+
+    public void testLettersCount() {
+        LetterGrid emptyLetterGrid = new LetterGrid(4, 4);
+        assertEquals(emptyLetterGrid.lettersCount(), 0);
+
+        Letter grid[][] = {
+                {null, new Letter("F"), null},
+                {null, null, null},
+                {new Letter("W"), null, null}
+        };
+        LetterGrid letterGrid = new LetterGrid(grid);
+        assertEquals(letterGrid.lettersCount(), 2);
+
+        LetterChain chain = new LetterChain();
+        chain.add(new Letter("D"));
+        chain.add(new Letter("V"));
+        letterGrid.addLetterChain(chain);
+        assertEquals(letterGrid.lettersCount(), 4);
+    }
 }
