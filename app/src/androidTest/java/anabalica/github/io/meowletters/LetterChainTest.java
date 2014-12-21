@@ -133,6 +133,33 @@ public class LetterChainTest extends TestCase {
         assertEquals(letterChain.get(0), new Letter("E", 1, 2));
     }
 
+    public void testErase() {
+        // Test to erase from empty chain
+        try {
+            letterChain.erase(new Letter("P"));
+            fail("Exception not thrown");
+        } catch (IllegalArgumentException e) {
+            assertEquals(e.getMessage(), "Letter not in chain.");
+        }
+
+        letterChain.add(new Letter("T"));
+        letterChain.add(new Letter("Q"));
+        letterChain.add(new Letter("W"));
+
+        // Test removing non existing element
+        try {
+            letterChain.erase(new Letter("P"));
+            fail("Exception not thrown");
+        } catch (IllegalArgumentException e) {
+            assertEquals(e.getMessage(), "Letter not in chain.");
+        }
+
+        letterChain.erase(new Letter("T"));
+        assertEquals(2, letterChain.size());
+        assertEquals(new Letter("Q"), letterChain.get(0));
+        assertEquals(new Letter("W"), letterChain.get(1));
+    }
+
     public void testSort() {
         LetterChain letterChain = new LetterChain();
         letterChain.sort();

@@ -174,6 +174,20 @@ public class LetterChain implements Iterable<Letter> {
     }
 
     /**
+     * Remove letter from the chain. The letter is being pulled out. All the other letters stay.
+     *
+     * @param letter Letter object
+     * @throws IllegalArgumentException if letter is not in the chain
+     */
+    public void erase(Letter letter) throws IllegalArgumentException {
+        if (!chain.contains(letter)) {
+            throw new IllegalArgumentException("Letter not in chain.");
+        }
+        int letterIndex = chain.indexOf(letter);
+        chain.remove(letterIndex);
+    }
+
+    /**
      * Wrapper for sorting the chain in ascending order.
      */
     public void sort() {
