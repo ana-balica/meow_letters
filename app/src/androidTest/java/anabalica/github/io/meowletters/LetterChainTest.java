@@ -234,4 +234,29 @@ public class LetterChainTest extends TestCase {
             assertEquals(e.getMessage(), "The requested chain length exceeds the alphabet length.");
         }
     }
+
+    public void testFormValidChain() {
+        // Test empty chain
+        try {
+            LetterChain.formValidChain(new Letter("A"), 0);
+            fail("Exception not thrown");
+        } catch (IllegalArgumentException e) {
+            assertEquals(e.getMessage(), "The requested chain length must be at least 1.");
+        }
+
+        // Test a chain that is too long
+        try {
+            LetterChain.formValidChain(new Letter("A"), 26);
+            fail("Exception no throws");
+        } catch (IllegalArgumentException e) {
+            assertEquals(e.getMessage(), "The requested chain length exceeds the alphabet length.");
+        }
+
+        // Test chain of 3 starting with the first letter
+        LetterChain letterChain = LetterChain.formValidChain(new Letter("A"), 3);
+        assertEquals(3, letterChain.size());
+        assertEquals(letterChain.get(0), new Letter("B"));
+        assertEquals(letterChain.get(1), new Letter("C"));
+        assertEquals(letterChain.get(2), new Letter("D"));
+    }
 }

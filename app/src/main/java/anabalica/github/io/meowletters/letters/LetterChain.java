@@ -324,4 +324,34 @@ public class LetterChain implements Iterable<Letter> {
             return LetterChain.generateValidChain(lettersCount);
         }
     }
+
+    /**
+     * Add adjacent letters to the provided letter, so that it forms a valid letter chain. The end
+     * chain does not include the initial letter.
+     *
+     * @param letter Letter object
+     * @param size int desired chain size excluding the initial letter
+     * @return valid LetterChain object of size - 1
+     */
+    public static LetterChain formValidChain(Letter letter, int size) throws IllegalArgumentException {
+        if (size < 1) {
+            throw new IllegalArgumentException("The requested chain length must be at least 1.");
+        }
+        if (size >= Alphabet.getCurrent().length()) {
+            throw new IllegalArgumentException("The requested chain length exceeds the " +
+                    "alphabet length.");
+        }
+
+        LetterChain letterChain = new LetterChain();
+        letterChain.add(letter);
+
+        Letter adjacentLetter;
+        for (int i = 0; i < size; i++) {
+            adjacentLetter = letterChain.adjacent();
+            letterChain.add(adjacentLetter);
+            letterChain.sort();
+        }
+        letterChain.erase(letter);
+        return letterChain;
+    }
 }
