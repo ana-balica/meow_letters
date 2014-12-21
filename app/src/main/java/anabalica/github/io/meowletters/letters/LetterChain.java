@@ -181,6 +181,36 @@ public class LetterChain implements Iterable<Letter> {
     }
 
     /**
+     * Get adjacent letter of the letter chain.
+     *
+     * @return Letter object
+     */
+    public Letter adjacent() {
+        if (isEmpty()) {
+            throw new IllegalArgumentException("Letter chain must not be empty.");
+        }
+        sort();
+        int size = size();
+        boolean next = (Math.random() < 0.5);
+
+        Letter firstLetter = chain.get(0);
+        Letter lastLetter = chain.get(size - 1);
+        if (next) {
+            Letter nextLetter = lastLetter.next();
+            if (nextLetter == null) {
+                return firstLetter.previous();
+            }
+            return nextLetter;
+        } else {
+            Letter previousLetter = firstLetter.previous();
+            if (previousLetter == null) {
+                return lastLetter.next();
+            }
+            return previousLetter;
+        }
+    }
+
+    /**
      * Generate a chain that contains random letters from the currently active
      * alphabet.
      *

@@ -149,6 +149,24 @@ public class LetterChainTest extends TestCase {
         assertEquals(letterChain.get(2), letterZ);
     }
 
+    public void testAdjacent() {
+        LetterChain letterChain = new LetterChain();
+        try {
+            letterChain.adjacent();
+            fail("Exception not thrown");
+        } catch (IllegalArgumentException e) {
+            assertEquals(e.getMessage(), "Letter chain must not be empty.");
+        }
+
+        letterChain.add(new Letter("A"));
+        assertEquals(letterChain.adjacent(), new Letter("B"));
+
+        letterChain.remove(new Letter("A"));
+        letterChain.add(new Letter("Z"));
+        assertEquals(letterChain.adjacent(), new Letter("Y"));
+
+    }
+
     public void testGenerateRandomChain() {
         // Test a chain of zero length
         LetterChain letterChain1 = LetterChain.generateRandomChain(0);
