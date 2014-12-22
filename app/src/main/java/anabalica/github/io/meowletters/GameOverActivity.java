@@ -1,12 +1,17 @@
 package anabalica.github.io.meowletters;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+
+import anabalica.github.io.meowletters.storage.HighscoresContract;
+import anabalica.github.io.meowletters.storage.HighscoresDbHelper;
 
 
 /**
@@ -26,6 +31,9 @@ public class GameOverActivity extends Activity {
 
         TextView finalScore = (TextView) findViewById(R.id.finalScore);
         finalScore.setText("Score " + score);
+
+        int points = Integer.parseInt(score);
+        insertNewHighscrore(points);
     }
 
 
@@ -69,5 +77,25 @@ public class GameOverActivity extends Activity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         this.startActivity(intent);
+    }
+
+    /**
+     * Insert into the database highscores table a new entry. Games that have accumulated 0 points,
+     * are not inserted.
+     *
+     * @param score int amount of game points
+     */
+    private void insertNewHighscrore(int score) {
+        if (score > 0) {
+            HighscoresDbHelper highscoresDbHelper = new HighscoresDbHelper(this);
+            SQLiteDatabase db = highscoresDbHelper.getWritableDatabase();
+
+            ContentValues values = new ContentValues();
+            values.put(HighscoresContract.HighscoreEntry.COLUMN_NAME_USERNAME, "dummy username");
+            values.put(HighscoresContract.HighscoreEntry.COLUMN_NAME_SCORE, score);
+
+            db.insert(HighscoresContract.HighscoreEntry.TABLE_NAME, null, values);
+            System.out.println("Inserted the entry");
+        }
     }
 }
