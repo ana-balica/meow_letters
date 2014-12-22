@@ -300,29 +300,48 @@ public class LetterChain implements Iterable<Letter> {
     }
 
     /**
-     * Generate a letter chain according to the game level.
+     * Generate a letter chain according to the game level. Has a little bit of entropy as it
+     * varies to generate absolutely fresh chain or produce new chains based on the existing letters.
      *
      * @param level int game level
      * @return LetterChain object
      */
     public static LetterChain generateChain(int level, LetterGrid letterGrid) {
         int lettersCount = (level + 1) / 4 + 1;
+        int gridLettersCount = letterGrid.lettersCount();
+        boolean newValidChain = (Math.random() < 0.5);
 
         if (lettersCount < 3) {
-            int gridLettersCount = letterGrid.lettersCount();
             if (gridLettersCount == 0) {
                 return LetterChain.generateChain(2, 1);
             }
-            if (gridLettersCount == 1) {
-                return LetterChain.generateValidChain(2);
+            if (newValidChain) {
+                // new valid chain of 2
+                if (gridLettersCount == 1) {
+                    return LetterChain.generateValidChain(2);
+                }
+                // new chain of 1 that forms a valid chain with a letter from the grid
+                Letter letter = letterGrid.getRandomLetter();
+                return formValidChain(letter, 1);
+            } else {
+                if (gridLettersCount == 1) {
+                    // new chain of 2 that forms a valid chain with a letter from the grid
+                    Letter letter = letterGrid.getRandomLetter();
+                    return formValidChain(letter, 2);
+                }
+                // new chain of 1 that forms a valid chain with a letter from the grid
+                Letter letter = letterGrid.getRandomLetter();
+                return formValidChain(letter, 1);
             }
-            Letter letter = letterGrid.getRandomLetter();
-            LetterChain letterChain = new LetterChain();
-            letterChain.add(letter.adjacent());
-            return letterChain;
         } else {
-            return LetterChain.generateValidChain(lettersCount);
+            if (newValidChain) {
+                return LetterChain.generateValidChain(lettersCount);
+            } else {
+                Letter letter = letterGrid.getRandomLetter();
+                return formValidChain(letter, lettersCount);
+            }
         }
+
     }
 
     /**
