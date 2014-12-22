@@ -1,12 +1,204 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="anabalica.github.io.meowletters.HighscoresActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/highscores"
+        android:id="@+id/textView"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal" />
 
-</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp">
+
+        <TextView
+            android:id="@+id/playerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="Player" />
+
+        <TextView
+            android:id="@+id/pointsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Points"
+            android:layout_marginBottom="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            style="@style/highscores_player"
+            android:id="@+id/playerTop1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/playerTextView"
+            android:text="1. Username" />
+
+        <TextView
+            style="@style/highscores_points"
+            android:id="@+id/pointsTop1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pointsTextView"
+            android:text="1220" />
+
+        <TextView
+            style="@style/highscores_player"
+            android:id="@+id/playerTop2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/playerTop1"
+            android:text="2. Username" />
+
+        <TextView
+            style="@style/highscores_points"
+            android:id="@+id/pointsTop2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pointsTop1"
+            android:text="330" />
+
+        <TextView
+            style="@style/highscores_player"
+            android:id="@+id/playerTop3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/playerTop2"
+            android:text="3. Username" />
+
+        <TextView
+            style="@style/highscores_points"
+            android:id="@+id/pointsTop3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pointsTop2"
+            android:text="330" />
+
+        <TextView
+            style="@style/highscores_player"
+            android:id="@+id/playerTop4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/playerTop3"
+            android:text="4. Username" />
+
+        <TextView
+            style="@style/highscores_points"
+            android:id="@+id/pointsTop4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pointsTop3"
+            android:text="330" />
+
+        <TextView
+            style="@style/highscores_player"
+            android:id="@+id/playerTop5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/playerTop4"
+            android:text="5. Username" />
+
+        <TextView
+            style="@style/highscores_points"
+            android:id="@+id/pointsTop5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pointsTop4"
+            android:text="330" />
+
+        <TextView
+            style="@style/highscores_player"
+            android:id="@+id/playerTop6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/playerTop5"
+            android:text="6. Username" />
+
+        <TextView
+            style="@style/highscores_points"
+            android:id="@+id/pointsTop6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pointsTop5"
+            android:text="330" />
+
+        <TextView
+            style="@style/highscores_player"
+            android:id="@+id/playerTop7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/playerTop6"
+            android:text="7. Username" />
+
+        <TextView
+            style="@style/highscores_points"
+            android:id="@+id/pointsTop7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pointsTop6"
+            android:text="330" />
+
+        <TextView
+            style="@style/highscores_player"
+            android:id="@+id/playerTop8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/playerTop7"
+            android:text="8. Username" />
+
+        <TextView
+            style="@style/highscores_points"
+            android:id="@+id/pointsTop8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pointsTop7"
+            android:text="330" />
+
+        <TextView
+            style="@style/highscores_player"
+            android:id="@+id/playerTop9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/playerTop8"
+            android:text="9. Username" />
+
+        <TextView
+            style="@style/highscores_points"
+            android:id="@+id/pointsTop9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pointsTop8"
+            android:text="330" />
+
+        <TextView
+            style="@style/highscores_player"
+            android:id="@+id/playerTop10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/playerTop9"
+            android:text="10. Username" />
+
+        <TextView
+            style="@style/highscores_points"
+            android:id="@+id/pointsTop10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pointsTop9"
+            android:text="330" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

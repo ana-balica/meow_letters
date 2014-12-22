@@ -34,4 +34,11 @@
         <item name="android:backgroundTint">@android:color/holo_blue_dark</item>
     </style>
 
+    <style name="highscores_player">
+        <item name="android:layout_alignParentLeft">true</item>
+    </style>
+
+    <style name="highscores_points">
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
 </resources>
