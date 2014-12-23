@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import anabalica.github.io.meowletters.storage.HighscoresContract;
+import anabalica.github.io.meowletters.storage.HighscoresDataSource;
 import anabalica.github.io.meowletters.storage.HighscoresDbHelper;
 
 
@@ -33,7 +34,7 @@ public class GameOverActivity extends Activity {
         finalScore.setText("Score " + score);
 
         int points = Integer.parseInt(score);
-        insertNewHighscrore(points);
+        insertNewHighscore(points);
     }
 
 
@@ -80,22 +81,14 @@ public class GameOverActivity extends Activity {
     }
 
     /**
-     * Insert into the database highscores table a new entry. Games that have accumulated 0 points,
-     * are not inserted.
+     * Insert into the highscores table a new entry
      *
      * @param score int amount of game points
      */
-    private void insertNewHighscrore(int score) {
-        if (score > 0) {
-            HighscoresDbHelper highscoresDbHelper = new HighscoresDbHelper(this);
-            SQLiteDatabase db = highscoresDbHelper.getWritableDatabase();
-
-            ContentValues values = new ContentValues();
-            values.put(HighscoresContract.HighscoreEntry.COLUMN_NAME_USERNAME, "dummy username");
-            values.put(HighscoresContract.HighscoreEntry.COLUMN_NAME_SCORE, score);
-
-            db.insert(HighscoresContract.HighscoreEntry.TABLE_NAME, null, values);
-            System.out.println("Inserted the entry");
-        }
+    private void insertNewHighscore(int score) {
+        HighscoresDataSource dataSource = new HighscoresDataSource(this);
+        dataSource.open();
+        dataSource.createHighscore("Chubby bunny", score);
+        dataSource.close();
     }
 }
