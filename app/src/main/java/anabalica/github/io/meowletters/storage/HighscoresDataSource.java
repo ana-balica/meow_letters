@@ -2,7 +2,11 @@ package anabalica.github.io.meowletters.storage;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A DAO (Data Access Object) class to highscores database
@@ -43,5 +47,43 @@ public class HighscoresDataSource {
             return true;
         }
         return false;
+    }
+
+    /**
+     * Select and return top 10 highscores from the highscores table.
+     *
+     * @return List of Highscore objects
+     */
+    public List<Highscore> getTopComments() {
+        List<Highscore> highscores = new ArrayList<Highscore>();
+
+        String[] projection = {
+                HighscoresContract.HighscoreEntry.COLUMN_NAME_USERNAME,
+                HighscoresContract.HighscoreEntry.COLUMN_NAME_SCORE
+        };
+        String limitBy = "10";
+        String sortOrder = HighscoresContract.HighscoreEntry.COLUMN_NAME_SCORE + " DESC";
+        Cursor c = db.query(
+                HighscoresContract.HighscoreEntry.TABLE_NAME,
+                projection,
+                null,
+                null,
+                null,
+                null,
+                sortOrder,
+                limitBy);
+
+        int usernameIndex = c.getColumnIndex(HighscoresContract.HighscoreEntry.COLUMN_NAME_USERNAME);
+        int scoreIndex = c.getColumnIndex(HighscoresContract.HighscoreEntry.COLUMN_NAME_SCORE);
+
+        c.moveToFirst();
+        do {
+            String username = c.getString(usernameIndex);
+            int score = c.getInt(scoreIndex);
+            Highscore highscore = new Highscore(username, score);
+            highscores.add(highscore);
+        } while (c.moveToNext());
+
+        return highscores;
     }
 }
