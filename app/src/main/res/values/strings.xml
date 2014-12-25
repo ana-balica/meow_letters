@@ -22,6 +22,11 @@
 
     <!-- Settings Activity string resources -->
     <string name="title_activity_settings">SettingsActivity</string>
+    <string name="player_nickname">Nickname</string>
+    <string name="alphabet">Alphabet</string>
+    <string name="default_alphabet">English</string>
+    <string name="choose_alphabet">Choose an alphabet</string>
+    <string name="sound">Sound</string>
 
     <!-- About Activity string resources -->
     <string name="title_activity_about">AboutActivity</string>
