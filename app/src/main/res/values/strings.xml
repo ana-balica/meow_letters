@@ -32,6 +32,12 @@
 
     <!-- About Activity string resources -->
     <string name="title_activity_about">AboutActivity</string>
+    <string name="about_title">About</string>
+    <string name="about_short_description">Meow Letters is an open source game created for children to learn the alphabet in a fun way.</string>
+    <string name="about_licence">Licenced used MIT</string>
+    <string name="about_github_url">github.com/ana-balica/meow_letters</string>
+    <string name="about_author">Ana Balica</string>
+    <string name="about_author_email">ana.balica@gmail.com</string>
 
     <!-- Game Over Activity string resources -->
     <string name="title_activity_game_over">GameOver</string>
