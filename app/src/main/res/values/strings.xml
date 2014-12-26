@@ -22,11 +22,16 @@
 
     <!-- Settings Activity string resources -->
     <string name="title_activity_settings">SettingsActivity</string>
-    <string name="player_nickname">Nickname</string>
-    <string name="alphabet">Alphabet</string>
+
+    <!-- Preferences Fragment string resources -->
+    <string name="pref_nickname">Set nickname</string>
+    <string name="pref_nickname_summary">Used to identify yourself for highscores</string>
+    <string name="pref_alphabet">Alphabet</string>
+    <string name="pref_alphabet_summary">Choose an alphabet to practise</string>
+    <string name="pref_alphabet_dialog_title">Choose alphabet</string>
     <string name="default_alphabet">English</string>
-    <string name="choose_alphabet">Choose an alphabet</string>
-    <string name="sound">Sound</string>
+    <string name="pref_sound">Sounds</string>
+    <string name="pref_sound_summary">Enable or disable game sounds</string>
 
     <!-- About Activity string resources -->
     <string name="title_activity_about">AboutActivity</string>

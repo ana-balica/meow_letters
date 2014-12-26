@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="alphabets">
+    <array name="alphabet_entries">
         <item>English</item>
         <item>Romanian</item>
+    </array>
+
+    <array name="alphabet_values">
+        <item>ENGLISH</item>
+        <item>ROMANIAN</item>
+    </array>
+
+    <array name="nicknames">
+        <item>Blossom</item>
+        <item>Bubbles</item>
+        <item>Buttercup</item>
+        <item>Mojo Jojo</item>
+        <item>Fuzzy Lumpkins</item>
+        <item>Princess Morbucks</item>
     </array>
 </resources>
