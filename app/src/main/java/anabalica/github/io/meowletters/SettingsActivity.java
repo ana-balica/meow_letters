@@ -1,12 +1,9 @@
 package anabalica.github.io.meowletters;
 
 import android.app.Activity;
-import android.app.DialogFragment;
-import android.app.FragmentManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 
 /**
@@ -26,7 +23,6 @@ public class SettingsActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
     }
 
 
@@ -50,13 +46,5 @@ public class SettingsActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    /**
-     * Display the dialog to choose an alphabet.
-     */
-    public void chooseAlphabet(View view) {
-        DialogFragment alphabetDialog = new AlphabetDialogFragment();
-        alphabetDialog.show(getFragmentManager(), "alphabet");
     }
 }
