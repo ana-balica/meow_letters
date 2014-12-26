@@ -9,11 +9,11 @@ import android.os.Bundle;
  *
  * @author Ana Balica
  */
-public class CreditsActivity extends Activity {
+public class AboutActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_credits);
+        setContentView(R.layout.activity_about);
     }
 }

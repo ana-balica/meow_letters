@@ -45,7 +45,7 @@
                 android:value="anabalica.github.io.meowletters.MainActivity" />
         </activity>
         <activity
-            android:name="anabalica.github.io.meowletters.CreditsActivity"
+            android:name="anabalica.github.io.meowletters.AboutActivity"
             android:label="@string/title_activity_about"
             android:parentActivityName="anabalica.github.io.meowletters.MainActivity"
             android:screenOrientation="portrait" >

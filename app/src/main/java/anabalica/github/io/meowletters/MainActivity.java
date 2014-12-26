@@ -62,7 +62,7 @@ public class MainActivity extends Activity {
      * Start about activity
      */
     public void startAbout(View view) {
-        Intent intent = new Intent(this, CreditsActivity.class);
+        Intent intent = new Intent(this, AboutActivity.class);
         this.startActivity(intent);
     }
 
