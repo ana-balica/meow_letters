@@ -18,6 +18,10 @@ import android.os.Bundle;
  */
 public class SettingsActivity extends Activity {
 
+    public final static String PREF_NICKNAME = "pref_nickname";
+    public final static String PREF_ALPHABET = "pref_alphabet";
+    public final static String PREF_SOUND = "pref_sound";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
