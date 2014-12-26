@@ -59,9 +59,12 @@ public class GameOverActivity extends Activity {
      * @param score int amount of game points
      */
     private void insertNewHighscore(int score) {
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String nickname = sharedPrefs.getString(SettingsActivity.PREF_NICKNAME, "");
+
         HighscoresDataSource dataSource = new HighscoresDataSource(this);
         dataSource.open();
-        dataSource.createHighscore("Chubby bunny", score);
+        dataSource.createHighscore(nickname, score);
         dataSource.close();
     }
 }
