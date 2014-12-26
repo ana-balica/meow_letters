@@ -1,18 +1,14 @@
 package anabalica.github.io.meowletters;
 
 import android.app.Activity;
-import android.content.ContentValues;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.TextView;
 
-import anabalica.github.io.meowletters.storage.HighscoresContract;
 import anabalica.github.io.meowletters.storage.HighscoresDataSource;
-import anabalica.github.io.meowletters.storage.HighscoresDbHelper;
 
 
 /**
