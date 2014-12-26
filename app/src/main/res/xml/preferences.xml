@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <EditTextPreference
+    <anabalica.github.io.meowletters.custompreferences.CustomEditTextPreference
         android:key="pref_nickname"
         android:title="@string/pref_nickname"
-        android:summary="@string/pref_nickname_summary"
         android:defaultValue="" />
 
     <ListPreference
         android:key="pref_alphabet"
         android:title="@string/pref_alphabet"
-        android:summary="@string/pref_alphabet_summary"
+        android:summary="%s"
         android:dialogTitle="@string/pref_alphabet_dialog_title"
         android:entries="@array/alphabet_entries"
         android:entryValues="@array/alphabet_values"
@@ -18,6 +17,5 @@
     <CheckBoxPreference
         android:key="pref_sound"
         android:title="@string/pref_sound"
-        android:summary="@string/pref_sound_summary"
         android:defaultValue="true" />
 </PreferenceScreen>
