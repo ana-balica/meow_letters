@@ -1,7 +1,11 @@
 package anabalica.github.io.meowletters;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+
+import anabalica.github.io.meowletters.letters.Alphabet;
 
 
 /**
@@ -29,5 +33,15 @@ public class SettingsActivity extends Activity {
         getFragmentManager().beginTransaction()
                 .replace(android.R.id.content, new SettingsFragment())
                 .commit();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String alphabetName = sharedPrefs.getString(SettingsActivity.PREF_ALPHABET, "");
+
+        Alphabet.setCurrent(alphabetName);
     }
 }
