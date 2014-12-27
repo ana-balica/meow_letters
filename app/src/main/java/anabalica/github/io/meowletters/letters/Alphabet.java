@@ -1,7 +1,6 @@
 package anabalica.github.io.meowletters.letters;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  * Alphabet class stores all the alphabets that can be used in the game. It
@@ -15,12 +14,15 @@ public class Alphabet {
     public static final String ROMANIAN = "AĂÂBCDEFGHIÎJKLMNOPQRSŞTŢUVWXYZ";
 
     // All available alphabets
-    private static ArrayList<String> alphabets = new ArrayList<String>(
-            Arrays.asList(ENGLISH, ROMANIAN));
+    private static final HashMap<String, String> alphabets;
+    static {
+        alphabets = new HashMap<>();
+        alphabets.put("ENGLISH", ENGLISH);
+        alphabets.put("ROMANIAN", ROMANIAN);
+    }
 
     // Currently active/enabled alphabet
     private static String CURRENT = ENGLISH;
-
 
     /**
      * Get currently active/enabled alphabet
@@ -36,12 +38,12 @@ public class Alphabet {
      * If you want to add a new alphabet to the game, don't forget to add it to
      * the Alphabet.alphabets list.
      *
-     * @param alphabet valid language alphabet
+     * @param alphabetName String alphabet name
      */
-    public static void setCurrent(String alphabet) {
-        if (!alphabets.contains(alphabet)) {
-            throw new IllegalArgumentException("Illegal alphabet");
+    public static void setCurrent(String alphabetName) {
+        if (!alphabets.containsKey(alphabetName)) {
+            throw new IllegalArgumentException("Illegal alphabet name");
         }
-        CURRENT = alphabet;
+        CURRENT = alphabets.get(alphabetName);
     }
 }
