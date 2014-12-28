@@ -72,7 +72,8 @@ public class GameActivity extends Activity {
     }
 
     /**
-     * Select a letter from the grid and add it to the letter chain.
+     * Select a letter from the grid add it to the letter chain and
+     * display it on the grid.
      */
     public void selectLetter(View view) {
         SquareButton button = (SquareButton) view;
