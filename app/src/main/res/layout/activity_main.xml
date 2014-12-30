@@ -17,6 +17,13 @@
 
     <Button
         style="@style/menu_button"
+        android:id="@+id/continue_game_button"
+        android:text="@string/continue_game"
+        android:onClick="continueGame"
+        android:visibility="gone"/>
+
+    <Button
+        style="@style/menu_button"
         android:id="@+id/new_game_button"
         android:text="@string/new_game"
         android:onClick="startNewGame" />
