@@ -81,7 +81,7 @@ public class GameActivity extends Activity {
         int column = button.getColumn();
         Letter letter = letterGrid.getLetter(row, column);
 
-        // select/unselect letter(s)
+        // select/deselect letter(s)
         if (letter != null) {
             if (letter.isSelected()) {
                 LetterChain removedLetters = selectedLetterChain.remove(letter);
