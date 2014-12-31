@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
+import android.widget.Button;
 
 
 /**
@@ -17,11 +18,13 @@ import android.view.View;
  * @author Ana Balica
  */
 public class MainActivity extends Activity {
+    public static boolean CONTINUE = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        toggleContinueButton();
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         String nickname = sharedPrefs.getString(SettingsActivity.PREF_NICKNAME, "");
@@ -32,6 +35,12 @@ public class MainActivity extends Activity {
             editor.putString(SettingsActivity.PREF_NICKNAME, randomNickname);
             editor.apply();
         }
+    }
+
+    @Override
+    public void onResume() {
+        toggleContinueButton();
+        super.onResume();
     }
 
     /**
@@ -64,6 +73,18 @@ public class MainActivity extends Activity {
     public void startAbout(View view) {
         Intent intent = new Intent(this, AboutActivity.class);
         this.startActivity(intent);
+    }
+
+    /**
+     * Toggle the visibility of the Continue button
+     */
+    private void toggleContinueButton() {
+        Button continue_button = (Button) findViewById(R.id.continue_game_button);
+        if (MainActivity.CONTINUE) {
+            continue_button.setVisibility(View.VISIBLE);
+        } else {
+            continue_button.setVisibility(View.GONE);
+        }
     }
 
     /**

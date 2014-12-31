@@ -72,6 +72,16 @@ public class GameActivity extends Activity {
     }
 
     /**
+     * Pause the activity on 'Back' press
+     */
+    @Override
+    public void onBackPressed() {
+        super.onPause();
+        MainActivity.CONTINUE = true;
+        super.onBackPressed();
+    }
+
+    /**
      * Select a letter from the grid add it to the letter chain and
      * display it on the grid.
      */
