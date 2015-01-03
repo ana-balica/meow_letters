@@ -16,6 +16,7 @@ import anabalica.github.io.meowletters.letters.LetterChain;
 import anabalica.github.io.meowletters.letters.LetterGrid;
 import anabalica.github.io.meowletters.metrics.Level;
 import anabalica.github.io.meowletters.metrics.Score;
+import anabalica.github.io.meowletters.utils.State;
 
 
 /**
@@ -51,6 +52,7 @@ public class GameActivity extends Activity {
             {R.id.letter_button_30, R.id.letter_button_31, R.id.letter_button_32, R.id.letter_button_33, R.id.letter_button_34},
             {R.id.letter_button_40, R.id.letter_button_41, R.id.letter_button_42, R.id.letter_button_43, R.id.letter_button_44}};
 
+    public static State state = State.RUN;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

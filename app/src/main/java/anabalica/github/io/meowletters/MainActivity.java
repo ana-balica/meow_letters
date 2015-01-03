@@ -9,6 +9,8 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 
+import anabalica.github.io.meowletters.utils.State;
+
 
 /**
  * This is the launcher activity of the game and represents a simple game menu
@@ -18,8 +20,6 @@ import android.widget.Button;
  * @author Ana Balica
  */
 public class MainActivity extends Activity {
-    public static boolean CONTINUE = false;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,9 +44,20 @@ public class MainActivity extends Activity {
     }
 
     /**
+     * Continue previous game
+     */
+    public void resumeGame(View view) {
+        GameActivity.state = State.RESUME;
+        Intent intent = new Intent(this, GameActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        this.startActivity(intent);
+    }
+
+    /**
      * Start a new game
      */
     public void startNewGame(View view) {
+        GameActivity.state = State.RUN;
         Intent intent = new Intent(this, GameActivity.class);
         this.startActivity(intent);
     }
@@ -80,7 +91,7 @@ public class MainActivity extends Activity {
      */
     private void toggleResumeButton() {
         Button continue_button = (Button) findViewById(R.id.continue_game_button);
-        if (MainActivity.CONTINUE) {
+        if (GameActivity.state == State.PAUSE) {
             continue_button.setVisibility(View.VISIBLE);
         } else {
             continue_button.setVisibility(View.GONE);
