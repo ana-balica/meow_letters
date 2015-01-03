@@ -6,7 +6,7 @@
 
     <!-- Main Activity string resources -->
     <string name="title_activity_main">MainActivity</string>
-    <string name="continue_game">Continue</string>
+    <string name="resume_game">Resume</string>
     <string name="new_game">New Game</string>
     <string name="highscores">Highscores</string>
     <string name="settings">Settings</string>

@@ -18,8 +18,8 @@
     <Button
         style="@style/menu_button"
         android:id="@+id/continue_game_button"
-        android:text="@string/continue_game"
-        android:onClick="continueGame"
+        android:text="@string/resume_game"
+        android:onClick="resumeGame"
         android:visibility="gone"/>
 
     <Button

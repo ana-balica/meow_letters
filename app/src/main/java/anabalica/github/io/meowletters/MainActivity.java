@@ -24,7 +24,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        toggleContinueButton();
+        toggleResumeButton();
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         String nickname = sharedPrefs.getString(SettingsActivity.PREF_NICKNAME, "");
@@ -39,7 +39,7 @@ public class MainActivity extends Activity {
 
     @Override
     public void onResume() {
-        toggleContinueButton();
+        toggleResumeButton();
         super.onResume();
     }
 
@@ -78,7 +78,7 @@ public class MainActivity extends Activity {
     /**
      * Toggle the visibility of the Continue button
      */
-    private void toggleContinueButton() {
+    private void toggleResumeButton() {
         Button continue_button = (Button) findViewById(R.id.continue_game_button);
         if (MainActivity.CONTINUE) {
             continue_button.setVisibility(View.VISIBLE);
