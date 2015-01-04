@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import anabalica.github.io.meowletters.storage.HighscoresDataSource;
-import anabalica.github.io.meowletters.utils.State;
+import anabalica.github.io.meowletters.utils.GameState;
 
 
 /**
@@ -38,7 +38,7 @@ public class GameOverActivity extends Activity {
      * Launch menu on 'Back' press
      */
     public void onBackPressed() {
-        GameActivity.state = State.STOP;
+        GameActivity.state = GameState.STOP;
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         this.startActivity(intent);
