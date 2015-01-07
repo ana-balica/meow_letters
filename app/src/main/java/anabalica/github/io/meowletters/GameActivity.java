@@ -58,6 +58,31 @@ public class GameActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+
+    public Level getLevel() {
+        return level;
+    }
+
+    public Score getScore() {
+        return score;
+    }
+
+    public boolean hasPenalty() {
+        return penalty;
+    }
+
+    public boolean isCreateNewTimer() {
+        return createNewTimer;
+    }
+
+    public LetterChain getSelectedLetterChain() {
+        return selectedLetterChain;
+    }
+
+    public LetterGrid getLetterGrid() {
+        return letterGrid;
+    }
+
         timerBar = (ProgressBar) findViewById(R.id.timerBar);
         timerBar.setMax(millisTotal);
         timerBar.setProgress(millisTotal);
