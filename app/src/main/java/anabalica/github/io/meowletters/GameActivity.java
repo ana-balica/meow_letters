@@ -2,6 +2,7 @@ package anabalica.github.io.meowletters;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -17,6 +18,7 @@ import anabalica.github.io.meowletters.letters.LetterGrid;
 import anabalica.github.io.meowletters.metrics.Level;
 import anabalica.github.io.meowletters.metrics.Score;
 import anabalica.github.io.meowletters.utils.Status;
+import anabalica.github.io.meowletters.utils.State;
 
 
 /**
@@ -28,6 +30,7 @@ import anabalica.github.io.meowletters.utils.Status;
 public class GameActivity extends Activity {
     private ProgressBar timerBar;
     private GameCountDownTimer timer;
+    private State state;
 
     private int millisTotal = 5000;
     private int millisInterval = 5;
@@ -53,11 +56,19 @@ public class GameActivity extends Activity {
             {R.id.letter_button_40, R.id.letter_button_41, R.id.letter_button_42, R.id.letter_button_43, R.id.letter_button_44}};
 
     public static Status status = Status.RUN;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+        if (status == Status.RUN) {
+            startGame();
+        } else if (status == Status.RESUME) {
+            loadState();
+            resumeGame();
+        }
+    }
 
     public Level getLevel() {
         return level;
@@ -83,6 +94,7 @@ public class GameActivity extends Activity {
         return letterGrid;
     }
 
+    private void startGame() {
         timerBar = (ProgressBar) findViewById(R.id.timerBar);
         timerBar.setMax(millisTotal);
         timerBar.setProgress(millisTotal);
@@ -98,14 +110,27 @@ public class GameActivity extends Activity {
         drawLetterButtons();
     }
 
-    /**
-     * Pause the activity on 'Back' press
-     */
+    private void resumeGame() {
+        setScoreText();
+        setLevelText();
+    }
+
+    private void loadState() {
+        SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
+        int saved_level = sharedPreferences.getInt(State.STATE_LEVEL, 1);
+        int saved_score = sharedPreferences.getInt(State.STATE_SCORE, 0);
+        level.setLevel(saved_level);
+        score.setPoints(saved_score);
+    }
+
     @Override
-    public void onBackPressed() {
+    public void onPause() {
+        status = Status.PAUSE;
+        SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
+        state = new State(sharedPreferences);
+        state.save(this);
+        timer.cancel();
         super.onPause();
-        MainActivity.CONTINUE = true;
-        super.onBackPressed();
     }
 
     /**
