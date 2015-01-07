@@ -5,7 +5,7 @@ package anabalica.github.io.meowletters.utils;
  *
  * @author Ana Balica
  */
-public enum GameState {
+public enum Status {
     PAUSE,
     RESUME,
     RUN,

@@ -9,7 +9,7 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 
-import anabalica.github.io.meowletters.utils.GameState;
+import anabalica.github.io.meowletters.utils.Status;
 
 
 /**
@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
      * Continue previous game
      */
     public void resumeGame(View view) {
-        GameActivity.state = GameState.RESUME;
+        GameActivity.status = Status.RESUME;
         Intent intent = new Intent(this, GameActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         this.startActivity(intent);
@@ -57,7 +57,7 @@ public class MainActivity extends Activity {
      * Start a new game
      */
     public void startNewGame(View view) {
-        GameActivity.state = GameState.RUN;
+        GameActivity.status = Status.RUN;
         Intent intent = new Intent(this, GameActivity.class);
         this.startActivity(intent);
     }
@@ -91,7 +91,7 @@ public class MainActivity extends Activity {
      */
     private void toggleResumeButton() {
         Button continue_button = (Button) findViewById(R.id.continue_game_button);
-        if (GameActivity.state == GameState.PAUSE) {
+        if (GameActivity.status == Status.PAUSE) {
             continue_button.setVisibility(View.VISIBLE);
         } else {
             continue_button.setVisibility(View.GONE);
