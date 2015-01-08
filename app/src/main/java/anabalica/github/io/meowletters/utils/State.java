@@ -21,6 +21,11 @@ public class State {
 
     public static final String STATE_LEVEL = "anabalica.github.io.meowletters.state_level";
     public static final String STATE_SCORE = "anabalica.github.io.meowletters.state_score";
+    public static final String STATE_LETTER_GRID = "anabalica.github.io.meowletters.state_letter_grid";
+    public static final String STATE_LETTER_CHAIN = "anabalica.github.io.meowletters.state_letter_chain";
+    public static final String STATE_PENALTY = "anabalica.github.io.meowletters.state_penalty";
+    public static final String STATE_CREATE_NEW_TIMER = "anabalica.github.io.meowletters.state_create_new_timer";
+    public static final String STATE_TIMER = "anabalica.github.io.meowletters.state_timer";
 
     public State(SharedPreferences sharedPreferences) {
         this.sharedPreferences = sharedPreferences;
@@ -33,6 +38,26 @@ public class State {
         Score score = gameActivity.getScore();
         editor.putInt(STATE_LEVEL, level.getLevel());
         editor.putInt(STATE_SCORE, score.getPoints());
+
+        // save grid
+        LetterGrid letterGrid = gameActivity.getLetterGrid();
+        String stateLetterGrid = encodeLetterGrid(letterGrid);
+        editor.putString(STATE_LETTER_GRID, stateLetterGrid);
+
+        // save selected letter chain
+        LetterChain letterChain = gameActivity.getSelectedLetterChain();
+        String stateLetterChain = encodeLetterChain(letterChain);
+        editor.putString(STATE_LETTER_CHAIN, stateLetterChain);
+
+        // save penalty and createNewTimer bools
+        boolean penalty = gameActivity.hasPenalty();
+        editor.putBoolean(STATE_PENALTY, penalty);
+        boolean createNewTimer = gameActivity.isCreateNewTimer();
+        editor.putBoolean(STATE_CREATE_NEW_TIMER, createNewTimer);
+
+        // save timer
+        long millisUntilFinished = gameActivity.getTimerMillisUntilFinished();
+        editor.putLong(STATE_TIMER, millisUntilFinished);
         editor.apply();
     }
     /**
