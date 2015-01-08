@@ -228,8 +228,11 @@ public class GameActivity extends Activity {
      */
     private void drawLetterButton(Letter letter, int row, int column) {
         Button button = (Button) findViewById(letterButtons[row][column]);
-        button.setVisibility(View.VISIBLE);
         button.setText(letter.getLetter());
+        if (letter.isSelected()) {
+            button.setBackgroundColor(Color.RED);
+        }
+        button.setVisibility(View.VISIBLE);
     }
 
     /**
