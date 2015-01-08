@@ -24,6 +24,12 @@ public class Letter implements Comparable {
         position = new Cell(row, column);
     }
 
+    public Letter(String letter, int row, int column, boolean selected) {
+        setLetter(letter);
+        this.selected = selected;
+        position = new Cell(row, column);
+    }
+
     public String getLetter() {
         return letter;
     }
