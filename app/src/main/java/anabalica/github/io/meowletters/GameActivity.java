@@ -28,6 +28,8 @@ import anabalica.github.io.meowletters.utils.State;
  * @author Ana Balica
  */
 public class GameActivity extends Activity {
+    public static final int gridRows = 5;
+    public static final int gridColumns = 5;
     private ProgressBar timerBar;
     private GameCountDownTimer timer;
     private State state;
@@ -104,7 +106,7 @@ public class GameActivity extends Activity {
         timer.start();
 
         // Initialize the letter grid and initial letter chain
-        letterGrid = new LetterGrid(5, 5);
+        letterGrid = new LetterGrid(gridRows, gridColumns);
         LetterChain chain = LetterChain.generateChain(2, 1);
         letterGrid.addLetterChain(chain);
         drawLetterButtons();
@@ -189,10 +191,8 @@ public class GameActivity extends Activity {
      * their letter and their correct position.
      */
     private void drawLetterButtons() {
-        int rows = letterGrid.getROWS();
-        int columns = letterGrid.getCOLUMNS();
-        for (int row = 0; row < rows; row++) {
-            for (int column = 0; column < columns; column++) {
+        for (int row = 0; row < gridRows; row++) {
+            for (int column = 0; column < gridColumns; column++) {
                 if (letterGrid.getGrid()[row][column] != null) {
                     drawLetterButton(letterGrid.getGrid()[row][column], row, column);
                 }
