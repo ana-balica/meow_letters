@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import anabalica.github.io.meowletters.GameActivity;
 import anabalica.github.io.meowletters.letters.Cell;
 import anabalica.github.io.meowletters.letters.Letter;
+import anabalica.github.io.meowletters.letters.LetterGrid;
 import anabalica.github.io.meowletters.metrics.Level;
 import anabalica.github.io.meowletters.metrics.Score;
 
@@ -65,6 +66,55 @@ public class State {
         boolean isSelected = Integer.parseInt(Character.toString(letterString.charAt(3))) == 1;
 
         return new Letter(letterChar, row, column, isSelected);
+    }
+
+    /**
+     * Encode the game letter grid to a single string to be stored in shared preferences.
+     * Only non empty cells are stored into the string. Letters are delimited using a semicolon.
+     *
+     * @param letterGrid LetterGrid object
+     * @return String encoded letter grid
+     */
+    private String encodeLetterGrid(LetterGrid letterGrid) {
+        int rows = letterGrid.getROWS();
+        int columns = letterGrid.getCOLUMNS();
+        Letter[][] grid = letterGrid.getGrid();
+        StringBuilder gridStringBuilder= new StringBuilder();
+
+        for (int row = 0; row < rows; row++) {
+            for (int column = 0; column < columns; column++) {
+                if (grid[row][column] != null) {
+                    gridStringBuilder.append(encodeLetter(grid[row][column]));
+                    gridStringBuilder.append(";");
+                }
+            }
+        }
+
+        if (gridStringBuilder.length() != 0) {
+            int lastCharIndex = gridStringBuilder.length() - 1;
+            gridStringBuilder.deleteCharAt(lastCharIndex);
+        }
+        return gridStringBuilder.toString();
+    }
+
+    /**
+     * Decode a LetterGrid object from a string
+     *
+     * @param letterGridString String containing encoded information about a LetterGrid object
+     * @return LetterGrid object
+     */
+    private LetterGrid decodeLetterGrid(String letterGridString) {
+        Letter[][] grid = new Letter[GameActivity.gridRows][GameActivity.gridColumns];
+        if (letterGridString.length() > 0) {
+            for (String letterString : letterGridString.split(";")) {
+                Letter letter = decodeLetter(letterString);
+                Cell position = letter.getPosition();
+                int row = position.getRow();
+                int column = position.getColumn();
+                grid[row][column] = letter;
+            }
+        }
+        return new LetterGrid(grid);
     }
 
 }
