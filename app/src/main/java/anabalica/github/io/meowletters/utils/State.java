@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import anabalica.github.io.meowletters.GameActivity;
 import anabalica.github.io.meowletters.letters.Cell;
 import anabalica.github.io.meowletters.letters.Letter;
+import anabalica.github.io.meowletters.letters.LetterChain;
 import anabalica.github.io.meowletters.letters.LetterGrid;
 import anabalica.github.io.meowletters.metrics.Level;
 import anabalica.github.io.meowletters.metrics.Score;
@@ -117,4 +118,40 @@ public class State {
         return new LetterGrid(grid);
     }
 
+    /**
+     * Encode a letter chain to a single string to be stored in shared preferences. Letters are
+     * delimited using a semicolon.
+     *
+     * @param letterChain LetterChain object
+     * @return String encoded letter chain
+     */
+    private String encodeLetterChain(LetterChain letterChain) {
+        StringBuilder chainStringBuilder = new StringBuilder();
+        for (Letter letter : letterChain) {
+            chainStringBuilder.append(encodeLetter(letter));
+            chainStringBuilder.append(";");
+        }
+
+        if (chainStringBuilder.length() != 0) {
+            int lastCharIndex = chainStringBuilder.length() - 1;
+            chainStringBuilder.deleteCharAt(lastCharIndex);
+        }
+        return chainStringBuilder.toString();
+    }
+
+    /**
+     * Decode a LetterChain object from a string
+     *
+     * @param letterChainString String containing encoded information about a LetterChain object
+     * @return LetterChain object
+     */
+    private LetterChain decodeLetterChain(String letterChainString) {
+        LetterChain letterChain = new LetterChain();
+        if (letterChainString.length() > 0) {
+            for (String letterString : letterChainString.split(";")) {
+                letterChain.add(decodeLetter(letterString));
+            }
+        }
+        return letterChain;
+    }
 }
