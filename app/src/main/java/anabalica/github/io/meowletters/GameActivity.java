@@ -64,13 +64,6 @@ public class GameActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-
-        if (status == Status.RUN) {
-            startGame();
-        } else if (status == Status.RESUME) {
-            loadState();
-            resumeGame();
-        }
     }
 
     public Level getLevel() {
@@ -118,26 +111,53 @@ public class GameActivity extends Activity {
     }
 
     private void resumeGame() {
+        status = Status.RESUME;
         setScoreText();
         setLevelText();
+        drawLetterButtons();
+
+        timerBar = (ProgressBar) findViewById(R.id.timerBar);
+        timerBar.setMax(millisTotal);
+        timerBar.setProgress((int) timerMillisUntilFinished);
+
+        // Start the countdown timer
+        timer = new GameCountDownTimer(millisTotal, millisInterval);
+        timer.start();
     }
 
     private void loadState() {
         SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
-        int saved_level = sharedPreferences.getInt(State.STATE_LEVEL, 1);
-        int saved_score = sharedPreferences.getInt(State.STATE_SCORE, 0);
-        level.setLevel(saved_level);
-        score.setPoints(saved_score);
+        state = new State(sharedPreferences);
+        level = state.getLevel();
+        score = state.getScore();
+        letterGrid = state.getLetterGrid();
+        selectedLetterChain = state.getSelectedLetterChain();
+        penalty = state.getPenalty();
+        createNewTimer = state.getCreateNewTimer();
+        timerMillisUntilFinished = state.getTimerMillisUntilFinished();
     }
 
     @Override
     public void onPause() {
+        timer.cancel();
         status = Status.PAUSE;
         SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
         state = new State(sharedPreferences);
         state.save(this);
-        timer.cancel();
         super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        if (status == Status.RUN) {
+            startGame();
+        } else if (status == Status.RESUME) {
+            loadState();
+            resumeGame();
+        } else if (status == Status.PAUSE) {
+            onBackPressed();
+        }
+        super.onResume();
     }
 
     /**
@@ -347,8 +367,19 @@ public class GameActivity extends Activity {
                 addPenalty(millisUntilFinished);
                 penalty = false;
             }
+            if (status == Status.RESUME) {
+                startFrom(timerMillisUntilFinished);
+                status = Status.RUN;
+            }
             timerBar.setProgress((int) millisUntilFinished);
             timerMillisUntilFinished = millisUntilFinished;
+        }
+
+        public void startFrom(long millisUntilFinished) {
+            timer.cancel();
+            timer = new GameCountDownTimer(millisUntilFinished, millisInterval);
+            timer.start();
+            createNewTimer = true;
         }
 
         /**
