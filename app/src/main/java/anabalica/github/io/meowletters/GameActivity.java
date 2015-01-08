@@ -38,6 +38,7 @@ public class GameActivity extends Activity {
     private int millisInterval = 5;
     private int millisReset = 0;
     private long millisPenalty = 1000;
+    private long timerMillisUntilFinished;
 
     public final static String SCORE = "anabalica.github.io.meowletters.score";
 
@@ -94,6 +95,10 @@ public class GameActivity extends Activity {
 
     public LetterGrid getLetterGrid() {
         return letterGrid;
+    }
+
+    public long getTimerMillisUntilFinished() {
+        return timerMillisUntilFinished;
     }
 
     private void startGame() {
@@ -340,6 +345,7 @@ public class GameActivity extends Activity {
                 penalty = false;
             }
             timerBar.setProgress((int) millisUntilFinished);
+            timerMillisUntilFinished = millisUntilFinished;
         }
 
         /**
