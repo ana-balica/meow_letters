@@ -60,6 +60,39 @@ public class State {
         editor.putLong(STATE_TIMER, millisUntilFinished);
         editor.apply();
     }
+
+    public Level getLevel() {
+        int saved_level = sharedPreferences.getInt(STATE_LEVEL, 1);
+        return new Level(saved_level);
+    }
+
+    public Score getScore() {
+        int points = sharedPreferences.getInt(STATE_SCORE, 0);
+        return new Score(points);
+    }
+
+    public LetterGrid getLetterGrid() {
+        String letterGridString = sharedPreferences.getString(STATE_LETTER_GRID, "");
+        return decodeLetterGrid(letterGridString);
+    }
+
+    public LetterChain getSelectedLetterChain() {
+        String letterChainString = sharedPreferences.getString(STATE_LETTER_CHAIN, "");
+        return decodeLetterChain(letterChainString);
+    }
+
+    public boolean getPenalty() {
+        return sharedPreferences.getBoolean(STATE_PENALTY, false);
+    }
+
+    public boolean getCreateNewTimer() {
+        return sharedPreferences.getBoolean(STATE_CREATE_NEW_TIMER, false);
+    }
+
+    public long getTimerMillisUntilFinished() {
+        return sharedPreferences.getLong(STATE_TIMER, 0);
+    }
+
     /**
      * Encode a Letter object as a single string to be stored in shared preferences as
      * "<row><column><letter char><1 if selected, 0 otherwise>".
