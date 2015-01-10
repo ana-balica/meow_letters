@@ -3,15 +3,15 @@
     <!-- MainActivity resources-->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="title">56sp</dimen>
-    <dimen name="menu_title_top_padding">48dp</dimen>
-    <dimen name="menu_title_bottom_padding">48dp</dimen>
-    <dimen name="menu_button_width">263dp</dimen>
-    <dimen name="menu_button_height">61dp</dimen>
-    <dimen name="menu_button_text">28sp</dimen>
+    <dimen name="title">42sp</dimen>
+    <dimen name="menu_title_top_padding">54dp</dimen>
+    <dimen name="menu_title_bottom_padding">54dp</dimen>
+    <dimen name="menu_button_width">240dp</dimen>
+    <dimen name="menu_button_height">55dp</dimen>
+    <dimen name="menu_button_text">26sp</dimen>
     <dimen name="menu_button_padding_top">12dp</dimen>
     <dimen name="menu_button_padding_bottom">12dp</dimen>
-    <dimen name="menu_button_text_padding_left">25dp</dimen>
+    <dimen name="menu_button_text_padding_left">22dp</dimen>
     <dimen name="menu_button_margin_bottom">7dp</dimen>
-    <dimen name="menu_button_drawable_padding">20dp</dimen>
+    <dimen name="menu_button_drawable_padding">15dp</dimen>
 </resources>
