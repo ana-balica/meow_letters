@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import anabalica.github.io.meowletters.utils.Status;
 
@@ -24,6 +26,12 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Set custom font
+        TextView title = (TextView) findViewById(R.id.title);
+        Typeface pacificotf = Typeface.createFromAsset(getAssets(), "fonts/Pacifico.ttf");
+        title.setTypeface(pacificotf);
+
         toggleResumeButton();
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
