@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <TextView
@@ -11,6 +12,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="@dimen/title"
         android:text="@string/app_name"
+        android:textColor="@color/emerald"
         android:layout_gravity="center_horizontal"
         android:paddingTop="@dimen/menu_title_top_padding"
         android:paddingBottom="@dimen/menu_title_bottom_padding" />
@@ -19,30 +21,40 @@
         style="@style/menu_button"
         android:id="@+id/continue_game_button"
         android:text="@string/resume_game"
-        android:onClick="resumeGame"
-        android:visibility="gone"/>
+        android:drawableStart="@drawable/ic_resume"
+        android:drawableLeft="@drawable/ic_resume"
+        android:visibility="gone"
+        android:onClick="resumeGame"/>
 
     <Button
         style="@style/menu_button"
         android:id="@+id/new_game_button"
         android:text="@string/new_game"
+        android:drawableStart="@drawable/ic_play"
+        android:drawableLeft="@drawable/ic_play"
         android:onClick="startNewGame" />
 
     <Button
         style="@style/menu_button"
         android:id="@+id/highscores_button"
         android:text="@string/highscores"
+        android:drawableStart="@drawable/ic_award"
+        android:drawableLeft="@drawable/ic_award"
         android:onClick="startHighscores" />
 
     <Button
         style="@style/menu_button"
         android:id="@+id/settings_button"
         android:text="@string/settings"
+        android:drawableStart="@drawable/ic_settings"
+        android:drawableLeft="@drawable/ic_settings"
         android:onClick="startSettings" />
 
     <Button
         style="@style/menu_button"
         android:id="@+id/about_button"
-        android:text="@string/about"
+        android:drawableStart="@drawable/ic_credits"
+        android:drawableLeft="@drawable/ic_credits"
+        android:text="@string/credits"
         android:onClick="startAbout" />
 </LinearLayout>
