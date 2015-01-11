@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- MainActivity resources-->
+    <!-- MainActivity dimension values -->
+    <!-- Representative sample: Nexus 6 -->
     <dimen name="title">60sp</dimen>
     <dimen name="menu_title_top_padding">68dp</dimen>
     <dimen name="menu_title_bottom_padding">68dp</dimen>
