@@ -19,7 +19,7 @@ import anabalica.github.io.meowletters.R;
 public class SquareButton extends Button {
     private Integer row;
     private Integer column;
-    private HashMap<String, Integer> position = new HashMap<String, Integer>(2);
+    private HashMap<String, Integer> position = new HashMap<>(2);
 
     public SquareButton(Context context, AttributeSet attrs) {
         super(context, attrs);
