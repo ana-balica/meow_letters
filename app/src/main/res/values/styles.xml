@@ -31,14 +31,6 @@
         <item name="android:onClick">selectLetter</item>
     </style>
 
-    <style name="invisible_letter_button" parent="@style/letter_button">
-        <item name="android:visibility">invisible</item>
-    </style>
-
-    <style name="selected_letter_button" parent="@style/letter_button">
-        <item name="android:backgroundTint">@android:color/holo_blue_dark</item>
-    </style>
-
     <style name="highscores_player">
         <item name="android:layout_alignParentLeft">true</item>
     </style>
