@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context="anabalica.github.io.meowletters.GameActivity">
 
     <ProgressBar
@@ -40,7 +41,8 @@
         android:layout_height="0dp"
         android:layout_width="fill_parent"
         android:layout_alignParentBottom="true"
-        android:background="#333"
+        android:background="@color/pale_green"
+        android:padding="2dp"
         custom:rowsCount="5">
 
         <anabalica.github.io.meowletters.customviews.CustomTableRow
