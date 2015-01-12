@@ -3,7 +3,6 @@ package anabalica.github.io.meowletters;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -178,7 +177,7 @@ public class GameActivity extends Activity {
             } else {
                 letter.select();
                 selectedLetterChain.add(letter);
-                button.setBackgroundColor(Color.RED);
+                selectLetterButton(button);
             }
         }
 
@@ -196,6 +195,16 @@ public class GameActivity extends Activity {
     }
 
     /**
+     * Selecte in the UI a letter button.
+     *
+     * @param button
+     */
+    private void selectLetterButton(Button button) {
+        button.setTextColor(getResources().getColor(R.color.beige));
+        button.setBackground(getResources().getDrawable(R.drawable.letter_button_selected));
+    }
+
+    /**
      * Deselect in the UI a chain of letters.
      *
      * @param chain LetterChain object of letters to be unselected
@@ -207,7 +216,8 @@ public class GameActivity extends Activity {
             int column = letter.getPosition().getColumn();
 
             Button button = (Button) findViewById(letterButtons[row][column]);
-            button.setBackgroundColor(Color.GRAY);
+            button.setTextColor(getResources().getColor(R.color.red));
+            button.setBackground(getResources().getDrawable(R.drawable.letter_button_unselected));
         }
     }
 
@@ -249,10 +259,6 @@ public class GameActivity extends Activity {
     private void drawLetterButton(Letter letter, int row, int column) {
         Button button = (Button) findViewById(letterButtons[row][column]);
         button.setText(letter.getLetter());
-        if (letter.isSelected()) {
-            button.setBackgroundColor(Color.RED);
-        }
-        button.setVisibility(View.VISIBLE);
     }
 
     /**
@@ -263,9 +269,8 @@ public class GameActivity extends Activity {
      */
     private void hideLetterButton(int row, int column) {
         Button button = (Button) findViewById(letterButtons[row][column]);
-        button.setVisibility(View.INVISIBLE);
+        button.setBackground(getResources().getDrawable(R.drawable.letter_button_unselected));
         button.setText("");
-        button.setBackgroundColor(Color.GRAY);
     }
 
     /**
