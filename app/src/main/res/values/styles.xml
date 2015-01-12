@@ -12,8 +12,6 @@
         <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:gravity">left|center_vertical</item>
         <item name="android:textSize">@dimen/menu_button_text</item>
-        <item name="android:paddingTop">@dimen/menu_button_padding_top</item>
-        <item name="android:paddingBottom">@dimen/menu_button_padding_bottom</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:paddingLeft">@dimen/menu_button_text_padding_left</item>
         <item name="android:layout_marginBottom">@dimen/menu_button_margin_bottom</item>
