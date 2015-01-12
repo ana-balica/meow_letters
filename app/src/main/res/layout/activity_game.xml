@@ -52,7 +52,6 @@
                 android:id="@+id/letter_button_00"
                 custom:row="0"
                 custom:column="0"
-                android:onClick="selectLetter"
                 style="@style/letter_button"/>
 
             <anabalica.github.io.meowletters.customviews.SquareButton
