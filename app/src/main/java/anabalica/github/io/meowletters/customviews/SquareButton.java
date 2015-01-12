@@ -3,7 +3,10 @@ package anabalica.github.io.meowletters.customviews;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.widget.Button;
+import android.widget.RelativeLayout;
+import android.widget.TableRow.LayoutParams;
 
 import java.util.HashMap;
 
@@ -20,6 +23,7 @@ public class SquareButton extends Button {
     private Integer row;
     private Integer column;
     private HashMap<String, Integer> position = new HashMap<>(2);
+    LayoutParams params = new LayoutParams();
 
     public SquareButton(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -44,9 +48,13 @@ public class SquareButton extends Button {
         CustomTableRow parent = (CustomTableRow) getParent();
         final int parentWidth = parent.getMeasuredWidth();
         final int columnsCount = parent.getColumnsCount();
-        final int width = parentWidth / columnsCount;
+        // TODO: adjust the margin according to the screen resolution
+        int margin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
+        final int width = (parentWidth / columnsCount) - margin * 2;
 
         setMeasuredDimension(width, width);
+        params.setMargins(margin, margin, margin, margin);
+        setLayoutParams(params);
     }
 
     public int getColumn() {
