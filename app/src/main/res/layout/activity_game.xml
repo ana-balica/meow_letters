@@ -10,8 +10,9 @@
     <ProgressBar
         style="?android:attr/progressBarStyleHorizontal"
         android:id="@+id/timerBar"
+        android:progressDrawable="@drawable/custom_progressbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="40dp" />
 
     <TextView
         android:id="@+id/level"
