@@ -20,7 +20,7 @@
         android:layout_below="@+id/timerBar"
         android:layout_above="@+id/gameGrid">
 
-        <anabalica.github.io.meowletters.customviews.VerticalTextView
+        <TextView
             android:id="@+id/level_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginLeft="270dp"/>
 
-        <anabalica.github.io.meowletters.customviews.VerticalTextView
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/score_text"
