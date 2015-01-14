@@ -236,6 +236,19 @@ public class GameActivity extends Activity {
     }
 
     /**
+     * Draw a LetterButton on the UI grid in the provided position
+     *
+     * @param letter Letter object
+     * @param row int the row position
+     * @param column int the column position
+     */
+    private void drawLetterButton(Letter letter, int row, int column) {
+        Button button = (Button) findViewById(letterButtons[row][column]);
+        button.setText(letter.getLetter());
+        button.setTextColor(getResources().getColor(R.color.red));
+    }
+
+    /**
      * Hide from the UI grid all letters of a letter chain.
      *
      * @param letterChain LetterChain object
@@ -246,19 +259,6 @@ public class GameActivity extends Activity {
             int column = letter.getPosition().getColumn();
             hideLetterButton(row, column);
         }
-
-    }
-
-    /**
-     * Draw a LetterButton on the UI grid in the provided position
-     *
-     * @param letter Letter object
-     * @param row int the row position
-     * @param column int the column position
-     */
-    private void drawLetterButton(Letter letter, int row, int column) {
-        Button button = (Button) findViewById(letterButtons[row][column]);
-        button.setText(letter.getLetter());
     }
 
     /**
