@@ -14,9 +14,10 @@
 
     <!-- Game Activity string resources -->
     <string name="title_activity_game">GameActivity</string>
-    <string name="score">Score 0</string>
-    <string name="level">Level 1</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="score_text">score</string>
+    <string name="score">0</string>
+    <string name="level_text">level</string>
+    <string name="level">1</string>
 
     <!-- Highscores Activity string resources -->
     <string name="title_activity_highscores">HighscoresActivity</string>

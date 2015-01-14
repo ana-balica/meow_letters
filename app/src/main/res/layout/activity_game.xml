@@ -14,28 +14,57 @@
         android:layout_width="match_parent"
         android:layout_height="40dp" />
 
-    <TextView
-        android:id="@+id/level"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:textSize="48sp"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
-        android:text="@string/level"
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_below="@+id/timerBar"
-        android:layout_centerHorizontal="true" />
+        android:layout_above="@+id/gameGrid">
 
-    <TextView
-        android:id="@+id/score"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:textSize="24sp"
-        android:paddingBottom="20dp"
-        android:text="@string/score"
-        android:layout_below="@+id/level"
-        android:layout_centerHorizontal="true" />
+        <anabalica.github.io.meowletters.customviews.VerticalTextView
+            android:id="@+id/level_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/level_text"
+            android:textColor="@color/pale_green"
+            android:textSize="32sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="270dp"/>
+
+        <anabalica.github.io.meowletters.customviews.VerticalTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/score_text"
+            android:textColor="@color/pale_golden"
+            android:textSize="32sp"
+            android:layout_below="@+id/level_text"
+            android:layout_marginLeft="262dp"/>
+
+        <TextView
+            android:id="@+id/level"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold"
+            android:textColor="@color/emerald"
+            android:textSize="125sp"
+            android:layout_marginRight="80dp"
+            android:layout_marginTop="-20dp"
+            android:text="@string/level" />
+
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:textSize="50sp"
+            android:text="@string/score"
+            android:textColor="@color/golden"
+            android:layout_marginTop="-40dp"
+            android:layout_marginRight="80dp"
+            android:layout_below="@+id/level"/>
+
+    </RelativeLayout>
 
     <anabalica.github.io.meowletters.customviews.SquareTableLayout
         android:id="@+id/gameGrid"

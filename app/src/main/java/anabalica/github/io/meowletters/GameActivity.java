@@ -289,7 +289,7 @@ public class GameActivity extends Activity {
     private void setScoreText() {
         TextView scoreView = (TextView) findViewById(R.id.score);
         String points = Integer.toString(score.getPoints());
-        scoreView.setText("Score " + points);
+        scoreView.setText(points);
     }
 
     /**
@@ -308,7 +308,7 @@ public class GameActivity extends Activity {
     private void setLevelText() {
         TextView levelView = (TextView) findViewById(R.id.level);
         String currentLevel = Integer.toString(level.getLevel());
-        levelView.setText("Level " + currentLevel);
+        levelView.setText(currentLevel);
     }
 
     /**
