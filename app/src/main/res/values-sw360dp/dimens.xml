@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- MainActivity dimension values -->
+    <!-- Representative sample: Nexus 4, Nexus 5 -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="title">56sp</dimen>
+    <dimen name="menu_title_top_padding">48dp</dimen>
+    <dimen name="menu_title_bottom_padding">48dp</dimen>
+    <dimen name="menu_button_width">263dp</dimen>
+    <dimen name="menu_button_height">61dp</dimen>
+    <dimen name="menu_button_text">28sp</dimen>
+    <dimen name="menu_button_text_padding_left">25dp</dimen>
+    <dimen name="menu_button_margin_bottom">7dp</dimen>
+    <dimen name="menu_button_drawable_padding">20dp</dimen>
+
+    <!-- GameActivity dimension values -->
+    <dimen name="letter_button_text_size">50sp</dimen>
+
+    <dimen name="level_text_size">30sp</dimen>
+    <dimen name="level_text_margin_top">30dp</dimen>
+    <dimen name="level_text_margin_left">293dp</dimen>
+    <dimen name="score_text_size">30sp</dimen>
+    <dimen name="score_text_margin_top">30dp</dimen>
+    <dimen name="score_text_margin_left">286sp</dimen>
+
+    <dimen name="level_size">123sp</dimen>
+    <dimen name="level_margin_top">-21dp</dimen>
+    <dimen name="level_margin_right">75dp</dimen>
+    <dimen name="score_size">48sp</dimen>
+    <dimen name="score_margin_top">-40dp</dimen>
+    <dimen name="score_margin_right">75dp</dimen>
+</resources>
