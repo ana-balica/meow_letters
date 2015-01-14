@@ -5,8 +5,8 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="title">42sp</dimen>
-    <dimen name="menu_title_top_padding">54dp</dimen>
-    <dimen name="menu_title_bottom_padding">54dp</dimen>
+    <dimen name="menu_title_top_padding">48dp</dimen>
+    <dimen name="menu_title_bottom_padding">48dp</dimen>
     <dimen name="menu_button_width">240dp</dimen>
     <dimen name="menu_button_height">55dp</dimen>
     <dimen name="menu_button_text">26sp</dimen>
@@ -15,7 +15,7 @@
     <dimen name="menu_button_drawable_padding">15dp</dimen>
 
     <!-- GameActivity dimension values -->
-    <dimen name="letter_button_text_size">45sp</dimen>
+    <dimen name="letter_button_text_size">42sp</dimen>
 
     <dimen name="level_text_size">29sp</dimen>
     <dimen name="level_text_margin_top">27dp</dimen>
