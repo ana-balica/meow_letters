@@ -13,4 +13,21 @@
     <dimen name="menu_button_text_padding_left">22dp</dimen>
     <dimen name="menu_button_margin_bottom">7dp</dimen>
     <dimen name="menu_button_drawable_padding">15dp</dimen>
+
+    <!-- GameActivity dimension values -->
+    <dimen name="letter_button_text_size">45sp</dimen>
+
+    <dimen name="level_text_size">29sp</dimen>
+    <dimen name="level_text_margin_top">27dp</dimen>
+    <dimen name="level_text_margin_left">246dp</dimen>
+    <dimen name="score_text_size">29sp</dimen>
+    <dimen name="score_text_margin_top">30dp</dimen>
+    <dimen name="score_text_margin_left">240sp</dimen>
+
+    <dimen name="level_size">120sp</dimen>
+    <dimen name="level_margin_top">-22dp</dimen>
+    <dimen name="level_margin_right">70dp</dimen>
+    <dimen name="score_size">50sp</dimen>
+    <dimen name="score_margin_top">-42dp</dimen>
+    <dimen name="score_margin_right">70dp</dimen>
 </resources>
