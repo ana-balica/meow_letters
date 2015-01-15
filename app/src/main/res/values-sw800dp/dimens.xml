@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Large tablets 10" -->
+    <!-- Representative sample: Nexus 10 -->
+
+    <!-- Main layout dimension values -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="title">110sp</dimen>
+    <dimen name="menu_title_top_padding">100dp</dimen>
+    <dimen name="menu_title_bottom_padding">100dp</dimen>
+    <dimen name="menu_button_width">500dp</dimen>
+    <dimen name="menu_button_height">100dp</dimen>
+    <dimen name="menu_button_text">50sp</dimen>
+    <dimen name="menu_button_text_padding_left">40dp</dimen>
+    <dimen name="menu_button_margin_bottom">18dp</dimen>
+    <dimen name="menu_button_drawable_padding">34dp</dimen>
+
+    <!-- Game layout dimension values -->
+    <dimen name="progressbar_height">70dp</dimen>
+    <dimen name="game_grid_padding">4dp</dimen>
+    <dimen name="letter_button_text_size">100sp</dimen>
+
+    <dimen name="level_text_size">60sp</dimen>
+    <dimen name="level_text_margin_top">60dp</dimen>
+    <dimen name="level_text_margin_left">630dp</dimen>
+    <dimen name="score_text_size">60sp</dimen>
+    <dimen name="score_text_margin_top">54dp</dimen>
+    <dimen name="score_text_margin_left">616dp</dimen>
+
+    <dimen name="level_size">240sp</dimen>
+    <dimen name="level_margin_top">-36dp</dimen>
+    <dimen name="level_margin_right">135dp</dimen>
+    <dimen name="score_size">85sp</dimen>
+    <dimen name="score_margin_top">-70dp</dimen>
+    <dimen name="score_margin_right">135dp</dimen>
+</resources>
