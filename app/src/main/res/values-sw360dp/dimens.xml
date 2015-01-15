@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- MainActivity dimension values -->
-    <!-- Representative sample: Nexus 4, Nexus 5 -->
+    <!-- Representative sample: Nexus 4, Nexus 5, Nexus 6 -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="title">56sp</dimen>
@@ -19,10 +19,10 @@
 
     <dimen name="level_text_size">30sp</dimen>
     <dimen name="level_text_margin_top">30dp</dimen>
-    <dimen name="level_text_margin_left">293dp</dimen>
+    <dimen name="level_text_margin_left">292dp</dimen>
     <dimen name="score_text_size">30sp</dimen>
     <dimen name="score_text_margin_top">30dp</dimen>
-    <dimen name="score_text_margin_left">286sp</dimen>
+    <dimen name="score_text_margin_left">285sp</dimen>
 
     <dimen name="level_size">123sp</dimen>
     <dimen name="level_margin_top">-21dp</dimen>
