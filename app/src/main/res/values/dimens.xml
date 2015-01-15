@@ -17,6 +17,8 @@
     <dimen name="menu_button_drawable_padding">15dp</dimen>
 
     <!-- Game layout dimension values -->
+    <dimen name="progressbar_height">40dp</dimen>
+    <dimen name="game_grid_padding">2dp</dimen>
     <dimen name="letter_button_text_size">42sp</dimen>
 
     <dimen name="level_text_size">29sp</dimen>

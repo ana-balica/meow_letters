@@ -12,7 +12,7 @@
         android:id="@+id/timerBar"
         android:progressDrawable="@drawable/custom_progressbar"
         android:layout_width="match_parent"
-        android:layout_height="40dp" />
+        android:layout_height="@dimen/progressbar_height" />
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -75,7 +75,7 @@
         android:layout_width="fill_parent"
         android:layout_alignParentBottom="true"
         android:background="@color/pale_green"
-        android:padding="2dp"
+        android:padding="@dimen/game_grid_padding"
         custom:rowsCount="5">
 
         <anabalica.github.io.meowletters.customviews.CustomTableRow
