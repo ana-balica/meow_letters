@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Highresolution smartphones and phablets -->
-    <!-- Representative sample: Nexus 4, Nexus 5, Nexus 6 -->
+    <!-- Highresolution smartphones -->
+    <!-- Representative sample: Nexus 4, Nexus 5 -->
 
     <!-- Main layout dimension values -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
