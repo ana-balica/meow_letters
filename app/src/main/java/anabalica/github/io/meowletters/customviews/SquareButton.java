@@ -22,7 +22,7 @@ import anabalica.github.io.meowletters.R;
 public class SquareButton extends Button {
     public static final int THRESHOLD_TABLETS = 600;
     public static final int SMALL_MARGIN = 2;
-    public static final int AVERAGE_MARGIN = 4;
+    public static final int BIG_MARGIN = 4;
 
     private int margin;
     private Integer row;
@@ -71,11 +71,9 @@ public class SquareButton extends Button {
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         int dpWidth = Math.round(displayMetrics.widthPixels / displayMetrics.density);
 
-        int dpMargin = 0;
-        if (dpWidth < THRESHOLD_TABLETS) {
-            dpMargin = SMALL_MARGIN;
-        } else {
-            dpMargin = AVERAGE_MARGIN;
+        int dpMargin = SMALL_MARGIN;
+        if (dpWidth >= THRESHOLD_TABLETS) {
+            dpMargin = BIG_MARGIN;
         }
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dpMargin, getResources().getDisplayMetrics());
     }
