@@ -34,4 +34,9 @@
     <dimen name="score_size">62sp</dimen>
     <dimen name="score_margin_top">-50dp</dimen>
     <dimen name="score_margin_right">75dp</dimen>
+
+    <!-- GameOver layout dimension values -->
+    <dimen name="game_over_margin_bottom">130dp</dimen>
+    <dimen name="game_over_text_size">100sp</dimen>
+    <dimen name="new_game_button_margin">10dp</dimen>
 </resources>
