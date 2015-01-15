@@ -26,7 +26,7 @@
     <dimen name="level_text_margin_left">482dp</dimen>
     <dimen name="score_text_size">46sp</dimen>
     <dimen name="score_text_margin_top">42dp</dimen>
-    <dimen name="score_text_margin_left">473sp</dimen>
+    <dimen name="score_text_margin_left">473dp</dimen>
 
     <dimen name="level_size">176sp</dimen>
     <dimen name="level_margin_top">-33dp</dimen>
