@@ -39,6 +39,7 @@ public class GameActivity extends Activity {
     private long millisPenalty = 1000;
     private long timerMillisUntilFinished;
 
+    public final static String LEVEL = "anabalica.github.io.meowletters.level";
     public final static String SCORE = "anabalica.github.io.meowletters.score";
 
     private LetterGrid letterGrid;
@@ -353,6 +354,7 @@ public class GameActivity extends Activity {
                 Intent intent = new Intent(GameActivity.this, GameOverActivity.class);
                 String points = String.valueOf(score.getPoints());
                 intent.putExtra(SCORE, points);
+                intent.putExtra(LEVEL, String.valueOf(level.getLevel()));
                 GameActivity.this.startActivity(intent);
                 return;
             }

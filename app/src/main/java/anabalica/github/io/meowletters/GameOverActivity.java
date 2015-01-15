@@ -25,10 +25,13 @@ public class GameOverActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_over);
         Intent intent = getIntent();
+        String level = intent.getStringExtra(GameActivity.LEVEL);
         String score = intent.getStringExtra(GameActivity.SCORE);
 
+        TextView finalLevel = (TextView) findViewById(R.id.finalLevel);
         TextView finalScore = (TextView) findViewById(R.id.finalScore);
-        finalScore.setText("Score " + score);
+        finalLevel.setText(level);
+        finalScore.setText(score);
 
         int points = Integer.parseInt(score);
         insertNewHighscore(points);
