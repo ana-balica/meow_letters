@@ -51,6 +51,7 @@ public class GameOverActivity extends Activity {
      * Start a new game
      */
     public void startNewGame(View view) {
+        GameActivity.status = Status.RUN;
         Intent intent = new Intent(this, GameActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
