@@ -39,4 +39,11 @@
     <dimen name="game_over_margin_bottom">130dp</dimen>
     <dimen name="game_over_text_size">100sp</dimen>
     <dimen name="new_game_button_margin">10dp</dimen>
+
+    <!-- Settings, Highscores, Credits layout dimension values -->
+    <dimen name="title_text_size">64sp</dimen>
+    <dimen name="title_margin">34dp</dimen>
+
+    <!-- Settings layout dimension values -->
+    <dimen name="settings_margin_left_right">22dp</dimen>
 </resources>

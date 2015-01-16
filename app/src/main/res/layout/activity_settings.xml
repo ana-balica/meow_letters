@@ -11,6 +11,6 @@
     <ListView android:id="@android:id/list"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp" />
+        android:layout_marginLeft="@dimen/settings_margin_left_right"
+        android:layout_marginRight="@dimen/settings_margin_left_right" />
 </LinearLayout>
