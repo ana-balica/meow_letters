@@ -54,8 +54,8 @@ public class HighscoresDataSource {
      *
      * @return List of Highscore objects
      */
-    public List<Highscore> getTopComments() {
-        List<Highscore> highscores = new ArrayList<Highscore>();
+    public List<Highscore> getTopHighscores() {
+        List<Highscore> highscores = new ArrayList<>();
 
         String[] projection = {
                 HighscoresContract.HighscoreEntry.COLUMN_NAME_USERNAME,

@@ -36,7 +36,7 @@ public class HighscoresActivity extends Activity {
     private List<Highscore> getHighscores() {
         HighscoresDataSource dataSource = new HighscoresDataSource(this);
         dataSource.open();
-        List<Highscore> highscores = dataSource.getTopComments();
+        List<Highscore> highscores = dataSource.getTopHighscores();
         dataSource.close();
         return highscores;
     }
