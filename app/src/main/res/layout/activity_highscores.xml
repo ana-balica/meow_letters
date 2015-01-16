@@ -1,42 +1,30 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/highscores"
-        android:id="@+id/textView"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center_horizontal" />
+        style="@style/activity_title"
+        android:text="@string/highscores" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp">
+        android:layout_gravity="center_horizontal" >
 
         <TextView
+            style="@style/highscores_top_row"
             android:id="@+id/playerTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="@dimen/settings_margin_left_right"
             android:text="Player" />
 
         <TextView
+            style="@style/highscores_top_row"
             android:id="@+id/pointsTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="Points"
-            android:layout_marginBottom="10dp"
+            android:layout_marginRight="@dimen/settings_margin_left_right"
             android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentRight="true" />
 
         <RelativeLayout
             android:id="@+id/highscores"
@@ -44,165 +32,181 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/playerTextView">
 
-            <TextView
-                style="@style/highscores_player"
-                android:id="@+id/playerTop1"
+            <RelativeLayout
+                android:id="@+id/row1"
+                android:background="@color/beige"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="" />
+                android:paddingTop="@dimen/highscores_row_padding"
+                android:paddingBottom="@dimen/highscores_row_padding" >
 
-            <TextView
-                style="@style/highscores_points"
-                android:id="@+id/pointsTop1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="" />
+                <TextView
+                    style="@style/highscores_row"
+                    android:layout_alignParentLeft="true" />
 
-            <TextView
-                style="@style/highscores_player"
-                android:id="@+id/playerTop2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/playerTop1"
-                android:text="" />
+                <TextView
+                    style="@style/highscores_row"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
 
-            <TextView
-                style="@style/highscores_points"
-                android:id="@+id/pointsTop2"
+            <RelativeLayout
+                android:id="@+id/row2"
+                android:layout_below="@+id/row1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/pointsTop1"
-                android:text="" />
+                android:paddingTop="@dimen/highscores_row_padding"
+                android:paddingBottom="@dimen/highscores_row_padding" >
 
-            <TextView
-                style="@style/highscores_player"
-                android:id="@+id/playerTop3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/playerTop2"
-                android:text="" />
+                <TextView
+                    style="@style/highscores_row"
+                    android:layout_alignParentLeft="true" />
 
-            <TextView
-                style="@style/highscores_points"
-                android:id="@+id/pointsTop3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/pointsTop2"
-                android:text="" />
-            <TextView
-                style="@style/highscores_player"
-                android:id="@+id/playerTop4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/playerTop3"
-                android:text="" />
+                <TextView
+                    style="@style/highscores_row"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
 
-            <TextView
-                style="@style/highscores_points"
-                android:id="@+id/pointsTop4"
+            <RelativeLayout
+                android:id="@+id/row3"
+                android:layout_below="@+id/row2"
+                android:background="@color/beige"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/pointsTop3"
-                android:text="" />
+                android:paddingTop="@dimen/highscores_row_padding"
+                android:paddingBottom="@dimen/highscores_row_padding" >
 
-            <TextView
-                style="@style/highscores_player"
-                android:id="@+id/playerTop5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/playerTop4"
-                android:text="" />
+                <TextView
+                    style="@style/highscores_row"
+                    android:layout_alignParentLeft="true" />
 
-            <TextView
-                style="@style/highscores_points"
-                android:id="@+id/pointsTop5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/pointsTop4"
-                android:text="" />
+                <TextView
+                    style="@style/highscores_row"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
 
-            <TextView
-                style="@style/highscores_player"
-                android:id="@+id/playerTop6"
+            <RelativeLayout
+                android:id="@+id/row4"
+                android:layout_below="@+id/row3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/playerTop5"
-                android:text="" />
+                android:paddingTop="@dimen/highscores_row_padding"
+                android:paddingBottom="@dimen/highscores_row_padding" >
 
-            <TextView
-                style="@style/highscores_points"
-                android:id="@+id/pointsTop6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/pointsTop5"
-                android:text="" />
+                <TextView
+                    style="@style/highscores_row"
+                    android:layout_alignParentLeft="true" />
 
-            <TextView
-                style="@style/highscores_player"
-                android:id="@+id/playerTop7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/playerTop6"
-                android:text="" />
+                <TextView
+                    style="@style/highscores_row"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
 
-            <TextView
-                style="@style/highscores_points"
-                android:id="@+id/pointsTop7"
+            <RelativeLayout
+                android:id="@+id/row5"
+                android:layout_below="@+id/row4"
+                android:background="@color/beige"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/pointsTop6"
-                android:text="" />
+                android:paddingTop="@dimen/highscores_row_padding"
+                android:paddingBottom="@dimen/highscores_row_padding" >
 
-            <TextView
-                style="@style/highscores_player"
-                android:id="@+id/playerTop8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/playerTop7"
-                android:text="" />
+                <TextView
+                    style="@style/highscores_row"
+                    android:layout_alignParentLeft="true" />
 
-            <TextView
-                style="@style/highscores_points"
-                android:id="@+id/pointsTop8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/pointsTop7"
-                android:text="" />
+                <TextView
+                    style="@style/highscores_row"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
 
-            <TextView
-                style="@style/highscores_player"
-                android:id="@+id/playerTop9"
+            <RelativeLayout
+                android:id="@+id/row6"
+                android:layout_below="@+id/row5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/playerTop8"
-                android:text="" />
+                android:paddingTop="@dimen/highscores_row_padding"
+                android:paddingBottom="@dimen/highscores_row_padding" >
 
-            <TextView
-                style="@style/highscores_points"
-                android:id="@+id/pointsTop9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/pointsTop8"
-                android:text="" />
+                <TextView
+                    style="@style/highscores_row"
+                    android:layout_alignParentLeft="true" />
 
-            <TextView
-                style="@style/highscores_player"
-                android:id="@+id/playerTop10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/playerTop9"
-                android:text="" />
+                <TextView
+                    style="@style/highscores_row"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
 
-            <TextView
-                style="@style/highscores_points"
-                android:id="@+id/pointsTop10"
+            <RelativeLayout
+                android:id="@+id/row7"
+                android:layout_below="@+id/row6"
+                android:background="@color/beige"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/pointsTop9"
-                android:text="" />
+                android:paddingTop="@dimen/highscores_row_padding"
+                android:paddingBottom="@dimen/highscores_row_padding" >
+
+                <TextView
+                    style="@style/highscores_row"
+                    android:layout_alignParentLeft="true" />
+
+                <TextView
+                    style="@style/highscores_row"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/row8"
+                android:layout_below="@+id/row7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/highscores_row_padding"
+                android:paddingBottom="@dimen/highscores_row_padding" >
+
+                <TextView
+                    style="@style/highscores_row"
+                    android:layout_alignParentLeft="true" />
+
+                <TextView
+                    style="@style/highscores_row"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/row9"
+                android:layout_below="@+id/row8"
+                android:background="@color/beige"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/highscores_row_padding"
+                android:paddingBottom="@dimen/highscores_row_padding" >
+
+                <TextView
+                    style="@style/highscores_row"
+                    android:layout_alignParentLeft="true" />
+
+                <TextView
+                    style="@style/highscores_row"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/row10"
+                android:layout_below="@+id/row9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/highscores_row_padding"
+                android:paddingBottom="@dimen/highscores_row_padding" >
+
+                <TextView
+                    style="@style/highscores_row"
+                    android:layout_alignParentLeft="true" />
+
+                <TextView
+                    style="@style/highscores_row"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
         </RelativeLayout>
 
     </RelativeLayout>
-
 
 </LinearLayout>

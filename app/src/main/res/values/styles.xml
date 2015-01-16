@@ -41,11 +41,20 @@
         <item name="android:layout_margin">@dimen/title_margin</item>
     </style>
 
-    <style name="highscores_player">
-        <item name="android:layout_alignParentLeft">true</item>
+    <style name="highscores_top_row">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/emerald</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:layout_marginBottom">10dp</item>
     </style>
 
-    <style name="highscores_points">
-        <item name="android:layout_alignParentRight">true</item>
+    <style name="highscores_row">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:paddingLeft">@dimen/settings_margin_left_right</item>
+        <item name="android:paddingRight">@dimen/settings_margin_left_right</item>
+        <item name="android:textSize">20sp</item>
     </style>
 </resources>

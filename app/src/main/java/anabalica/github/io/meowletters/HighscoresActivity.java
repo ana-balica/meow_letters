@@ -48,18 +48,17 @@ public class HighscoresActivity extends Activity {
      */
     private void displayHighscores(List<Highscore> highscores) {
         RelativeLayout highscoresLayout = (RelativeLayout) findViewById(R.id.highscores);
-        int childrenCount = highscores.size() * 2;
-        int highscoreCounter = 0;
+        int containerCounter = 0;
 
-        for (int i = 0; i < childrenCount; i += 2) {
-            TextView playerTextView = (TextView) highscoresLayout.getChildAt(i);
-            TextView scoreTextView = (TextView) highscoresLayout.getChildAt(i + 1);
-            Highscore highscore = highscores.get(highscoreCounter);
+        for (Highscore highscore: highscores) {
+            RelativeLayout container = (RelativeLayout) highscoresLayout.getChildAt(containerCounter);
+            TextView playerTextView = (TextView) container.getChildAt(0);
+            TextView scoreTextView = (TextView) container.getChildAt(1);
 
-            String username = String.valueOf(highscoreCounter + 1) + ". " + highscore.getUsername();
+            String username = highscore.getUsername();
             playerTextView.setText(username);
             scoreTextView.setText(String.valueOf(highscore.getScore()));
-            highscoreCounter++;
+            containerCounter++;
         }
     }
 }
