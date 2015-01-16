@@ -1,5 +1,4 @@
 <resources>
-
     <style name="menu_button">
         <item name="android:background">@drawable/menu_button</item>
         <item name="android:layout_width">@dimen/menu_button_width</item>
@@ -29,6 +28,17 @@
         <item name="android:textSize">@dimen/letter_button_text_size</item>
         <item name="android:gravity">center</item>
         <item name="android:onClick">selectLetter</item>
+    </style>
+
+    <style name="activity_title">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/red</item>
+        <item name="android:textSize">54sp</item>
+        <item name="android:fontFamily">sans-serif-bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_margin">30dp</item>
     </style>
 
     <style name="highscores_player">
