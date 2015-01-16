@@ -46,4 +46,10 @@
 
     <!-- Settings layout dimension values -->
     <dimen name="settings_margin_left_right">22dp</dimen>
+
+    <!-- Highscores layout dimension values -->
+    <dimen name="highscores_row_padding">6dp</dimen>
+    <dimen name="highscores_top_row_text_size">26sp</dimen>
+    <dimen name="highscores_top_row_margin_bottom">12dp</dimen>
+    <dimen name="highscores_row_text_size">22sp</dimen>
 </resources>
