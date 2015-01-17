@@ -5,7 +5,7 @@
         android:title="@string/pref_nickname"
         android:defaultValue="" />
 
-    <ListPreference
+    <anabalica.github.io.meowletters.custompreferences.ListPreferenceCompat
         android:key="pref_alphabet"
         android:title="@string/pref_alphabet"
         android:summary="%s"
