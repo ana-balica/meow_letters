@@ -77,12 +77,14 @@ public class HighscoresDataSource {
         int scoreIndex = c.getColumnIndex(HighscoresContract.HighscoreEntry.COLUMN_NAME_SCORE);
 
         c.moveToFirst();
-        do {
-            String username = c.getString(usernameIndex);
-            int score = c.getInt(scoreIndex);
-            Highscore highscore = new Highscore(username, score);
-            highscores.add(highscore);
-        } while (c.moveToNext());
+        if (c.getCount() != 0) {
+            do {
+                String username = c.getString(usernameIndex);
+                int score = c.getInt(scoreIndex);
+                Highscore highscore = new Highscore(username, score);
+                highscores.add(highscore);
+            } while (c.moveToNext());
+        }
 
         return highscores;
     }
