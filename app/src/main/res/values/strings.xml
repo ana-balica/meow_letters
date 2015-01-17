@@ -29,7 +29,7 @@
     <string name="pref_nickname">Change nickname</string>
     <string name="pref_alphabet">Alphabet</string>
     <string name="pref_alphabet_dialog_title">Choose alphabet</string>
-    <string name="default_alphabet">English</string>
+    <string name="default_alphabet">ENGLISH</string>
     <string name="pref_sound">Sounds</string>
 
     <!-- Credits Activity string resources -->
