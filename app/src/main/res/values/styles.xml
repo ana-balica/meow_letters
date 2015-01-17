@@ -57,4 +57,14 @@
         <item name="android:paddingRight">@dimen/settings_margin_left_right</item>
         <item name="android:textSize">@dimen/highscores_row_text_size</item>
     </style>
+
+    <style name="credits_entry">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/dark_grey</item>
+        <item name="android:textColorLink">@color/emerald</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+        <item name="android:layout_marginTop">15dp</item>
+    </style>
 </resources>

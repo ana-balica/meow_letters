@@ -32,14 +32,16 @@
     <string name="default_alphabet">English</string>
     <string name="pref_sound">Sounds</string>
 
-    <!-- About Activity string resources -->
+    <!-- Credits Activity string resources -->
     <string name="title_activity_about">AboutActivity</string>
-    <string name="about_title">About</string>
-    <string name="about_short_description">Meow Letters is an open source game created for children to learn the alphabet in a fun way.</string>
-    <string name="about_licence">Licenced used MIT</string>
-    <string name="about_github_url">github.com/ana-balica/meow_letters</string>
-    <string name="about_author">Ana Balica</string>
-    <string name="about_author_email">ana.balica@gmail.com</string>
+    <!-- HTML formatted strings -->
+    <string name="app_license"><![CDATA[App created by <a href="http://ana-balica.github.io/">Ana Balica</a>, licensed under <a href="https://github.com/ana-balica/meow_letters/blob/master/LICENSE">MIT</a>.]]></string>
+    <string name="freepik_license"><![CDATA[Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a>, <a href="http://tutsplus.com">TutsPlus</a> from <a href="http://www.flaticon.com">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>.]]></string>
+    <string name="font_license"><![CDATA[<a href="http://www.fontsquirrel.com/fonts/pacifico">Pacifico</a> font by Vernon Adams, icensed under <a href="http://scripts.sil.org/OFL">SIL Open Font License v1.10</a>.]]></string>
+    <!-- Short dummy strings -->
+    <string name="dummy_app_license">App created by Ana Balica licensed under MIT.</string>
+    <string name="dummy_freepik_license">Icons made by Freepic, TutsPlus from www.flaticon.com is licensed by Creative Commons BY 3.0.</string>
+    <string name="dummy_font_license">Pacifico font by Vernon Adams, licenced under SIL Open Font License v1.10.</string>
 
     <!-- Game Over Activity string resources -->
     <string name="title_activity_game_over">GameOver</string>
