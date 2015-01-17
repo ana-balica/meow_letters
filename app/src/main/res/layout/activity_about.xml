@@ -3,7 +3,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    android:padding="@dimen/credits_padding">
+    android:paddingRight="@dimen/credits_padding"
+    android:paddingLeft="@dimen/credits_padding">
 
     <TextView
         style="@style/activity_title"
