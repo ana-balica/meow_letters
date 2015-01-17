@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_margin="20dp">
+    android:layout_margin="@dimen/credits_margin">
 
     <TextView
         style="@style/activity_title"
@@ -15,7 +15,7 @@
 
     <View
         android:layout_width="fill_parent"
-        android:layout_height="4dp"
+        android:layout_height="@dimen/credits_delimiter_height"
         android:background="@color/pale_green" />
 
     <TextView
@@ -25,7 +25,7 @@
 
     <View
         android:layout_width="fill_parent"
-        android:layout_height="4dp"
+        android:layout_height="@dimen/credits_delimiter_height"
         android:background="@color/pale_green" />
 
     <TextView
