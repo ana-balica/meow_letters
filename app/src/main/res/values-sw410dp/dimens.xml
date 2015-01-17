@@ -54,7 +54,7 @@
     <dimen name="highscores_row_text_size">22sp</dimen>
 
     <!-- Credits layout dimension values -->
-    <dimen name="credits_margin">24dp</dimen>
+    <dimen name="credits_padding">24dp</dimen>
     <dimen name="credits_text_size">26sp</dimen>
     <dimen name="credits_entry_margin_top_bottom">15dp</dimen>
     <dimen name="credits_delimiter_height">4dp</dimen>
