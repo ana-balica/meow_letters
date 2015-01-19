@@ -5,15 +5,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Typeface;
-import android.media.AudioManager;
-import android.media.SoundPool;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.squareup.otto.Bus;
+
+import anabalica.github.io.meowletters.utils.SoundManager;
 import anabalica.github.io.meowletters.utils.Status;
 
 
@@ -25,22 +25,13 @@ import anabalica.github.io.meowletters.utils.Status;
  * @author Ana Balica
  */
 public class MainActivity extends Activity {
-    SoundPool soundPool;
-    int menuButtonSoundId;
+    static Bus bus = new Bus();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // Initialize the sound pool
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            soundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
-        } else {
-            SoundPool.Builder soundPoolBuilder = new SoundPool.Builder();
-            soundPool = soundPoolBuilder.build();
-        }
-        menuButtonSoundId = soundPool.load(this, R.raw.menu_click, 1);
+        bus.register(new SoundManager(this));
 
         // Set custom font
         TextView title = (TextView) findViewById(R.id.title);
@@ -70,7 +61,7 @@ public class MainActivity extends Activity {
      * Continue previous game
      */
     public void resumeGame(View view) {
-        soundPool.play(menuButtonSoundId, 1, 1, 0, 0, 1);
+        bus.post(SoundManager.MENU_BUTTON_SOUND);
         GameActivity.status = Status.RESUME;
         Intent intent = new Intent(this, GameActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
@@ -81,7 +72,7 @@ public class MainActivity extends Activity {
      * Start a new game
      */
     public void startNewGame(View view) {
-        soundPool.play(menuButtonSoundId, 1, 1, 0, 0, 1);
+        bus.post(SoundManager.MENU_BUTTON_SOUND);
         GameActivity.status = Status.RUN;
         Intent intent = new Intent(this, GameActivity.class);
         this.startActivity(intent);
@@ -91,7 +82,7 @@ public class MainActivity extends Activity {
      * Start game settings activity
      */
     public void startSettings(View view) {
-        soundPool.play(menuButtonSoundId, 1, 1, 0, 0, 1);
+        bus.post(SoundManager.MENU_BUTTON_SOUND);
         Intent intent = new Intent(this, SettingsActivity.class);
         this.startActivity(intent);
     }
@@ -100,7 +91,7 @@ public class MainActivity extends Activity {
      * Start highscores activity
      */
     public void startHighscores(View view) {
-        soundPool.play(menuButtonSoundId, 1, 1, 0, 0, 1);
+        bus.post(SoundManager.MENU_BUTTON_SOUND);
         Intent intent = new Intent(this, HighscoresActivity.class);
         this.startActivity(intent);
     }
@@ -109,7 +100,7 @@ public class MainActivity extends Activity {
      * Start about activity
      */
     public void startAbout(View view) {
-        soundPool.play(menuButtonSoundId, 1, 1, 0, 0, 1);
+        bus.post(SoundManager.MENU_BUTTON_SOUND);
         Intent intent = new Intent(this, AboutActivity.class);
         this.startActivity(intent);
     }
@@ -121,7 +112,7 @@ public class MainActivity extends Activity {
         Button continue_button = (Button) findViewById(R.id.continue_game_button);
         if (GameActivity.status == Status.PAUSE) {
             continue_button.setVisibility(View.VISIBLE);
-            soundPool.play(menuButtonSoundId, 1, 1, 0, 0, 1);
+            bus.post(SoundManager.MENU_BUTTON_SOUND);
         } else {
             continue_button.setVisibility(View.GONE);
         }

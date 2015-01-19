@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import anabalica.github.io.meowletters.storage.HighscoresDataSource;
+import anabalica.github.io.meowletters.utils.SoundManager;
 import anabalica.github.io.meowletters.utils.Status;
 
 
@@ -41,6 +42,7 @@ public class GameOverActivity extends Activity {
      * Launch menu on 'Back' press
      */
     public void onBackPressed() {
+        MainActivity.bus.post(SoundManager.MENU_BUTTON_SOUND);
         GameActivity.status = Status.STOP;
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -51,6 +53,7 @@ public class GameOverActivity extends Activity {
      * Start a new game
      */
     public void startNewGame(View view) {
+        MainActivity.bus.post(SoundManager.MENU_BUTTON_SOUND);
         GameActivity.status = Status.RUN;
         Intent intent = new Intent(this, GameActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
