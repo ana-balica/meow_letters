@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -198,8 +200,24 @@ public class GameActivity extends Activity {
                 }
             } else {
                 deselectLetterButtons(selectedLetterChain);
+                shakeLetterButtons(selectedLetterChain);
                 penalty = true;
             }
+        }
+    }
+
+    /**
+     * Create shake/wobble animation for letters on the grid.
+     *
+     * @param letterChain LetterChain object
+     */
+    private void shakeLetterButtons(LetterChain letterChain) {
+        for (Letter letter: letterChain) {
+            int row = letter.getPosition().getRow();
+            int column = letter.getPosition().getColumn();
+            Button button = (Button) findViewById(letterButtons[row][column]);
+            Animation shakeAnimation = AnimationUtils.loadAnimation(this, R.anim.shake);
+            button.startAnimation(shakeAnimation);
         }
     }
 
