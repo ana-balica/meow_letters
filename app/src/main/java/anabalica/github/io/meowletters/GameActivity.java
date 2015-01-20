@@ -238,9 +238,10 @@ public class GameActivity extends Activity {
      */
     private void deselectLetterButtons(LetterChain chain) {
         for (Letter letter : chain) {
-            letter.deselect();
             int row = letter.getPosition().getRow();
             int column = letter.getPosition().getColumn();
+            letter.deselect();
+            letterGrid.getLetter(row, column).deselect();
 
             Button button = (Button) findViewById(letterButtons[row][column]);
             button.setTextColor(getResources().getColor(R.color.red));
@@ -272,7 +273,13 @@ public class GameActivity extends Activity {
     private void drawLetterButton(Letter letter, int row, int column) {
         Button button = (Button) findViewById(letterButtons[row][column]);
         button.setText(letter.getLetter());
-        button.setTextColor(getResources().getColor(R.color.red));
+        if (letter.isSelected()) {
+            button.setBackground(getResources().getDrawable(R.drawable.letter_button_selected));
+            button.setTextColor(getResources().getColor(R.color.beige));
+        } else {
+            button.setBackground(getResources().getDrawable(R.drawable.letter_button_unselected));
+            button.setTextColor(getResources().getColor(R.color.red));
+        }
     }
 
     /**
