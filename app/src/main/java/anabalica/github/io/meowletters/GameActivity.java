@@ -161,6 +161,12 @@ public class GameActivity extends Activity {
         super.onResume();
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
+    }
+
     /**
      * Select a letter from the grid add it to the letter chain and
      * display it on the grid.
@@ -359,6 +365,7 @@ public class GameActivity extends Activity {
                 intent.putExtra(SCORE, points);
                 intent.putExtra(LEVEL, String.valueOf(level.getLevel()));
                 GameActivity.this.startActivity(intent);
+                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
                 return;
             }
 

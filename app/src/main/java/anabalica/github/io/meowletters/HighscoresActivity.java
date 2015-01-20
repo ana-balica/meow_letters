@@ -28,6 +28,12 @@ public class HighscoresActivity extends Activity {
         displayHighscores(highscores);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
+    }
+
     /**
      * Retrieve highscores from the highscores table
      *

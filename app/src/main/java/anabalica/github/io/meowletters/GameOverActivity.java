@@ -47,6 +47,7 @@ public class GameOverActivity extends Activity {
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         this.startActivity(intent);
+        overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
     }
 
     /**
@@ -59,6 +60,7 @@ public class GameOverActivity extends Activity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         this.startActivity(intent);
+        overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
     }
 
     /**

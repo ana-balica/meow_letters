@@ -66,6 +66,7 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(this, GameActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         this.startActivity(intent);
+        overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
     }
 
     /**
@@ -76,6 +77,7 @@ public class MainActivity extends Activity {
         GameActivity.status = Status.RUN;
         Intent intent = new Intent(this, GameActivity.class);
         this.startActivity(intent);
+        overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
     }
 
     /**
@@ -85,6 +87,7 @@ public class MainActivity extends Activity {
         bus.post(SoundManager.MENU_BUTTON_SOUND);
         Intent intent = new Intent(this, SettingsActivity.class);
         this.startActivity(intent);
+        overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
     }
 
     /**
@@ -94,6 +97,7 @@ public class MainActivity extends Activity {
         bus.post(SoundManager.MENU_BUTTON_SOUND);
         Intent intent = new Intent(this, HighscoresActivity.class);
         this.startActivity(intent);
+        overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
     }
 
     /**
@@ -103,6 +107,7 @@ public class MainActivity extends Activity {
         bus.post(SoundManager.MENU_BUTTON_SOUND);
         Intent intent = new Intent(this, AboutActivity.class);
         this.startActivity(intent);
+        overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
     }
 
     /**
