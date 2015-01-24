@@ -19,8 +19,8 @@ public class AlphabetTest extends TestCase {
         }
 
         assertEquals(Alphabet.getCurrent(), Alphabet.ENGLISH);
-        Alphabet.setCurrent(Alphabet.ROMANIAN);
-        assertEquals(Alphabet.getCurrent(), Alphabet.ROMANIAN);
+        Alphabet.setCurrent(Alphabet.RUSSIAN);
+        assertEquals(Alphabet.getCurrent(), Alphabet.RUSSIAN);
         Alphabet.setCurrent(Alphabet.ENGLISH);
         assertEquals(Alphabet.getCurrent(), Alphabet.ENGLISH);
     }

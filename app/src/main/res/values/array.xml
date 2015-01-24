@@ -2,12 +2,12 @@
 <resources>
     <array name="alphabet_entries">
         <item>English</item>
-        <item>Romanian</item>
+        <item>Russian</item>
     </array>
 
     <array name="alphabet_values">
         <item>ENGLISH</item>
-        <item>ROMANIAN</item>
+        <item>RUSSIAN</item>
     </array>
 
     <array name="nicknames">

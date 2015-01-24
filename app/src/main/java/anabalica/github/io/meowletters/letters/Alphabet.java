@@ -11,14 +11,14 @@ import java.util.HashMap;
 public class Alphabet {
     // Game alphabets
     public static final String ENGLISH = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    public static final String ROMANIAN = "AĂÂBCDEFGHIÎJKLMNOPQRSŞTŢUVWXYZ";
+    public static final String RUSSIAN = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
 
     // All available alphabets
     private static final HashMap<String, String> alphabets;
     static {
         alphabets = new HashMap<>();
         alphabets.put("ENGLISH", ENGLISH);
-        alphabets.put("ROMANIAN", ROMANIAN);
+        alphabets.put("RUSSIAN", RUSSIAN);
     }
 
     // Currently active/enabled alphabet
