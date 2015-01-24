@@ -25,13 +25,10 @@ import anabalica.github.io.meowletters.utils.Status;
  * @author Ana Balica
  */
 public class MainActivity extends Activity {
-    static Bus bus = new Bus();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        bus.register(new SoundManager(this));
 
         // Set custom font
         TextView title = (TextView) findViewById(R.id.title);
@@ -61,7 +58,7 @@ public class MainActivity extends Activity {
      * Continue previous game
      */
     public void resumeGame(View view) {
-        bus.post(SoundManager.MENU_BUTTON_SOUND);
+        SplashActivity.bus.post(SoundManager.MENU_BUTTON_SOUND);
         GameActivity.status = Status.RESUME;
         Intent intent = new Intent(this, GameActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
@@ -73,7 +70,7 @@ public class MainActivity extends Activity {
      * Start a new game
      */
     public void startNewGame(View view) {
-        bus.post(SoundManager.MENU_BUTTON_SOUND);
+        SplashActivity.bus.post(SoundManager.MENU_BUTTON_SOUND);
         GameActivity.status = Status.RUN;
         Intent intent = new Intent(this, GameActivity.class);
         this.startActivity(intent);
@@ -84,7 +81,7 @@ public class MainActivity extends Activity {
      * Start game settings activity
      */
     public void startSettings(View view) {
-        bus.post(SoundManager.MENU_BUTTON_SOUND);
+        SplashActivity.bus.post(SoundManager.MENU_BUTTON_SOUND);
         Intent intent = new Intent(this, SettingsActivity.class);
         this.startActivity(intent);
         overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
@@ -94,7 +91,7 @@ public class MainActivity extends Activity {
      * Start highscores activity
      */
     public void startHighscores(View view) {
-        bus.post(SoundManager.MENU_BUTTON_SOUND);
+        SplashActivity.bus.post(SoundManager.MENU_BUTTON_SOUND);
         Intent intent = new Intent(this, HighscoresActivity.class);
         this.startActivity(intent);
         overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
@@ -104,7 +101,7 @@ public class MainActivity extends Activity {
      * Start about activity
      */
     public void startAbout(View view) {
-        bus.post(SoundManager.MENU_BUTTON_SOUND);
+        SplashActivity.bus.post(SoundManager.MENU_BUTTON_SOUND);
         Intent intent = new Intent(this, AboutActivity.class);
         this.startActivity(intent);
         overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
@@ -117,7 +114,7 @@ public class MainActivity extends Activity {
         Button continue_button = (Button) findViewById(R.id.continue_game_button);
         if (GameActivity.status == Status.PAUSE) {
             continue_button.setVisibility(View.VISIBLE);
-            bus.post(SoundManager.MENU_BUTTON_SOUND);
+            SplashActivity.bus.post(SoundManager.MENU_BUTTON_SOUND);
         } else {
             continue_button.setVisibility(View.GONE);
         }

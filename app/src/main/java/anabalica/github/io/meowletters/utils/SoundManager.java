@@ -1,6 +1,8 @@
 package anabalica.github.io.meowletters.utils;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.media.SoundPool;
@@ -10,22 +12,27 @@ import android.util.Log;
 
 import com.squareup.otto.Subscribe;
 
+import anabalica.github.io.meowletters.MainActivity;
 import anabalica.github.io.meowletters.R;
 import anabalica.github.io.meowletters.SettingsActivity;
 
 /**
- * Cla
+ * Class that manages loading sounds and playing them.
  *
  * @author Ana Balica
  */
 public class SoundManager {
-    SoundPool soundPool;
-    int menuButtonSoundId;
-    int letterButtonSoundId;
-    int penaltySoundId;
-    int timerOutSoundId;
-    int gameOverSoundId;
+    private SoundPool soundPool;
+    private int menuButtonSoundId;
+    private int letterButtonSoundId;
+    private int penaltySoundId;
+    private int timerOutSoundId;
+    private int gameOverSoundId;
 
+    private int soundsCount = 5;
+    private int soundsLoaded = 0;
+
+    public final static String SOUND_LOADED = "anabalica.github.io.meowletter.sound_loaded";
     public final static String MENU_BUTTON_SOUND = "anabalica.github.io.meowletters.menu_button_sound";
     public final static String LETTER_SOUND = "anabalica.github.io.meowletters.letter_sound";
     public final static String PENALTY_SOUND = "anabalica.github.io.meowletters.penalty_sound";
@@ -34,7 +41,7 @@ public class SoundManager {
 
     SharedPreferences sharedPrefs;
 
-    public SoundManager(Context context) {
+    public SoundManager(final Context context) {
         // Initialize the sound pool
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             soundPool = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
@@ -49,6 +56,20 @@ public class SoundManager {
         timerOutSoundId = soundPool.load(context, R.raw.timer_out, 1);
         gameOverSoundId = soundPool.load(context, R.raw.game_over, 1);
         penaltySoundId = soundPool.load(context, R.raw.penalty, 1);
+
+        soundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
+            @Override
+            public void onLoadComplete(SoundPool innerSoundPool, int sampleId, int status) {
+                soundsLoaded++;
+                if (soundsLoaded == soundsCount) {
+                    // start MainActivity
+                    Intent mainIntent = new Intent(context, MainActivity.class);
+                    Activity activity = (Activity) context;
+                    activity.startActivity(mainIntent);
+                    activity.overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
+                }
+            }
+        });
 
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
     }

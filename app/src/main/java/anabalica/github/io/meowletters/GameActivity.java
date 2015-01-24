@@ -181,7 +181,7 @@ public class GameActivity extends Activity {
 
         // select/deselect letter(s)
         if (letter != null) {
-            MainActivity.bus.post(SoundManager.LETTER_SOUND);
+            SplashActivity.bus.post(SoundManager.LETTER_SOUND);
             if (letter.isSelected()) {
                 LetterChain removedLetters = selectedLetterChain.remove(letter);
                 deselectLetterButtons(removedLetters);
@@ -384,7 +384,7 @@ public class GameActivity extends Activity {
 
             // check if game over
             if (letterGrid.getEmptyCellsCount() == 0) {
-                MainActivity.bus.post(SoundManager.GAME_OVER_SOUND);
+                SplashActivity.bus.post(SoundManager.GAME_OVER_SOUND);
                 Intent intent = new Intent(GameActivity.this, GameOverActivity.class);
                 String points = String.valueOf(score.getPoints());
                 intent.putExtra(SCORE, points);
@@ -396,7 +396,7 @@ public class GameActivity extends Activity {
 
             selectedLetterChain.clear();
             addLetterChain();
-            MainActivity.bus.post(SoundManager.TIMER_OUT_SOUND);
+            SplashActivity.bus.post(SoundManager.TIMER_OUT_SOUND);
 
             // reset the timer
             timerBar.setProgress(millisReset);
@@ -431,7 +431,7 @@ public class GameActivity extends Activity {
          * @param millisUntilFinished long amount of milliseconds until timer finishes
          */
         private void addPenalty(long millisUntilFinished) {
-            MainActivity.bus.post(SoundManager.PENALTY_SOUND);
+            SplashActivity.bus.post(SoundManager.PENALTY_SOUND);
             millisUntilFinished -= millisPenalty;
             if (millisUntilFinished < 0) {
                 timer.onFinish();
