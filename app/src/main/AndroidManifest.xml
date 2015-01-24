@@ -8,8 +8,8 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen" >
         <activity
-            android:name="anabalica.github.io.meowletters.MainActivity"
-            android:label="@string/app_name"
+            android:name=".SplashActivity"
+            android:label="@string/title_activity_splash"
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,8 +17,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name="anabalica.github.io.meowletters.GameActivity"
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="anabalica.github.io.meowletters.SplashActivity" />
+        </activity>
+        <activity
+            android:name=".GameActivity"
             android:label="@string/title_activity_game"
             android:parentActivityName="anabalica.github.io.meowletters.MainActivity"
             android:screenOrientation="portrait" >
@@ -27,36 +36,36 @@
                 android:value="anabalica.github.io.meowletters.MainActivity" />
         </activity>
         <activity
-            android:name="anabalica.github.io.meowletters.SettingsActivity"
+            android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName="anabalica.github.io.meowletters.MainActivity"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="anabalica.github.io.meowletters.MainActivity" />
         </activity>
         <activity
-            android:name="anabalica.github.io.meowletters.HighscoresActivity"
+            android:name=".HighscoresActivity"
             android:label="@string/title_activity_highscores"
-            android:parentActivityName="anabalica.github.io.meowletters.MainActivity"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="anabalica.github.io.meowletters.MainActivity" />
         </activity>
         <activity
-            android:name="anabalica.github.io.meowletters.AboutActivity"
+            android:name=".AboutActivity"
             android:label="@string/title_activity_about"
-            android:parentActivityName="anabalica.github.io.meowletters.MainActivity"
+            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="anabalica.github.io.meowletters.MainActivity" />
         </activity>
         <activity
-            android:name="anabalica.github.io.meowletters.GameOverActivity"
+            android:name=".GameOverActivity"
             android:label="@string/title_activity_game_over"
-            android:parentActivityName="anabalica.github.io.meowletters.MainActivity" >
+            android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="anabalica.github.io.meowletters.MainActivity" />

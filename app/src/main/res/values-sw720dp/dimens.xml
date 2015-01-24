@@ -3,6 +3,9 @@
     <!-- Large tablets 9" -->
     <!-- Representative sample: Nexus 9 -->
 
+    <!-- Splash Layout dimension values -->
+    <dimen name="logo_margin_top">240dp</dimen>
+
     <!-- Main layout dimension values -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>

@@ -3,6 +3,9 @@
     <!-- Highresolution smartphones -->
     <!-- Representative sample: Nexus 4, Nexus 5 -->
 
+    <!-- Splash Layout dimension values -->
+    <dimen name="logo_margin_top">150dp</dimen>
+
     <!-- Main layout dimension values -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>

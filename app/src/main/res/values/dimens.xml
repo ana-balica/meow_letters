@@ -3,6 +3,9 @@
     <!-- Smaller smartphones -->
     <!-- Representative sample: Nexus One, Nexus S -->
 
+    <!-- Splash Layout dimension values -->
+    <dimen name="logo_margin_top">120dp</dimen>
+
     <!-- Main Layout dimension values -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
