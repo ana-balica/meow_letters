@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="menu_button">
         <item name="android:background">@drawable/menu_button</item>
