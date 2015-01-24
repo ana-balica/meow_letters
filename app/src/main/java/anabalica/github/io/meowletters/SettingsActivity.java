@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 
 import anabalica.github.io.meowletters.letters.Alphabet;
+import anabalica.github.io.meowletters.utils.Status;
 
 
 /**
@@ -49,5 +50,6 @@ public class SettingsActivity extends Activity {
     public void onBackPressed() {
         super.onBackPressed();
         overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
+        GameActivity.status = Status.STOP;
     }
 }
