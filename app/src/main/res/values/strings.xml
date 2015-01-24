@@ -4,9 +4,6 @@
     <string name="app_name">Meow Letters</string>
     <string name="action_settings">Settings</string>
 
-    <!-- Splash Activity string resources -->
-    <string name="title_activity_splash">SplashActivity</string>
-
     <!-- Main Activity string resources -->
     <string name="title_activity_main">MainActivity</string>
     <string name="resume_game">Resume</string>
