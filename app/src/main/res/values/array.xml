@@ -2,12 +2,18 @@
 <resources>
     <array name="alphabet_entries">
         <item>English</item>
+        <item>Greek</item>
         <item>Russian</item>
+        <item>Turkish</item>
+        <item>Ukrainian</item>
     </array>
 
     <array name="alphabet_values">
         <item>ENGLISH</item>
+        <item>GREEK</item>
         <item>RUSSIAN</item>
+        <item>TURKISH</item>
+        <item>UKRAINIAN</item>
     </array>
 
     <array name="nicknames">

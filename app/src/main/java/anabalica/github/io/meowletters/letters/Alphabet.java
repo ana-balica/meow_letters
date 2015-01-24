@@ -12,6 +12,10 @@ public class Alphabet {
     // Game alphabets
     public static final String ENGLISH = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     public static final String RUSSIAN = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
+    public static final String UKRAINIAN = "АБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ";
+    public static final String TURKISH = "ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZ";
+    public static final String GREEK = "ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ";
+
 
     // All available alphabets
     private static final HashMap<String, String> alphabets;
@@ -19,6 +23,9 @@ public class Alphabet {
         alphabets = new HashMap<>();
         alphabets.put("ENGLISH", ENGLISH);
         alphabets.put("RUSSIAN", RUSSIAN);
+        alphabets.put("UKRAINIAN", UKRAINIAN);
+        alphabets.put("TURKISH", TURKISH);
+        alphabets.put("GREEK", GREEK);
     }
 
     // Currently active/enabled alphabet
