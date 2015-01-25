@@ -11,8 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.squareup.otto.Bus;
-
 import anabalica.github.io.meowletters.utils.SoundManager;
 import anabalica.github.io.meowletters.utils.Status;
 
