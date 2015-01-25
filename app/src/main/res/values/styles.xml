@@ -68,4 +68,21 @@
         <item name="android:layout_marginBottom">@dimen/credits_entry_margin_top_bottom</item>
         <item name="android:layout_marginTop">@dimen/credits_entry_margin_top_bottom</item>
     </style>
+
+    <style name="CustomShowcaseTheme" parent="ShowcaseView.Light">
+        <item name="sv_backgroundColor">@color/tinted_grey</item>
+        <item name="sv_showcaseColor">@color/red</item>
+        <item name="sv_buttonText">@string/showcase_button_text</item>
+        <item name="sv_tintButtonColor">false</item>
+        <item name="sv_detailTextAppearance">@style/DetailTextAppearance</item>
+    </style>
+
+    <style name="FinalCustomShowcaseTheme" parent="CustomShowcaseTheme">
+        <item name="sv_buttonText">@string/showcase_button_text_final</item>
+    </style>
+
+    <style name="DetailTextAppearance" parent="TextAppearance.ShowcaseView.Detail.Light">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">@dimen/credits_text_size</item>
+    </style>
 </resources>

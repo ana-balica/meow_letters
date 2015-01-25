@@ -10,4 +10,5 @@
     <color name="golden">#F3B034</color>
     <color name="pale_golden">#F7C98D</color>
     <color name="beige">#FAEADE</color>
+    <color name="tinted_grey">#9a404141</color>
 </resources>

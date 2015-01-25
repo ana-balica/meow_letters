@@ -5,12 +5,18 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.github.amlcurran.showcaseview.OnShowcaseEventListener;
+import com.github.amlcurran.showcaseview.ShowcaseView;
+import com.github.amlcurran.showcaseview.targets.ViewTarget;
 
 import anabalica.github.io.meowletters.customviews.SquareButton;
 import anabalica.github.io.meowletters.letters.Letter;
@@ -29,7 +35,7 @@ import anabalica.github.io.meowletters.utils.State;
  *
  * @author Ana Balica
  */
-public class GameActivity extends Activity {
+public class GameActivity extends Activity implements OnShowcaseEventListener, AdapterView.OnItemClickListener {
     public static final int gridRows = 5;
     public static final int gridColumns = 5;
     private ProgressBar timerBar;
@@ -44,9 +50,11 @@ public class GameActivity extends Activity {
 
     public final static String LEVEL = "anabalica.github.io.meowletters.level";
     public final static String SCORE = "anabalica.github.io.meowletters.score";
+    public final static String FIRST_LAUNCH = "first_launch";
 
     private LetterGrid letterGrid;
     private LetterChain selectedLetterChain = new LetterChain();
+    private LetterChain firstLetterChain;
 
     private Score score = new Score();
     private Level level = new Level();
@@ -62,6 +70,9 @@ public class GameActivity extends Activity {
             {R.id.letter_button_40, R.id.letter_button_41, R.id.letter_button_42, R.id.letter_button_43, R.id.letter_button_44}};
 
     public static Status status = Status.RUN;
+    private Boolean firstLaunch;
+    private ShowcaseView nextShowcaseView;
+    private static int showcaseViewCounter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,15 +113,135 @@ public class GameActivity extends Activity {
         timerBar.setMax(millisTotal);
         timerBar.setProgress(millisTotal);
 
-        // Start the countdown timer
-        timer = new GameCountDownTimer(millisTotal, millisInterval);
-        timer.start();
-
         // Initialize the letter grid and initial letter chain
         letterGrid = new LetterGrid(gridRows, gridColumns);
-        LetterChain chain = LetterChain.generateChain(2, 1);
-        letterGrid.addLetterChain(chain);
+        firstLetterChain  = LetterChain.generateChain(2, 1);
+        letterGrid.addLetterChain(firstLetterChain);
         drawLetterButtons();
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        firstLaunch = sharedPrefs.getBoolean(FIRST_LAUNCH, true);
+        if (firstLaunch) {
+            new ShowcaseView.Builder(this, true)
+                    .setContentText(R.string.step_1)
+                    .setStyle(R.style.CustomShowcaseTheme)
+                    .setShowcaseEventListener(this)
+                    .build();
+        } else {
+            timer = new GameCountDownTimer(millisTotal, millisInterval);
+            timer.start();
+        }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+        System.out.println("OnItemClick");
+    }
+
+    @Override
+    public void onShowcaseViewHide(ShowcaseView showcaseView) {
+        System.out.println("OnShowcaseViewHide");
+        System.out.println(showcaseView);
+        showcaseViewCounter++;
+        int row;
+        int column;
+        ViewTarget target;
+        Letter secondLetter = firstLetterChain.get(1);
+        switch (showcaseViewCounter) {
+            case 1:
+                Letter firstLetter = firstLetterChain.get(0);
+                row = firstLetter.getPosition().getRow();
+                column = firstLetter.getPosition().getColumn();
+                target = new ViewTarget(letterButtons[row][column], this);
+                nextShowcaseView = new ShowcaseView.Builder(this, true)
+                        .setContentText(R.string.step_2)
+                        .setStyle(R.style.CustomShowcaseTheme)
+                        .setTarget(target)
+                        .setShowcaseEventListener(this)
+                        .build();
+                nextShowcaseView.hideButton();
+                break;
+            case 2:
+                row = secondLetter.getPosition().getRow();
+                column = secondLetter.getPosition().getColumn();
+                target = new ViewTarget(letterButtons[row][column], this);
+                nextShowcaseView = new ShowcaseView.Builder(this, true)
+                        .setContentText(R.string.step_3)
+                        .setStyle(R.style.CustomShowcaseTheme)
+                        .setTarget(target)
+                        .setShowcaseEventListener(this)
+                        .build();
+                nextShowcaseView.hideButton();
+                break;
+            case 3:
+                nextShowcaseView = new ShowcaseView.Builder(this, true)
+                        .setContentText(R.string.step_4)
+                        .setStyle(R.style.CustomShowcaseTheme)
+                        .setShowcaseEventListener(this)
+                        .build();
+                break;
+            case 4:
+                row = secondLetter.getPosition().getRow();
+                column = secondLetter.getPosition().getColumn();
+                target = new ViewTarget(letterButtons[row][column], this);
+                nextShowcaseView = new ShowcaseView.Builder(this, true)
+                        .setContentText(R.string.step_5)
+                        .setStyle(R.style.CustomShowcaseTheme)
+                        .setTarget(target)
+                        .setShowcaseEventListener(this)
+                        .build();
+                nextShowcaseView.hideButton();
+                break;
+            case 5:
+                target = new ViewTarget(R.id.timerBar, this);
+                nextShowcaseView = new ShowcaseView.Builder(this, true)
+                        .setContentText(R.string.step_6)
+                        .setStyle(R.style.CustomShowcaseTheme)
+                        .setTarget(target)
+                        .setShowcaseEventListener(this)
+                        .build();
+                break;
+            case 6:
+                nextShowcaseView = new ShowcaseView.Builder(this, true)
+                        .setContentText(R.string.step_7)
+                        .setStyle(R.style.CustomShowcaseTheme)
+                        .setShowcaseEventListener(this)
+                        .build();
+                break;
+            case 7:
+                nextShowcaseView = new ShowcaseView.Builder(this, true)
+                        .setContentText(R.string.step_8)
+                        .setStyle(R.style.CustomShowcaseTheme)
+                        .setShowcaseEventListener(this)
+                        .build();
+                break;
+            case 8:
+                nextShowcaseView = new ShowcaseView.Builder(this, true)
+                        .setContentText(R.string.step_9)
+                        .setStyle(R.style.FinalCustomShowcaseTheme)
+                        .setShowcaseEventListener(this)
+                        .build();
+                break;
+            case 9:
+                SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+                SharedPreferences.Editor editor = sharedPrefs.edit();
+                editor.putBoolean(FIRST_LAUNCH, false);
+                editor.apply();
+
+                timer = new GameCountDownTimer(millisTotal, millisInterval);
+                timer.start();
+                break;
+        }
+    }
+
+    @Override
+    public void onShowcaseViewShow(ShowcaseView showcaseView) {
+        // do nothing
+    }
+
+    @Override
+    public void onShowcaseViewDidHide(ShowcaseView showcaseView) {
+        // do nothing
     }
 
     private void resumeGame() {
@@ -190,6 +321,11 @@ public class GameActivity extends Activity {
                 selectedLetterChain.add(letter);
                 selectLetterButton(button);
             }
+        }
+
+        if (showcaseViewCounter == 1 || showcaseViewCounter == 2 || showcaseViewCounter == 4) {
+            nextShowcaseView.hide();
+            return;
         }
 
         // check if valid and if final

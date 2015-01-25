@@ -47,4 +47,17 @@
     <string name="title_activity_game_over">GameOver</string>
     <string name="game_over">Game Over</string>
 
+    <!-- Showcase string resources -->
+    <string name="showcase_button_text">Got it</string>
+    <string name="showcase_button_text_final">Play</string>
+    <string name="step_1">The goal of the game is\nto create chains of letters\nin alphabetical order.</string>
+    <string name="step_2">Tap on letter to select it.</string>
+    <string name="step_3">Tap on the second letter to create a chain.</string>
+    <string name="step_4">The longer the chain\nthe better.</string>
+    <string name="step_5">To deselect a letter tap again.</string>
+    <string name="step_6">This is a timer. Once the timer is out, new letters will appear.</string>
+    <string name="step_7">Keep the board clean\nand advance in level.</string>
+    <string name="step_8">One last thing:\nyou can change the alphabet\nin settings.</string>
+    <string name="step_9">Good luck and have fun :)</string>
+
 </resources>
