@@ -307,7 +307,7 @@ public class LetterChain implements Iterable<Letter> {
      * @return LetterChain object
      */
     public static LetterChain generateChain(int level, LetterGrid letterGrid) {
-        int lettersCount = (level + 1) / 4 + 1;
+        int lettersCount = (level + 1) / 3 + 1;
         int gridLettersCount = letterGrid.lettersCount();
         boolean newValidChain = (Math.random() < 0.5);
 
