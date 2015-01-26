@@ -174,24 +174,25 @@ public class GameActivity extends Activity implements OnShowcaseEventListener, A
                 nextShowcaseView.hideButton();
                 break;
             case 3:
-                nextShowcaseView = new ShowcaseView.Builder(this, true)
-                        .setContentText(R.string.step_4)
-                        .setStyle(R.style.CustomShowcaseTheme)
-                        .setShowcaseEventListener(this)
-                        .build();
-                break;
-            case 4:
                 row = secondLetter.getPosition().getRow();
                 column = secondLetter.getPosition().getColumn();
                 target = new ViewTarget(letterButtons[row][column], this);
                 nextShowcaseView = new ShowcaseView.Builder(this, true)
-                        .setContentText(R.string.step_5)
+                        .setContentText(R.string.step_4)
                         .setStyle(R.style.CustomShowcaseTheme)
                         .setTarget(target)
                         .setShowcaseEventListener(this)
                         .build();
                 nextShowcaseView.hideButton();
                 break;
+            case 4:
+                nextShowcaseView = new ShowcaseView.Builder(this, true)
+                        .setContentText(R.string.step_5)
+                        .setStyle(R.style.CustomShowcaseTheme)
+                        .setShowcaseEventListener(this)
+                        .build();
+                break;
+
             case 5:
                 target = new ViewTarget(R.id.timerBar, this);
                 nextShowcaseView = new ShowcaseView.Builder(this, true)
@@ -323,7 +324,7 @@ public class GameActivity extends Activity implements OnShowcaseEventListener, A
             }
         }
 
-        if (showcaseViewCounter == 1 || showcaseViewCounter == 2 || showcaseViewCounter == 4) {
+        if (showcaseViewCounter == 1 || showcaseViewCounter == 2 || showcaseViewCounter == 3) {
             nextShowcaseView.hide();
             return;
         }
